@@ -1,0 +1,4 @@
+function changeHours(e)
+{
+  e.target.innerHTML = '1';
+}

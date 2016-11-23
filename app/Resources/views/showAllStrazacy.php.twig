@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container" id="zawartosc">
+    {% if strazacy == null %}
+        <div id="danger" class="alert alert-danger"  role="alert">Brak strażaków w bazie!</div>
+        {% else %}
+
+    <h2>Strażacy</h2>
+    <div class="panel panel-default">
+    {% for strazak in strazacy %}
+
+        <div class="panel-body">{{ strazak.Imie}} {{ strazak.Nazwisko }}  <a type="button" class="btn btn-sm btn-danger" href="{{ path('delete', {'idStrazaka': strazak.ID}) }}" >x</a> <a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.Stanowisko }}')" class="btn btn-sm btn-warning">Edytuj</a> </div>
+
+
+
+        {% endfor %}
+    </div>
+
+    {% endif %}
+
+    <h2 id="dodaj">Dodaj Strażaka</h2><div id="przycisk"></div>
+    <form action="{{ path('addStrazak') }}" method="post" name="form" id="form" role="form">
+        <div class="form-group">
+            <label for="imie">Imię:</label>
+            <input type="text" class="form-control" name="imie" id="imie" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" class="form-control" name="nazwisko" id="nazwisko" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="stanowisko">Stanowisko:</label>
+            <input type="number" min="1" max="6"  class="form-control" name="stanowisko" id="stanowisko" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="id" id="id"  autocomplete="off"/>
+        </div>
+        <button id="wstaw_button" type="submit" class="btn btn-default">Wstaw</button>
+    </form>
+    </div>
+    <br>
+    <br>
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {% javascripts '@AppBundle/Resources/public/js/*' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

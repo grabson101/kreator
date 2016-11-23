@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    <div id="informacja"> Tak będzie wyglądać grafik na najbliższy miesiąc</div>
+
+
+    <table id="tabelka" class="table table-striped">
+        <thead>
+     <tr><td> </td>
+
+    {% for i in 0..  (zmienna[0]|length)-1 %}
+        <td >{{ i+1 }}</td>
+    {% endfor %}
+
+     </tr>
+        </thead>
+
+
+    {% for i in 0 .. (zmienna|length)-1 %}
+
+    <tr><td> {{ nazwiska[i] }} </td>
+        {% for j in 0 .. zmienna[0]|length -1 %}
+
+             <td onclick='zmien(this)'> {{ zmienna[i][j]}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+        <tr>
+            <td>Suma</td>
+        </tr>
+
+     </table>
+    <br>
+
+    <a  type="button"   href="{{ path('add') }}" id="button" class="btn btn-lg btn-default">Zapisz</a>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+
+        function zmien(o) {
+
+
+            o.innerHTML='1';
+
+        }
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    {% javascripts '@AppBundle/Resources/public/js/angular/app.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+  {% endblock %}
+{% block body %}
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+  <table class="table table-striped" id="tabelka">
+          <tr ng-repeat="x in hours">
+            <td ng-bind="x.ImieINazwisko"></td>
+            <td ng-repeat="datas in x.tabelka" ng-bind="datas.Ilosc_godzin | number:0" ng-click="datas.Ilosc_godzin= changeRow(datas.Ilosc_godzin);"></td>
+            <td ng-bind="countRow($index)"></td>
+          </tr>
+          <tr>
+            <td>Ilość ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>
+          </tr>
+        </table>
+
+
+        </div>
+            {% endblock %}
