@@ -22,20 +22,20 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e7010bef8a6330832032294f799b50c08f55546639dedd7b2f21147a70df1e5f = $this->env->getExtension("native_profiler");
-        $__internal_e7010bef8a6330832032294f799b50c08f55546639dedd7b2f21147a70df1e5f->enter($__internal_e7010bef8a6330832032294f799b50c08f55546639dedd7b2f21147a70df1e5f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "edycja.html.twig"));
+        $__internal_3a07814072f90bd7f18a32ee3659b7f4cfdda9a4b090586e9f0dbdc2f044d29c = $this->env->getExtension("native_profiler");
+        $__internal_3a07814072f90bd7f18a32ee3659b7f4cfdda9a4b090586e9f0dbdc2f044d29c->enter($__internal_3a07814072f90bd7f18a32ee3659b7f4cfdda9a4b090586e9f0dbdc2f044d29c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "edycja.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_e7010bef8a6330832032294f799b50c08f55546639dedd7b2f21147a70df1e5f->leave($__internal_e7010bef8a6330832032294f799b50c08f55546639dedd7b2f21147a70df1e5f_prof);
+        $__internal_3a07814072f90bd7f18a32ee3659b7f4cfdda9a4b090586e9f0dbdc2f044d29c->leave($__internal_3a07814072f90bd7f18a32ee3659b7f4cfdda9a4b090586e9f0dbdc2f044d29c_prof);
 
     }
 
     // line 2
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_79cf2c414ffc9d1018a73e3f2ffa03143880f52d5248aaa724c138479c90a287 = $this->env->getExtension("native_profiler");
-        $__internal_79cf2c414ffc9d1018a73e3f2ffa03143880f52d5248aaa724c138479c90a287->enter($__internal_79cf2c414ffc9d1018a73e3f2ffa03143880f52d5248aaa724c138479c90a287_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_cf111bb4f31a1eb4e42b2c828af2a3af4f4756c8e3b5287b567923b9a71985b3 = $this->env->getExtension("native_profiler");
+        $__internal_cf111bb4f31a1eb4e42b2c828af2a3af4f4756c8e3b5287b567923b9a71985b3->enter($__internal_cf111bb4f31a1eb4e42b2c828af2a3af4f4756c8e3b5287b567923b9a71985b3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 3
         echo "    <script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js\"></script>
@@ -61,15 +61,15 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
         // line 7
         echo "  ";
         
-        $__internal_79cf2c414ffc9d1018a73e3f2ffa03143880f52d5248aaa724c138479c90a287->leave($__internal_79cf2c414ffc9d1018a73e3f2ffa03143880f52d5248aaa724c138479c90a287_prof);
+        $__internal_cf111bb4f31a1eb4e42b2c828af2a3af4f4756c8e3b5287b567923b9a71985b3->leave($__internal_cf111bb4f31a1eb4e42b2c828af2a3af4f4756c8e3b5287b567923b9a71985b3_prof);
 
     }
 
     // line 8
     public function block_body($context, array $blocks = array())
     {
-        $__internal_ef02c4a522bee2a5713cc81f32f79a5d4fe9847df2ebdfd3107f35f697d34db1 = $this->env->getExtension("native_profiler");
-        $__internal_ef02c4a522bee2a5713cc81f32f79a5d4fe9847df2ebdfd3107f35f697d34db1->enter($__internal_ef02c4a522bee2a5713cc81f32f79a5d4fe9847df2ebdfd3107f35f697d34db1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_60298d794af72623ed36320a2a7d0918c751e7f48bebdb32cb62cbf2231abcd0 = $this->env->getExtension("native_profiler");
+        $__internal_60298d794af72623ed36320a2a7d0918c751e7f48bebdb32cb62cbf2231abcd0->enter($__internal_60298d794af72623ed36320a2a7d0918c751e7f48bebdb32cb62cbf2231abcd0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
         echo "
@@ -83,13 +83,13 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
           <tr>
             <td>Ilość ludzi</td><td ng-repeat=\"a in range() track by \$index\" ng-bind=\"countStrazacy(\$index)\"></td>
           </tr>
-        </table>
+  </table>
+  <div id=\"json\" ng-bind=\"showJson()\"></div>
+</div>
 
-
-        </div>
             ";
         
-        $__internal_ef02c4a522bee2a5713cc81f32f79a5d4fe9847df2ebdfd3107f35f697d34db1->leave($__internal_ef02c4a522bee2a5713cc81f32f79a5d4fe9847df2ebdfd3107f35f697d34db1_prof);
+        $__internal_60298d794af72623ed36320a2a7d0918c751e7f48bebdb32cb62cbf2231abcd0->leave($__internal_60298d794af72623ed36320a2a7d0918c751e7f48bebdb32cb62cbf2231abcd0_prof);
 
     }
 
@@ -127,9 +127,9 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 /*           <tr>*/
 /*             <td>Ilość ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>*/
 /*           </tr>*/
-/*         </table>*/
+/*   </table>*/
+/*   <div id="json" ng-bind="showJson()"></div>*/
+/* </div>*/
 /* */
-/* */
-/*         </div>*/
 /*             {% endblock %}*/
 /* */
