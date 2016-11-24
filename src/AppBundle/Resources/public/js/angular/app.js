@@ -45,6 +45,9 @@ app.controller('customersCtrl', function($scope, $http)
           var number = $scope.hours[0].tabelka.length;
         return new Array(number);
     };
-  
 
+  $scope.showJson = function()
+  {
+    
+  }
 });
