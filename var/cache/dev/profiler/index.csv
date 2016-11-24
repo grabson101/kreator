@@ -1218,3 +1218,8 @@ a78d8e,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/js/routing?callbac
 b84cdd,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/edit,1479916507,,200
 e43580,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/js/routing?callback=fos.Router.setData,1479916508,,200
 0a80be,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/get/Table,1479916512,,200
+267d14,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/allStrazacy,1479942647,,200
+8eed18,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/js/routing?callback=fos.Router.setData,1479942650,,200
+c437b1,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/edit,1479947799,,200
+b102d9,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/js/routing?callback=fos.Router.setData,1479947800,,200
+697c09,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/get/Table,1479947801,,200
