@@ -155,6 +155,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'AppBundle\\Controller\\AjaxController::getTable',  '_route' => 'getTable',);
         }
 
+        // setTable
+        if ($pathinfo === '/set/Table') {
+            return array (  '_controller' => 'AppBundle\\Controller\\AjaxController::setTable',  '_route' => 'setTable',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

@@ -74,4 +74,19 @@ class AjaxController extends Controller
 
 
       }
+
+      /**
+       * @Route("/set/Table", name="setTable")
+       */
+
+       public function setTable()
+       {
+         $postdata = file_get_contents("php://input");
+          $request = json_decode($postdata);
+
+          //$pass = $request->pass;*/
+           return new Response (print_r($request));
+
+       }
+
 }

@@ -18,7 +18,8 @@
             <td>Ilość ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>
           </tr>
   </table>
-  <div id="json" ng-bind="showJson()"></div>
+  <button type="button" class="btn btn-default" ng-click="send()">Dodaj</button>
+  <div id="json" ng-bind="message"></div>
 </div>
 
             {% endblock %}
