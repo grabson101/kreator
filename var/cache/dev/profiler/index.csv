@@ -1223,3 +1223,7 @@ e43580,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/js/routing?callbac
 c437b1,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/edit,1479947799,,200
 b102d9,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/js/routing?callback=fos.Router.setData,1479947800,,200
 697c09,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/get/Table,1479947801,,200
+7ed5cc,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/allStrazacy,1480811878,,200
+40d223,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/js/routing?callback=fos.Router.setData,1480811880,,200
+02cbe1,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/genForm,1480811887,,200
+9676d6,127.0.0.1,GET,http://localhost/kreator/web/app_dev.php/js/routing?callback=fos.Router.setData,1480811888,,200
