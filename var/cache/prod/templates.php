@@ -80,9 +80,11 @@
   'DoctrineBundle:Collector:db.html.twig' => '/opt/lampp/htdocs/kreator/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig',
   'DoctrineBundle:Collector:explain.html.twig' => '/opt/lampp/htdocs/kreator/vendor/doctrine/doctrine-bundle/Resources/views/Collector/explain.html.twig',
   '::base.html.twig' => '/opt/lampp/htdocs/kreator/app/Resources/views/base.html.twig',
+  '::grafik.php.twig' => '/opt/lampp/htdocs/kreator/app/Resources/views/grafik.php.twig',
   ':default:index.html.twig' => '/opt/lampp/htdocs/kreator/app/Resources/views/default/index.html.twig',
   '::akcja.html.twig' => '/opt/lampp/htdocs/kreator/app/Resources/views/akcja.html.twig',
   '::tomasz_terka.php.twig' => '/opt/lampp/htdocs/kreator/app/Resources/views/tomasz_terka.php.twig',
   '::formularzTworzenie.php.twig' => '/opt/lampp/htdocs/kreator/app/Resources/views/formularzTworzenie.php.twig',
+  '::edycja.html.twig' => '/opt/lampp/htdocs/kreator/app/Resources/views/edycja.html.twig',
   '::showAllStrazacy.php.twig' => '/opt/lampp/htdocs/kreator/app/Resources/views/showAllStrazacy.php.twig',
 );

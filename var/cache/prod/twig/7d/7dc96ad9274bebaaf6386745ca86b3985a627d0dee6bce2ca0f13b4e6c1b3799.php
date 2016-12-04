@@ -12,7 +12,6 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
         $this->blocks = array(
             'javascripts' => array($this, 'block_javascripts'),
             'title' => array($this, 'block_title'),
-            'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -35,18 +34,50 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
 
         <!-- Latest compiled JavaScript -->
         <script src=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>
-        <title>";
+        <script src=\"";
         // line 15
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 16
+        echo $this->env->getExtension('routing')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
+        echo "\"></script>
+
+
+        <title>";
+        // line 19
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-<style>
+
         ";
-        // line 17
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 22
-        echo "</style>
+        // line 21
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "2c8c367_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_2c8c367_0") : $this->env->getExtension('asset')->getAssetUrl("css/2c8c367_part_1_theme_1.css");
+            // line 22
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
+            echo "\" />
+
+
+
+        ";
+        } else {
+            // asset "2c8c367"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_2c8c367") : $this->env->getExtension('asset')->getAssetUrl("css/2c8c367.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
+            echo "\" />
+
+
+
+        ";
+        }
+        unset($context["asset_url"]);
+        // line 27
+        echo "
         <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        // line 23
+        // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
     </head>
@@ -67,13 +98,17 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
                 <ul class=\"nav navbar-nav\" id=\"nav\">
                     <li><a href=\"#\">Strona główna</a></li>
                     <li><a href=\"";
-        // line 41
+        // line 46
         echo $this->env->getExtension('routing')->getPath("allStrazacy");
         echo "\"> Przegląd </a></li>
                     <li><a href=\"";
-        // line 42
+        // line 47
         echo $this->env->getExtension('routing')->getPath("genForm");
         echo "\">Twórz</a></li>
+                    <li><a href=\"";
+        // line 48
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("show", array("dni" => 30, "zmiana" => 2, "wymaganaIloscGodzin" => 170)), "html", null, true);
+        echo "\">Test</a></li>
                   <!--  <li class=\"dropdown\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Dropdown <span class=\"caret\"></span></a>
                         <ul class=\"dropdown-menu\">
@@ -91,9 +126,9 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
         </div>
     </nav>
     ";
-        // line 59
+        // line 65
         $this->displayBlock('body', $context, $blocks);
-        // line 60
+        // line 66
         echo "
     </body>
 </html>
@@ -108,23 +143,13 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
         ";
     }
 
-    // line 15
+    // line 19
     public function block_title($context, array $blocks = array())
     {
         echo "Kreator grafiku";
     }
 
-    // line 17
-    public function block_stylesheets($context, array $blocks = array())
-    {
-        // line 18
-        echo "
-
-
-        ";
-    }
-
-    // line 59
+    // line 65
     public function block_body($context, array $blocks = array())
     {
     }
@@ -141,7 +166,7 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
 
     public function getDebugInfo()
     {
-        return array (  128 => 59,  121 => 18,  118 => 17,  112 => 15,  104 => 4,  97 => 60,  95 => 59,  75 => 42,  71 => 41,  50 => 23,  47 => 22,  45 => 17,  40 => 15,  30 => 7,  28 => 4,  23 => 1,);
+        return array (  153 => 65,  147 => 19,  139 => 4,  132 => 66,  130 => 65,  110 => 48,  106 => 47,  102 => 46,  81 => 28,  78 => 27,  58 => 22,  54 => 21,  49 => 19,  43 => 16,  39 => 15,  29 => 7,  27 => 4,  22 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -158,14 +183,19 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
 /* */
 /*         <!-- Latest compiled JavaScript -->*/
 /*         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>*/
+/*         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>*/
+/*         <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>*/
+/* */
+/* */
 /*         <title>{% block title %}Kreator grafiku{% endblock %}</title>*/
-/* <style>*/
-/*         {% block stylesheets %}*/
+/* */
+/*         {%stylesheets 'bundles/app/css/*' filter='cssrewrite'%}*/
+/*             <link rel="stylesheet" href="{{ asset_url }}" />*/
 /* */
 /* */
 /* */
-/*         {% endblock %}*/
-/* </style>*/
+/*         {% endstylesheets %}*/
+/* */
 /*         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />*/
 /*     </head>*/
 /* */
@@ -186,6 +216,7 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
 /*                     <li><a href="#">Strona główna</a></li>*/
 /*                     <li><a href="{{ path('allStrazacy') }}"> Przegląd </a></li>*/
 /*                     <li><a href="{{ path('genForm') }}">Twórz</a></li>*/
+/*                     <li><a href="{{ path('show', {'dni': 30, 'zmiana':2, 'wymaganaIloscGodzin':170}) }}">Test</a></li>*/
 /*                   <!--  <li class="dropdown">*/
 /*                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>*/
 /*                         <ul class="dropdown-menu">*/

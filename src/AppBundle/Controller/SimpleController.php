@@ -258,7 +258,7 @@ class SimpleController extends Controller
       $session->set('licznik',$licznik);
       $_POST['miesiac']=$miesiac+1;
       //$zmienna = json_encode($zmienna);
-      return $this->redirectToRoute('edit');
+      return $this->redirectToRoute('editTable');
 
     }
 
@@ -269,5 +269,9 @@ class SimpleController extends Controller
      {
        return $this->render('edycja.html.twig');
      }
+
+
+
+     
 
 }

@@ -28,37 +28,37 @@ class __TwigTemplate_15acec21fef8d6c0dce10b3e2b703c85abf40f95969563dabfdefc60d2e
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "<div id=\"formularz\">
-    <form class=\"form\" action=\"";
-        // line 5
-        echo $this->env->getExtension('routing')->getPath("showHalfYear");
-        echo "\" method=\"post\" name=\"form\" id=\"form\" role=\"form\">>
-        <div class=\"radio\">
-            <label><input type=\"radio\" name=\"optradio\" id=\"optradio\" value=\"1\" >Pierwsza połowa roku</label>
-        </div>
-        <div class=\"radio\">
-            <label><input type=\"radio\" name=\"optradio\" id=\"optradio\" value=\"2\" >Druga połowa roku</label>
-        </div>
-        <div class=\"form-group\">
-            <label for=\"rok\">Rok:</label>
-            <input type=\"number\" min=\"2015\" class=\"form-control\" id=\"rok\" placeholder=\"Wpisz rok\">
-        </div>
+        echo " <div class=\"container\">
 
-        <div class=\"form-group\">
-            <label for=\"zmiana\">Zmiana:</label>
-            <input type=\"number\" min=\"1\" max=\"3\" class=\"form-control\" id=\"zmiana\" placeholder=\"Zmiana\">
-        </div>
-        <div class=\"form-group\">
-            <label for=\"iloscGodzin\">Ilość godzin w miesiącu:</label>
-            <input type=\"number\" min=\"1\" class=\"form-control\" id=\"iloscGodzin\" placeholder=\"Ilość godzin\">
-        </div>
+        <form class=\"form\" action=\"";
+        // line 6
+        echo $this->env->getExtension('routing')->getPath("generateOneAfterOne");
+        echo "\" method=\"post\" name=\"form\" id=\"form\" role=\"form\">
+            <div class=\"radio\">
+                <label><input type=\"radio\" name=\"miesiac\" id=\"miesiac\" value=\"1\" checked>Pierwsza połowa roku</label>
+            </div>
+            <div class=\"radio\">
+            <label><input type=\"radio\" name=\"miesiac\" id=\"miesiac\" value=\"7\" >Druga połowa roku</label>
+            </div>
+            <div class=\"form-group\">
+                <label for=\"rok\">Rok:</label>
+                <input type=\"number\" value=\"2016\" min=\"2015\" class=\"form-control\" name=\"rok\" id=\"rok\" >
+            </div>
+
+            <div class=\"form-group\">
+                <label for=\"zmiana\">Zmiana:</label>
+                <input type=\"number\" value=\"2\" min=\"1\" max=\"3\" class=\"form-control\" name=\"zmiana\" id=\"zmiana\" placeholder=\"Zmiana\">
+            </div>
+            <div class=\"form-group\">
+                <label for=\"iloscGodzin\">Ilość godzin w miesiącu:</label>
+                <input type=\"number\" value=\"170\" min=\"1\" class=\"form-control\" id=\"iloscGodzin\" name=\"iloscGodzin\" placeholder=\"Ilość godzin\">
+            </div>
 
 
-        <button id=\"stworz\" type=\"submit\" class=\"btn btn-default\">Submit</button>
+            <button id=\"stworz\" type=\"submit\" class=\"btn btn-default\">Submit</button>
     </form>
-</div>
 
-    <div id=\"test\"> kurdebalans</div>
+ </div>
 
 ";
     }
@@ -75,41 +75,40 @@ class __TwigTemplate_15acec21fef8d6c0dce10b3e2b703c85abf40f95969563dabfdefc60d2e
 
     public function getDebugInfo()
     {
-        return array (  34 => 5,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  35 => 6,  31 => 4,  28 => 3,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
 /* */
 /* {% block body %}*/
-/* <div id="formularz">*/
-/*     <form class="form" action="{{ path('showHalfYear') }}" method="post" name="form" id="form" role="form">>*/
-/*         <div class="radio">*/
-/*             <label><input type="radio" name="optradio" id="optradio" value="1" >Pierwsza połowa roku</label>*/
-/*         </div>*/
-/*         <div class="radio">*/
-/*             <label><input type="radio" name="optradio" id="optradio" value="2" >Druga połowa roku</label>*/
-/*         </div>*/
-/*         <div class="form-group">*/
-/*             <label for="rok">Rok:</label>*/
-/*             <input type="number" min="2015" class="form-control" id="rok" placeholder="Wpisz rok">*/
-/*         </div>*/
+/*  <div class="container">*/
 /* */
-/*         <div class="form-group">*/
-/*             <label for="zmiana">Zmiana:</label>*/
-/*             <input type="number" min="1" max="3" class="form-control" id="zmiana" placeholder="Zmiana">*/
-/*         </div>*/
-/*         <div class="form-group">*/
-/*             <label for="iloscGodzin">Ilość godzin w miesiącu:</label>*/
-/*             <input type="number" min="1" class="form-control" id="iloscGodzin" placeholder="Ilość godzin">*/
-/*         </div>*/
+/*         <form class="form" action="{{ path('generateOneAfterOne') }}" method="post" name="form" id="form" role="form">*/
+/*             <div class="radio">*/
+/*                 <label><input type="radio" name="miesiac" id="miesiac" value="1" checked>Pierwsza połowa roku</label>*/
+/*             </div>*/
+/*             <div class="radio">*/
+/*             <label><input type="radio" name="miesiac" id="miesiac" value="7" >Druga połowa roku</label>*/
+/*             </div>*/
+/*             <div class="form-group">*/
+/*                 <label for="rok">Rok:</label>*/
+/*                 <input type="number" value="2016" min="2015" class="form-control" name="rok" id="rok" >*/
+/*             </div>*/
+/* */
+/*             <div class="form-group">*/
+/*                 <label for="zmiana">Zmiana:</label>*/
+/*                 <input type="number" value="2" min="1" max="3" class="form-control" name="zmiana" id="zmiana" placeholder="Zmiana">*/
+/*             </div>*/
+/*             <div class="form-group">*/
+/*                 <label for="iloscGodzin">Ilość godzin w miesiącu:</label>*/
+/*                 <input type="number" value="170" min="1" class="form-control" id="iloscGodzin" name="iloscGodzin" placeholder="Ilość godzin">*/
+/*             </div>*/
 /* */
 /* */
-/*         <button id="stworz" type="submit" class="btn btn-default">Submit</button>*/
+/*             <button id="stworz" type="submit" class="btn btn-default">Submit</button>*/
 /*     </form>*/
-/* </div>*/
 /* */
-/*     <div id="test"> kurdebalans</div>*/
+/*  </div>*/
 /* */
 /* {% endblock %}*/
-/* */
 /* */

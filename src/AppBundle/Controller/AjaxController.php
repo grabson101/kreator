@@ -82,10 +82,25 @@ class AjaxController extends Controller
        public function setTable()
        {
          $postdata = file_get_contents("php://input");
-          $request = json_decode($postdata);
+          $request = json_decode($postdata, true);
 
-          //ayy karramba
-           return new Response (print_r($request));
+
+          $conn = $this->get('database_connection');
+
+          for($i=0; $i<count($request);$i++)
+          {
+            for($j=0;$j<count($request[$i]["tabelka"]);$j++)
+            {
+              $ID_Strazaka = $request[$i]["tabelka"][$j]["ID_Strazaka"];
+              $Data = $request[$i]["tabelka"][$j]["Data"];
+              $Ilosc_godzin = $request[$i]["tabelka"][$j]["Ilosc_godzin"];
+
+              $conn->exec("INSERT INTO grafik (ID_Strazaka,Data,Ilosc_godzin)
+              VALUES ('$ID_Strazaka','$Data','$Ilosc_godzin');");
+              $conn->exec("TRUNCATE TABLE kopia");}
+          }
+          echo "<br>";
+           return new Response ( "Done");
 
        }
 

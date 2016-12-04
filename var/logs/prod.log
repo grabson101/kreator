@@ -9,3 +9,5 @@
 [2016-08-30 17:13:35] assetic.ERROR: The template "SecurityBundle:Collector:security.html.twig" contains an error: Unknown "profiler_dump" function in "SecurityBundle:Collector:security.html.twig" at line 180. [] []
 [2016-08-30 17:13:35] assetic.ERROR: The template ":default:index.html.twig" contains an error: A template that extends another one cannot have a body in ":default:index.html.twig" at line 48. [] []
 [2016-08-30 17:13:35] assetic.ERROR: The template "::showAllStrazacy.php.twig" contains an error: A template that extends another one cannot have a body in "::showAllStrazacy.php.twig" at line 45. [] []
+[2016-12-03 03:21:02] assetic.ERROR: The template "SecurityBundle:Collector:security.html.twig" contains an error: Unknown "profiler_dump" function in "SecurityBundle:Collector:security.html.twig" at line 180. [] []
+[2016-12-03 03:21:02] assetic.ERROR: The template ":default:index.html.twig" contains an error: A template that extends another one cannot have a body in ":default:index.html.twig" at line 48. [] []

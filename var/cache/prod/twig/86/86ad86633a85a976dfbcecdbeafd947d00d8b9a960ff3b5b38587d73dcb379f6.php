@@ -32,17 +32,18 @@ class __TwigTemplate_8187af7e0262267e64851fa3112fd56db27348413dfafb1a0dff899c12b
         echo "
 
     <div id=\"informacja\"> Tak będzie wyglądać grafik na najbliższy miesiąc</div>
-<p id=\"demo\" onclick=\"zmien(this)\">Info</p>
+
+
     <table id=\"tabelka\" class=\"table table-striped\">
         <thead>
-     <tr><td>Imię i nazwisko</td>
+     <tr><td> </td>
 
     ";
-        // line 13
+        // line 14
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(range(0, (twig_length_filter($this->env, $this->getAttribute((isset($context["zmienna"]) ? $context["zmienna"] : null), 0, array(), "array")) - 1)));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-            // line 14
+            // line 15
             echo "        <td >";
             echo twig_escape_filter($this->env, ($context["i"] + 1), "html", null, true);
             echo "</td>
@@ -51,32 +52,32 @@ class __TwigTemplate_8187af7e0262267e64851fa3112fd56db27348413dfafb1a0dff899c12b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 16
-        echo "         <td> Suma </td>
+        // line 17
+        echo "
      </tr>
         </thead>
 
 
     ";
-        // line 21
+        // line 22
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(range(0, (twig_length_filter($this->env, (isset($context["zmienna"]) ? $context["zmienna"] : null)) - 1)));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-            // line 22
+            // line 23
             echo "
     <tr><td> ";
-            // line 23
+            // line 24
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["nazwiska"]) ? $context["nazwiska"] : null), $context["i"], array(), "array"), "html", null, true);
             echo " </td>
         ";
-            // line 24
+            // line 25
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(range(0, (twig_length_filter($this->env, $this->getAttribute((isset($context["zmienna"]) ? $context["zmienna"] : null), 0, array(), "array")) - 1)));
             foreach ($context['_seq'] as $context["_key"] => $context["j"]) {
-                // line 25
+                // line 26
                 echo "
              <td onclick='zmien(this)'> ";
-                // line 26
+                // line 27
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["zmienna"]) ? $context["zmienna"] : null), $context["i"], array(), "array"), $context["j"], array(), "array"), "html", null, true);
                 echo "</td>
         ";
@@ -84,14 +85,14 @@ class __TwigTemplate_8187af7e0262267e64851fa3112fd56db27348413dfafb1a0dff899c12b
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['j'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 28
+            // line 29
             echo "    </tr>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 30
+        // line 31
         echo "        <tr>
             <td>Suma</td>
         </tr>
@@ -100,7 +101,7 @@ class __TwigTemplate_8187af7e0262267e64851fa3112fd56db27348413dfafb1a0dff899c12b
     <br>
 
     <a  type=\"button\"   href=\"";
-        // line 37
+        // line 38
         echo $this->env->getExtension('routing')->getPath("add");
         echo "\" id=\"button\" class=\"btn btn-lg btn-default\">Zapisz</a>
 
@@ -108,10 +109,10 @@ class __TwigTemplate_8187af7e0262267e64851fa3112fd56db27348413dfafb1a0dff899c12b
 ";
     }
 
-    // line 42
+    // line 43
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 43
+        // line 44
         echo "    <script>
 
         function zmien(o) {
@@ -138,7 +139,7 @@ class __TwigTemplate_8187af7e0262267e64851fa3112fd56db27348413dfafb1a0dff899c12b
 
     public function getDebugInfo()
     {
-        return array (  115 => 43,  112 => 42,  104 => 37,  95 => 30,  88 => 28,  80 => 26,  77 => 25,  73 => 24,  69 => 23,  66 => 22,  62 => 21,  55 => 16,  46 => 14,  42 => 13,  32 => 5,  29 => 4,  11 => 1,);
+        return array (  116 => 44,  113 => 43,  105 => 38,  96 => 31,  89 => 29,  81 => 27,  78 => 26,  74 => 25,  70 => 24,  67 => 23,  63 => 22,  56 => 17,  47 => 15,  43 => 14,  32 => 5,  29 => 4,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
@@ -148,15 +149,16 @@ class __TwigTemplate_8187af7e0262267e64851fa3112fd56db27348413dfafb1a0dff899c12b
 /* */
 /* */
 /*     <div id="informacja"> Tak będzie wyglądać grafik na najbliższy miesiąc</div>*/
-/* <p id="demo" onclick="zmien(this)">Info</p>*/
+/* */
+/* */
 /*     <table id="tabelka" class="table table-striped">*/
 /*         <thead>*/
-/*      <tr><td>Imię i nazwisko</td>*/
+/*      <tr><td> </td>*/
 /* */
 /*     {% for i in 0..  (zmienna[0]|length)-1 %}*/
 /*         <td >{{ i+1 }}</td>*/
 /*     {% endfor %}*/
-/*          <td> Suma </td>*/
+/* */
 /*      </tr>*/
 /*         </thead>*/
 /* */
@@ -195,3 +197,4 @@ class __TwigTemplate_8187af7e0262267e64851fa3112fd56db27348413dfafb1a0dff899c12b
 /* */
 /*     </script>*/
 /* {% endblock %}*/
+/* */
