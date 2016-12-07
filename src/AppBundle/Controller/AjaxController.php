@@ -99,7 +99,6 @@ class AjaxController extends Controller
               VALUES ('$ID_Strazaka','$Data','$Ilosc_godzin');");
               $conn->exec("TRUNCATE TABLE kopia");}
           }
-          echo "<br>";
            return new Response ( "Done");
 
        }

@@ -76,4 +76,4 @@ assetic:
         cssrewrite: ~
 
 fos_js_routing:
-    routes_to_expose: [ editStrazak, editTable, getTable, setTable ]
+    routes_to_expose: [ editStrazak, editTable, getTable, setTable, generateOneAfterOne ]

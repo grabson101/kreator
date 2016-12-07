@@ -256,7 +256,7 @@ class SimpleController extends Controller
           }
       $licznik+=1;
       $session->set('licznik',$licznik);
-      $_POST['miesiac']=$miesiac+1;
+      $_POST["miesiac"]=$miesiac+1;
       //$zmienna = json_encode($zmienna);
       return $this->redirectToRoute('editTable');
 
@@ -272,6 +272,6 @@ class SimpleController extends Controller
 
 
 
-     
+
 
 }
