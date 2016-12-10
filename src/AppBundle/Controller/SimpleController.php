@@ -109,10 +109,7 @@ class SimpleController extends Controller
      */
     public function generujFormularz(Request $request)
     {
-        $session= $request->getSession();
-        $session->set('licznik','0');
         return $this->render('formularzTworzenie.php.twig');
-
     }
 
 
@@ -184,29 +181,42 @@ class SimpleController extends Controller
     }
 
     /**
-     * @Route("/przydzielaniePoKolei", name="generateOneAfterOne")
+     * @Route("/przydzielaniePoKolei/{redirected}", name="generateOneAfterOne")
      */
 
-    public function przydzielaniePoKolei(Request $request)
+    public function przydzielaniePoKolei(Request $request, $redirected = 0)
     {
       $session= $request->getSession();
-      $licznik= $session->get('licznik');
 
-      /*
-      if($licznik==5)
-      {
-        redirectToRoute();
-      }
-      */
       $conn = $this->get('database_connection');
 
+      $lastDate = $conn->fetchColumn("SELECT Data FROM grafik ORDER BY Data DESC LIMIT 1");
+      d($lastDate);
+
+      if($lastDate == FALSE && $redirected==0)
+      {
+        return $this->redirectToRoute('genForm');
+      }
+      else if($lastDate== FALSE && $redirected == 1)
+      {
+        $miesiac = $_POST["miesiac"];
+        $rok = $_POST["rok"];
+        $iloscGodzin = $_POST["iloscGodzin"];
+        $ostatniDzien = 0;
+      }
+      else {
+        $lastDate= new DateTime($lastDate);
+        $lastDate= new DateTime($lastDate->format('Y-m'));
+        $lastDate->add(new \DateInterval('P1M'));
+        $rok = intval($lastDate->format('Y'));
+        $miesiac = intval($lastDate->format('m'));
+        $ostatniDzien = 0;//połączyć z bazą i sprawdzić
+      }
 
 
-      $miesiac = $_POST["miesiac"];
-      $rok = $_POST["rok"];
-      $iloscGodzin = $_POST["iloscGodzin"];
-      $zmiana = $_POST["zmiana"];
-      $ostatniDzien = 0;//połączyć z bazą i sprawdzić
+      $iloscGodzin = $session->get('Ilosc_godzin');
+
+
 
       $bilans = array();
       $nazwiska = array();
@@ -254,12 +264,10 @@ class SimpleController extends Controller
             $conn->exec("INSERT INTO kopia (ID_Strazaka,Data,Ilosc_godzin)
             VALUES ('$ID','$data','$godziny');");
           }
-      $licznik+=1;
-      $session->set('licznik',$licznik);
-      $_POST["miesiac"]=$miesiac+1;
-      //$zmienna = json_encode($zmienna);
-      return $this->redirectToRoute('editTable');
 
+
+      //return $this->redirectToRoute('editTable');
+      return $this->render('edycja.html.twig');
     }
 
     /**

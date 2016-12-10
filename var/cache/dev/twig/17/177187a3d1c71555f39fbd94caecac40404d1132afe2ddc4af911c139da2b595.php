@@ -18,8 +18,8 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_77275ad5c1a8ea609b5df2f2ea8b26c6c60053dee21e27c06f14cb3e48aa92a5 = $this->env->getExtension("native_profiler");
-        $__internal_77275ad5c1a8ea609b5df2f2ea8b26c6c60053dee21e27c06f14cb3e48aa92a5->enter($__internal_77275ad5c1a8ea609b5df2f2ea8b26c6c60053dee21e27c06f14cb3e48aa92a5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
+        $__internal_b01763d5be9f2a4a7fea2681e7aa463747935121d1da5c76c8ac29053a818f07 = $this->env->getExtension("native_profiler");
+        $__internal_b01763d5be9f2a4a7fea2681e7aa463747935121d1da5c76c8ac29053a818f07->enter($__internal_b01763d5be9f2a4a7fea2681e7aa463747935121d1da5c76c8ac29053a818f07_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -106,7 +106,7 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
         echo "\"> Przegląd </a></li>
                     <li><a href=\"";
         // line 47
-        echo $this->env->getExtension('routing')->getPath("genForm");
+        echo $this->env->getExtension('routing')->getPath("generateOneAfterOne");
         echo "\">Twórz</a></li>
                     <li><a href=\"";
         // line 48
@@ -137,44 +137,44 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
 </html>
 ";
         
-        $__internal_77275ad5c1a8ea609b5df2f2ea8b26c6c60053dee21e27c06f14cb3e48aa92a5->leave($__internal_77275ad5c1a8ea609b5df2f2ea8b26c6c60053dee21e27c06f14cb3e48aa92a5_prof);
+        $__internal_b01763d5be9f2a4a7fea2681e7aa463747935121d1da5c76c8ac29053a818f07->leave($__internal_b01763d5be9f2a4a7fea2681e7aa463747935121d1da5c76c8ac29053a818f07_prof);
 
     }
 
     // line 4
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_5f74f2db95439a301cc6d5b1f2b9371d7cfa58dcfad1ae33ee4ca3853575ec1c = $this->env->getExtension("native_profiler");
-        $__internal_5f74f2db95439a301cc6d5b1f2b9371d7cfa58dcfad1ae33ee4ca3853575ec1c->enter($__internal_5f74f2db95439a301cc6d5b1f2b9371d7cfa58dcfad1ae33ee4ca3853575ec1c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_59145fed6602fa9ea74d7c7009627b5eb66178afe00216de7e4e0f0e2a548e10 = $this->env->getExtension("native_profiler");
+        $__internal_59145fed6602fa9ea74d7c7009627b5eb66178afe00216de7e4e0f0e2a548e10->enter($__internal_59145fed6602fa9ea74d7c7009627b5eb66178afe00216de7e4e0f0e2a548e10_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         echo " <!-- Latest compiled and minified CSS -->
 
         ";
         
-        $__internal_5f74f2db95439a301cc6d5b1f2b9371d7cfa58dcfad1ae33ee4ca3853575ec1c->leave($__internal_5f74f2db95439a301cc6d5b1f2b9371d7cfa58dcfad1ae33ee4ca3853575ec1c_prof);
+        $__internal_59145fed6602fa9ea74d7c7009627b5eb66178afe00216de7e4e0f0e2a548e10->leave($__internal_59145fed6602fa9ea74d7c7009627b5eb66178afe00216de7e4e0f0e2a548e10_prof);
 
     }
 
     // line 19
     public function block_title($context, array $blocks = array())
     {
-        $__internal_99b7a95d57dffcefdf6e868877f1c90d2373ea1c8d61e83223792feb40fa51c6 = $this->env->getExtension("native_profiler");
-        $__internal_99b7a95d57dffcefdf6e868877f1c90d2373ea1c8d61e83223792feb40fa51c6->enter($__internal_99b7a95d57dffcefdf6e868877f1c90d2373ea1c8d61e83223792feb40fa51c6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_0b1f2eeae153caa6c4d83af54f1a4da39ec1109070a16baad1e3ad835239386b = $this->env->getExtension("native_profiler");
+        $__internal_0b1f2eeae153caa6c4d83af54f1a4da39ec1109070a16baad1e3ad835239386b->enter($__internal_0b1f2eeae153caa6c4d83af54f1a4da39ec1109070a16baad1e3ad835239386b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Kreator grafiku";
         
-        $__internal_99b7a95d57dffcefdf6e868877f1c90d2373ea1c8d61e83223792feb40fa51c6->leave($__internal_99b7a95d57dffcefdf6e868877f1c90d2373ea1c8d61e83223792feb40fa51c6_prof);
+        $__internal_0b1f2eeae153caa6c4d83af54f1a4da39ec1109070a16baad1e3ad835239386b->leave($__internal_0b1f2eeae153caa6c4d83af54f1a4da39ec1109070a16baad1e3ad835239386b_prof);
 
     }
 
     // line 65
     public function block_body($context, array $blocks = array())
     {
-        $__internal_118dda373d221705d3d881fc3ca149b2af678bb236812d44db146f033b2cad73 = $this->env->getExtension("native_profiler");
-        $__internal_118dda373d221705d3d881fc3ca149b2af678bb236812d44db146f033b2cad73->enter($__internal_118dda373d221705d3d881fc3ca149b2af678bb236812d44db146f033b2cad73_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_1d5ad06473a0af6190b5de012ee535dfebef2cb8c99df0866c29bde0775dca38 = $this->env->getExtension("native_profiler");
+        $__internal_1d5ad06473a0af6190b5de012ee535dfebef2cb8c99df0866c29bde0775dca38->enter($__internal_1d5ad06473a0af6190b5de012ee535dfebef2cb8c99df0866c29bde0775dca38_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_118dda373d221705d3d881fc3ca149b2af678bb236812d44db146f033b2cad73->leave($__internal_118dda373d221705d3d881fc3ca149b2af678bb236812d44db146f033b2cad73_prof);
+        $__internal_1d5ad06473a0af6190b5de012ee535dfebef2cb8c99df0866c29bde0775dca38->leave($__internal_1d5ad06473a0af6190b5de012ee535dfebef2cb8c99df0866c29bde0775dca38_prof);
 
     }
 
@@ -239,7 +239,7 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
 /*                 <ul class="nav navbar-nav" id="nav">*/
 /*                     <li><a href="#">Strona główna</a></li>*/
 /*                     <li><a href="{{ path('allStrazacy') }}"> Przegląd </a></li>*/
-/*                     <li><a href="{{ path('genForm') }}">Twórz</a></li>*/
+/*                     <li><a href="{{ path('generateOneAfterOne') }}">Twórz</a></li>*/
 /*                     <li><a href="{{ path('show', {'dni': 30, 'zmiana':2, 'wymaganaIloscGodzin':170}) }}">Test</a></li>*/
 /*                   <!--  <li class="dropdown">*/
 /*                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>*/

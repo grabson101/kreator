@@ -195,8 +195,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // generateOneAfterOne
-        if ($pathinfo === '/przydzielaniePoKolei') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::przydzielaniePoKolei',  '_route' => 'generateOneAfterOne',);
+        if (0 === strpos($pathinfo, '/przydzielaniePoKolei') && preg_match('#^/przydzielaniePoKolei(?:/(?P<redirected>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'generateOneAfterOne')), array (  'redirected' => 0,  '_controller' => 'AppBundle\\Controller\\SimpleController::przydzielaniePoKolei',));
         }
 
         // editTable

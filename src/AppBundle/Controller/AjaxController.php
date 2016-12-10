@@ -8,6 +8,8 @@
 
 namespace AppBundle\Controller;
 use \DateTime;
+use AppBundle\Controller\PDO;
+
 
 //include 'StrazakController.php';
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -69,7 +71,6 @@ class AjaxController extends Controller
           $i++;
         }
         mysqli_close($conn);
-
         return new Response (json_encode($przydzialy));
 
 
@@ -81,26 +82,32 @@ class AjaxController extends Controller
 
        public function setTable()
        {
-         $postdata = file_get_contents("php://input");
+          $postdata = file_get_contents("php://input");
           $request = json_decode($postdata, true);
 
 
           $conn = $this->get('database_connection');
 
+          $stmt = $conn->prepare("INSERT INTO `grafik` (`ID_Strazaka`,`Data`,`Ilosc_godzin`)
+          VALUES (:ID_Strazaka,:Data,:Ilosc_godzin)");
+
+
           for($i=0; $i<count($request);$i++)
           {
             for($j=0;$j<count($request[$i]["tabelka"]);$j++)
             {
-              $ID_Strazaka = $request[$i]["tabelka"][$j]["ID_Strazaka"];
-              $Data = $request[$i]["tabelka"][$j]["Data"];
-              $Ilosc_godzin = $request[$i]["tabelka"][$j]["Ilosc_godzin"];
 
-              $conn->exec("INSERT INTO grafik (ID_Strazaka,Data,Ilosc_godzin)
-              VALUES ('$ID_Strazaka','$Data','$Ilosc_godzin');");
-              $conn->exec("TRUNCATE TABLE kopia");}
+              $stmt -> bindValue(':ID_Strazaka', $request[$i]["tabelka"][$j]["ID_Strazaka"], \PDO::PARAM_INT);
+              $stmt -> bindValue(':Data', $request[$i]["tabelka"][$j]["Data"], \PDO::PARAM_STR);
+              $stmt -> bindValue(':Ilosc_godzin', $request[$i]["tabelka"][$j]["Ilosc_godzin"], \PDO::PARAM_INT);
+
+              $stmt->execute();
+
           }
-           return new Response ( "Done");
+
 
        }
-
+       $conn->exec("TRUNCATE TABLE kopia");
+       return new Response ( "Done");
+      }
 }

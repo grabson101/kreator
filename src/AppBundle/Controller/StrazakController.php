@@ -58,8 +58,14 @@ class StrazakController extends Controller
 
         $conn = $this->get('database_connection');
 
-        $conn->exec("INSERT INTO strazak (Imie ,Nazwisko ,Stanowisko)
-                VALUES ('$imie','$nazwisko', $stanowisko );" );
+        $stmt = $conn->prepare("INSERT INTO `strazak` (`Imie` ,`Nazwisko` ,`Stanowisko`)
+                VALUES (:Imie,:Nazwisko, :Stanowisko )");
+
+        $stmt -> bindValue(':Imie', $imie, \PDO::PARAM_STR);
+        $stmt -> bindValue(':Nazwisko', $nazwisko, \PDO::PARAM_STR);
+        $stmt -> bindValue(':Stanowisko', $stanowisko, \PDO::PARAM_INT);
+
+        $stmt -> execute();
 
         return $this->redirectToRoute('allStrazacy');
     }
