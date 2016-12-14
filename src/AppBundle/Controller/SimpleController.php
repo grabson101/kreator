@@ -191,7 +191,7 @@ class SimpleController extends Controller
       $conn = $this->get('database_connection');
 
       $lastDate = $conn->fetchColumn("SELECT Data FROM grafik ORDER BY Data DESC LIMIT 1");
-      d($lastDate);
+
 
       if($lastDate == FALSE && $redirected==0)
       {
@@ -204,7 +204,8 @@ class SimpleController extends Controller
         $iloscGodzin = $_POST["iloscGodzin"];
         $ostatniDzien = 0;
       }
-      else {
+      else
+      {
         $lastDate= new DateTime($lastDate);
         $lastDate= new DateTime($lastDate->format('Y-m'));
         $lastDate->add(new \DateInterval('P1M'));
@@ -266,16 +267,17 @@ class SimpleController extends Controller
           }
 
 
-      //return $this->redirectToRoute('editTable');
-      return $this->render('edycja.html.twig');
+      return $this->redirectToRoute('editTable', array('miesiac' =>$miesiac ,'rok'=>$rok ));
     }
 
     /**
-     * @Route ("/edit", name="editTable")
+     * @Route ("/edit/{miesiac}/{rok}", name="editTable")
      */
-     public function edit()
+     public function edit($miesiac,$rok)
      {
-       return $this->render('edycja.html.twig');
+       $dni = cal_days_in_month(CAL_GREGORIAN,$miesiac,$rok);
+       $miesiace= array("Styczeń","Luty",'Marzec',"Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień");
+       return $this->render('edycja.html.twig', array('miesiac' => $miesiac,'rok'=> $rok,'dni'=>$dni,'nazwaMiesiaca'=>$miesiace[$miesiac-1] ));
      }
 
 

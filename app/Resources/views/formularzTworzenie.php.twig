@@ -3,7 +3,7 @@
 {% block body %}
  <div class="container">
 
-        <form class="form" action="{{ path('generateOneAfterOne') }}" method="post" name="form" id="form" role="form">
+        <form class="form" action="{{ path('generateOneAfterOne',{'redirected':1} ) }}" method="post" name="form" id="form" role="form">
             <div class="radio">
                 <label><input type="radio" name="miesiac" id="miesiac" value="1" checked>Pierwsza połowa roku</label>
             </div>

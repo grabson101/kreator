@@ -6,20 +6,30 @@
     {% endjavascripts %}
   {% endblock %}
 {% block body %}
-
+{{ nazwaMiesiaca }}
 <div ng-app="myApp" ng-controller="customersCtrl">
-  <table class="table table-striped" id="tabelka">
+  <table class="table table-bordered" id="tabelka">
+          <tr><td> </td>
+
+         {% for i in 1..  dni %}
+             <td >{{ i }}</td>
+         {% endfor %}
+
+          </tr>
           <tr ng-repeat="x in hours">
             <td ng-bind="x.ImieINazwisko"></td>
             <td ng-repeat="datas in x.tabelka" ng-bind="datas.Ilosc_godzin | number:0" ng-click="datas.Ilosc_godzin= changeRow(datas.Ilosc_godzin);"></td>
-            <td ng-bind="countRow($index)"></td>
+            <td ng-bind="countHours($index)"></td>
+            <td ng-bind="lasts($index)"></td>
           </tr>
           <tr>
             <td>Ilość ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>
           </tr>
   </table>
   <button type="button" class="btn btn-default" ng-click="send()">Dodaj</button>
-  <div id="json" ng-bind="message"></div>
+  
+  <p id="miesiac">{{ miesiac }}</p> <p id="rok">{{ rok }}</p>
 </div>
+
 
             {% endblock %}

@@ -151,13 +151,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // getTable
-        if ($pathinfo === '/get/Table') {
-            return array (  '_controller' => 'AppBundle\\Controller\\AjaxController::getTable',  '_route' => 'getTable',);
+        if (0 === strpos($pathinfo, '/get/Table') && preg_match('#^/get/Table/(?P<miesiac>[^/]++)/(?P<rok>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'getTable')), array (  '_controller' => 'AppBundle\\Controller\\AjaxController::getTable',));
         }
 
         // setTable
-        if ($pathinfo === '/set/Table') {
-            return array (  '_controller' => 'AppBundle\\Controller\\AjaxController::setTable',  '_route' => 'setTable',);
+        if (0 === strpos($pathinfo, '/set/Table') && preg_match('#^/set/Table/(?P<miesiac>[^/]++)/(?P<rok>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'setTable')), array (  '_controller' => 'AppBundle\\Controller\\AjaxController::setTable',));
         }
 
         // homepage
@@ -200,8 +200,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // editTable
-        if ($pathinfo === '/edit') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::edit',  '_route' => 'editTable',);
+        if (0 === strpos($pathinfo, '/edit') && preg_match('#^/edit/(?P<miesiac>[^/]++)/(?P<rok>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'editTable')), array (  '_controller' => 'AppBundle\\Controller\\SimpleController::edit',));
         }
 
         // allStrazacy
