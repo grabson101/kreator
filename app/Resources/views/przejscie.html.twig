@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div>
+Czy chcesz kontynuować przydzielanie harmonogramu?
+<a type="button" class="btn btn-sm btn-default" href="{{ path('generateOneAfterOne') }}" >Tak</a>
+<a type="button" class="btn btn-sm btn-default" href="{{ path('homepage') }}" >Nie</a>
+</div>
+
+
+{% endblock %}

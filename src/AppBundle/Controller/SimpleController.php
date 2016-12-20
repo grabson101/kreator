@@ -180,6 +180,9 @@ class SimpleController extends Controller
         return $this->render('grafik.php.twig', array('nazwiska' => $nazwiska, 'zmienna'=>$tablicaCala, 'IDs'=>$IDs));
     }
 
+
+
+
     /**
      * @Route("/przydzielaniePoKolei/{redirected}", name="generateOneAfterOne")
      */
@@ -206,12 +209,29 @@ class SimpleController extends Controller
       }
       else
       {
+        $ostatniDzienSzablon= $conn->fetchAll("SELECT * FROM grafik WHERE Data = '$lastDate'");
+
         $lastDate= new DateTime($lastDate);
         $lastDate= new DateTime($lastDate->format('Y-m'));
         $lastDate->add(new \DateInterval('P1M'));
         $rok = intval($lastDate->format('Y'));
         $miesiac = intval($lastDate->format('m'));
-        $ostatniDzien = 0;//połączyć z bazą i sprawdzić
+
+
+
+        foreach ($ostatniDzienSzablon as $key => $value)
+        {
+          if($value['Ilosc_godzin']>0)
+            {
+              $ostatniDzien= $value['Ilosc_godzin'];
+              break;
+            }
+          else {
+            $ostatniDzien=0;
+          }
+        }
+        //$ostatniDzien = 0;//połączyć z bazą i sprawdzić
+
       }
 
 
@@ -242,17 +262,33 @@ class SimpleController extends Controller
       {
           $nazwiska[]=$strazak["Imie"]." ".$strazak["Nazwisko"];
           $IDs[]= $strazak["ID"];
+
       }
 
       $zmienna = Tablica::wypelnienie2(count($strazacy), $iloscDni, $ostatniDzien);
+      $szablon = $zmienna;
       $ostatniDzien = $zmienna[0][(count($zmienna[0]))-1];
       $zmienna = Tablica::przydzielanie($zmienna, $bilans, $iloscGodzin);
+
+
+        for($j=0;$j<count($szablon[0]);$j++)
+          {
+
+
+            $godziny= $szablon[0][$j];
+
+
+
+            $conn->exec("INSERT INTO szablon (Ilosc_godzin)
+            VALUES ('$godziny');");
+          }
 
       for($i=0;$i<count($zmienna);$i++)
         for($j=0;$j<count($zmienna[0]);$j++)
           {
             $dzien=$j+1;
             $ID= $IDs[$i];
+
 
             $data = new DateTime();
             $data->setDate($rok, $miesiac, $dzien);
@@ -265,20 +301,46 @@ class SimpleController extends Controller
             $conn->exec("INSERT INTO kopia (ID_Strazaka,Data,Ilosc_godzin)
             VALUES ('$ID','$data','$godziny');");
           }
+      if(isset($ostatniDzienSzablon) && $ostatniDzien==16)
+      {
+          $stmt = $conn->prepare('UPDATE `kopia` SET `Ilosc_godzin`= :Ilosc_godzin WHERE `Data`= :Data AND `ID_Strazaka`= :ID_Strazaka ');
+          $data = new DateTime();
+          $data->setDate($rok, $miesiac, 1);
+          $data = $data->format('Y-m-d');
+          foreach ($ostatniDzienSzablon as $key => $value)
+        {
+          if($value['Ilosc_godzin']== 0)
+          {
+
+            $stmt->bindValue(':Ilosc_godzin',0,\PDO::PARAM_INT);
+            $stmt->bindValue(':Data',$data,\PDO::PARAM_INT);
+            $stmt->bindValue(':ID_Strazaka',$value['ID'],\PDO::PARAM_INT);
+            $stmt->execute();
+          }
+        }
+    }
 
 
-      return $this->redirectToRoute('editTable', array('miesiac' =>$miesiac ,'rok'=>$rok ));
+      return $this->redirectToRoute('editTable', array('miesiac' =>$miesiac ,'rok'=>$rok, 'ostatniDzien'=>$ostatniDzien ));
     }
 
     /**
-     * @Route ("/edit/{miesiac}/{rok}", name="editTable")
+     * @Route ("/edit/{miesiac}/{rok}/{ostatniDzien}", name="editTable")
      */
-     public function edit($miesiac,$rok)
+     public function edit($miesiac,$rok,$ostatniDzien)
      {
        $dni = cal_days_in_month(CAL_GREGORIAN,$miesiac,$rok);
        $miesiace= array("Styczeń","Luty",'Marzec',"Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień");
-       return $this->render('edycja.html.twig', array('miesiac' => $miesiac,'rok'=> $rok,'dni'=>$dni,'nazwaMiesiaca'=>$miesiace[$miesiac-1] ));
+       return $this->render('edycja.html.twig', array('miesiac' => $miesiac,'rok'=> $rok,'dni'=>$dni,'ostatniDzien'=> $ostatniDzien,'nazwaMiesiaca'=>$miesiace[$miesiac-1] ));
      }
+
+     /**
+      * @Route ("/przejscie", name="przejscie")
+      */
+      public function przejscie()
+      {
+        return $this->render('przejscie.html.twig');
+      }
 
 
 

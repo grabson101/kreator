@@ -200,8 +200,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // editTable
-        if (0 === strpos($pathinfo, '/edit') && preg_match('#^/edit/(?P<miesiac>[^/]++)/(?P<rok>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/edit') && preg_match('#^/edit/(?P<miesiac>[^/]++)/(?P<rok>[^/]++)/(?P<ostatniDzien>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'editTable')), array (  '_controller' => 'AppBundle\\Controller\\SimpleController::edit',));
+        }
+
+        // przejscie
+        if ($pathinfo === '/przejscie') {
+            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::przejscie',  '_route' => 'przejscie',);
         }
 
         // allStrazacy

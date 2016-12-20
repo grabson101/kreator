@@ -22,20 +22,20 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_c01b43ef56ae8a5c57a3f0731293eae6ce2f1286bce0a73ac26144470ee84280 = $this->env->getExtension("native_profiler");
-        $__internal_c01b43ef56ae8a5c57a3f0731293eae6ce2f1286bce0a73ac26144470ee84280->enter($__internal_c01b43ef56ae8a5c57a3f0731293eae6ce2f1286bce0a73ac26144470ee84280_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "edycja.html.twig"));
+        $__internal_4a2a6ff417e60ac6ef728ac990198a8ced1500d7359d86c7b66e331610575fde = $this->env->getExtension("native_profiler");
+        $__internal_4a2a6ff417e60ac6ef728ac990198a8ced1500d7359d86c7b66e331610575fde->enter($__internal_4a2a6ff417e60ac6ef728ac990198a8ced1500d7359d86c7b66e331610575fde_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "edycja.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_c01b43ef56ae8a5c57a3f0731293eae6ce2f1286bce0a73ac26144470ee84280->leave($__internal_c01b43ef56ae8a5c57a3f0731293eae6ce2f1286bce0a73ac26144470ee84280_prof);
+        $__internal_4a2a6ff417e60ac6ef728ac990198a8ced1500d7359d86c7b66e331610575fde->leave($__internal_4a2a6ff417e60ac6ef728ac990198a8ced1500d7359d86c7b66e331610575fde_prof);
 
     }
 
     // line 2
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_ed67f3133100c2bd84f9f859c29e250cdd832402dd75690838d969d6e6ea8495 = $this->env->getExtension("native_profiler");
-        $__internal_ed67f3133100c2bd84f9f859c29e250cdd832402dd75690838d969d6e6ea8495->enter($__internal_ed67f3133100c2bd84f9f859c29e250cdd832402dd75690838d969d6e6ea8495_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_841514ed74de32fdee44c8948f87a20c032cad0534b34d3efec7b8700b83c6b4 = $this->env->getExtension("native_profiler");
+        $__internal_841514ed74de32fdee44c8948f87a20c032cad0534b34d3efec7b8700b83c6b4->enter($__internal_841514ed74de32fdee44c8948f87a20c032cad0534b34d3efec7b8700b83c6b4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 3
         echo "    <script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js\"></script>
@@ -61,19 +61,20 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
         // line 7
         echo "  ";
         
-        $__internal_ed67f3133100c2bd84f9f859c29e250cdd832402dd75690838d969d6e6ea8495->leave($__internal_ed67f3133100c2bd84f9f859c29e250cdd832402dd75690838d969d6e6ea8495_prof);
+        $__internal_841514ed74de32fdee44c8948f87a20c032cad0534b34d3efec7b8700b83c6b4->leave($__internal_841514ed74de32fdee44c8948f87a20c032cad0534b34d3efec7b8700b83c6b4_prof);
 
     }
 
     // line 8
     public function block_body($context, array $blocks = array())
     {
-        $__internal_dc29df9dbebbf7afaf3973ae16cba940a25103ed74efc210acf525f1b9a406f1 = $this->env->getExtension("native_profiler");
-        $__internal_dc29df9dbebbf7afaf3973ae16cba940a25103ed74efc210acf525f1b9a406f1->enter($__internal_dc29df9dbebbf7afaf3973ae16cba940a25103ed74efc210acf525f1b9a406f1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_d5ef1107eef1e8d2ce05f8b06b802c43f40d47305947a3f490318dc67dfa9699 = $this->env->getExtension("native_profiler");
+        $__internal_d5ef1107eef1e8d2ce05f8b06b802c43f40d47305947a3f490318dc67dfa9699->enter($__internal_d5ef1107eef1e8d2ce05f8b06b802c43f40d47305947a3f490318dc67dfa9699_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
+        echo "<h1>";
         echo twig_escape_filter($this->env, (isset($context["nazwaMiesiaca"]) ? $context["nazwaMiesiaca"] : $this->getContext($context, "nazwaMiesiaca")), "html", null, true);
-        echo "
+        echo "</h1>
 <div ng-app=\"myApp\" ng-controller=\"customersCtrl\">
   <table class=\"table table-bordered\" id=\"tabelka\">
           <tr><td> </td>
@@ -96,8 +97,8 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
         echo "
           </tr>
           <tr ng-repeat=\"x in hours\">
-            <td ng-bind=\"x.ImieINazwisko\"></td>
-            <td ng-repeat=\"datas in x.tabelka\" ng-bind=\"datas.Ilosc_godzin | number:0\" ng-click=\"datas.Ilosc_godzin= changeRow(datas.Ilosc_godzin);\"></td>
+            <td ng-bind=\"(x.Imie)+' '+(x.Nazwisko)\"></td>
+            <td ng-repeat=\"datas in x.tabelka\" ng-bind=\"datas.Ilosc_godzin | number:0\" ng-click=\"changeRow(datas.Ilosc_godzin,\$parent.\$index,\$index);\"></td>
             <td ng-bind=\"countHours(\$index)\"></td>
             <td ng-bind=\"lasts(\$index)\"></td>
           </tr>
@@ -106,19 +107,21 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
           </tr>
   </table>
   <button type=\"button\" class=\"btn btn-default\" ng-click=\"send()\">Dodaj</button>
-  
+
   <p id=\"miesiac\">";
         // line 31
         echo twig_escape_filter($this->env, (isset($context["miesiac"]) ? $context["miesiac"] : $this->getContext($context, "miesiac")), "html", null, true);
         echo "</p> <p id=\"rok\">";
         echo twig_escape_filter($this->env, (isset($context["rok"]) ? $context["rok"] : $this->getContext($context, "rok")), "html", null, true);
+        echo "</p> <p id=\"ostatniDzien\">";
+        echo twig_escape_filter($this->env, (isset($context["ostatniDzien"]) ? $context["ostatniDzien"] : $this->getContext($context, "ostatniDzien")), "html", null, true);
         echo "</p>
 </div>
 
 
-            ";
+";
         
-        $__internal_dc29df9dbebbf7afaf3973ae16cba940a25103ed74efc210acf525f1b9a406f1->leave($__internal_dc29df9dbebbf7afaf3973ae16cba940a25103ed74efc210acf525f1b9a406f1_prof);
+        $__internal_d5ef1107eef1e8d2ce05f8b06b802c43f40d47305947a3f490318dc67dfa9699->leave($__internal_d5ef1107eef1e8d2ce05f8b06b802c43f40d47305947a3f490318dc67dfa9699_prof);
 
     }
 
@@ -134,7 +137,7 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 
     public function getDebugInfo()
     {
-        return array (  112 => 31,  96 => 17,  87 => 15,  83 => 14,  75 => 9,  69 => 8,  62 => 7,  48 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
+        return array (  113 => 31,  97 => 17,  88 => 15,  84 => 14,  75 => 9,  69 => 8,  62 => 7,  48 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
@@ -145,7 +148,7 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 /*     {% endjavascripts %}*/
 /*   {% endblock %}*/
 /* {% block body %}*/
-/* {{ nazwaMiesiaca }}*/
+/* <h1>{{ nazwaMiesiaca }}</h1>*/
 /* <div ng-app="myApp" ng-controller="customersCtrl">*/
 /*   <table class="table table-bordered" id="tabelka">*/
 /*           <tr><td> </td>*/
@@ -156,8 +159,8 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 /* */
 /*           </tr>*/
 /*           <tr ng-repeat="x in hours">*/
-/*             <td ng-bind="x.ImieINazwisko"></td>*/
-/*             <td ng-repeat="datas in x.tabelka" ng-bind="datas.Ilosc_godzin | number:0" ng-click="datas.Ilosc_godzin= changeRow(datas.Ilosc_godzin);"></td>*/
+/*             <td ng-bind="(x.Imie)+' '+(x.Nazwisko)"></td>*/
+/*             <td ng-repeat="datas in x.tabelka" ng-bind="datas.Ilosc_godzin | number:0" ng-click="changeRow(datas.Ilosc_godzin,$parent.$index,$index);"></td>*/
 /*             <td ng-bind="countHours($index)"></td>*/
 /*             <td ng-bind="lasts($index)"></td>*/
 /*           </tr>*/
@@ -166,10 +169,10 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 /*           </tr>*/
 /*   </table>*/
 /*   <button type="button" class="btn btn-default" ng-click="send()">Dodaj</button>*/
-/*   */
-/*   <p id="miesiac">{{ miesiac }}</p> <p id="rok">{{ rok }}</p>*/
+/* */
+/*   <p id="miesiac">{{ miesiac }}</p> <p id="rok">{{ rok }}</p> <p id="ostatniDzien">{{ ostatniDzien }}</p>*/
 /* </div>*/
 /* */
 /* */
-/*             {% endblock %}*/
+/* {% endblock %}*/
 /* */

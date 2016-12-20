@@ -7,13 +7,18 @@
 
     <h2>Strażacy</h2>
     <div class="panel panel-default">
-    {% for strazak in strazacy %}
 
-        <div class="panel-body">{{ strazak.Imie}} {{ strazak.Nazwisko }}  <a type="button" class="btn btn-sm btn-danger" href="{{ path('delete', {'idStrazaka': strazak.ID}) }}" >x</a> <a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.Stanowisko }}')" class="btn btn-sm btn-warning">Edytuj</a> </div>
+    <table id="tabelka" class="table table-striped">
+      <thead><tr><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>
+        {% for strazak in strazacy %}
+        <tr>
+          <td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}')" class="btn btn-sm btn-warning">Edytuj</a></td><td><a type="button" class="btn btn-sm btn-danger" href="{{ path('delete', {'idStrazaka': strazak.ID}) }}" >x</a></td>
+        </tr>
 
 
 
         {% endfor %}
+    </table>
     </div>
 
     {% endif %}
@@ -28,10 +33,16 @@
             <label for="nazwisko">Nazwisko:</label>
             <input type="text" class="form-control" name="nazwisko" id="nazwisko" autocomplete="off">
         </div>
-        <div class="form-group">
-            <label for="stanowisko">Stanowisko:</label>
-            <input type="number" min="1" max="6"  class="form-control" name="stanowisko" id="stanowisko" autocomplete="off">
-        </div>
+        <fieldset>
+          <legend>Wybierz odpowiednie stanowisko (tylko 1)</legend>
+          {% if stanowiska != false %}
+          {% for stanowisko in stanowiska %}
+          <div class="radio">
+            <label><input type="radio" name="stanowisko" id="stanowisko" value="{{stanowisko.ID}}">{{stanowisko.Nazwa}}</label>
+          </div>
+          {% endfor %}
+          {% endif %}
+      </fieldset>
         <div class="form-group">
             <input type="hidden" name="id" id="id"  autocomplete="off"/>
         </div>

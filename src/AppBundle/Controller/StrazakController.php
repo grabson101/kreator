@@ -28,8 +28,9 @@ class StrazakController extends Controller
     {
         $conn= $this->get('database_connection');
 
-        $strazacy = $conn->fetchAll('SELECT * FROM strazak');
-        return $this->render('showAllStrazacy.php.twig', array('strazacy'=>$strazacy ));
+        $strazacy = $conn->fetchAll('SELECT strazak.ID, strazak.Imie, strazak.Nazwisko, strazak_stanowisko.ID_Strazaka, strazak_stanowisko.ID_Stanowiska , stanowiska.Nazwa AS Nazwa_Stanowiska FROM strazak JOIN strazak_stanowisko ON strazak.ID=strazak_stanowisko.ID_Strazaka Join stanowiska ON strazak_stanowisko.ID_Stanowiska=stanowiska.ID ORDER BY ID_Stanowiska');
+        $stanowiska = $conn->fetchAll('SELECT * FROM stanowiska');
+        return $this->render('showAllStrazacy.php.twig', array('strazacy'=>$strazacy, 'stanowiska'=>$stanowiska));
 
     }
 
@@ -58,14 +59,22 @@ class StrazakController extends Controller
 
         $conn = $this->get('database_connection');
 
-        $stmt = $conn->prepare("INSERT INTO `strazak` (`Imie` ,`Nazwisko` ,`Stanowisko`)
-                VALUES (:Imie,:Nazwisko, :Stanowisko )");
+        $stmt = $conn->prepare("INSERT INTO `strazak` (`Imie` ,`Nazwisko`)
+                VALUES (:Imie,:Nazwisko)");
 
         $stmt -> bindValue(':Imie', $imie, \PDO::PARAM_STR);
         $stmt -> bindValue(':Nazwisko', $nazwisko, \PDO::PARAM_STR);
-        $stmt -> bindValue(':Stanowisko', $stanowisko, \PDO::PARAM_INT);
 
         $stmt -> execute();
+
+
+        $lastInserted= $conn->fetchColumn("SELECT LAST_INSERT_ID()");
+
+        $stmt = $conn->prepare("INSERT INTO `strazak_stanowisko` (`ID_Strazaka` ,`ID_Stanowiska`)
+                VALUES (:ID_Strazaka,:ID_Stanowiska)");
+        $stmt -> bindValue(':ID_Strazaka', $lastInserted, \PDO::PARAM_INT);
+        $stmt -> bindValue(':ID_Stanowiska', $stanowisko, \PDO::PARAM_INT);
+        $stmt ->execute();
 
         return $this->redirectToRoute('allStrazacy');
     }

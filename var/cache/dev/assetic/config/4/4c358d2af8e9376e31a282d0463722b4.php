@@ -23,6 +23,26 @@ return array (
       ),
     ),
   ),
+  '9bf3d6a' => 
+  array (
+    0 => 
+    array (
+      0 => '@AppBundle/Resources/public/js/angular/app.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/9bf3d6a.js',
+      'name' => '9bf3d6a',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
   'bb54fd1' => 
   array (
     0 => 

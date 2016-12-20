@@ -6,7 +6,7 @@
     {% endjavascripts %}
   {% endblock %}
 {% block body %}
-{{ nazwaMiesiaca }}
+<h1>{{ nazwaMiesiaca }}</h1>
 <div ng-app="myApp" ng-controller="customersCtrl">
   <table class="table table-bordered" id="tabelka">
           <tr><td> </td>
@@ -17,8 +17,8 @@
 
           </tr>
           <tr ng-repeat="x in hours">
-            <td ng-bind="x.ImieINazwisko"></td>
-            <td ng-repeat="datas in x.tabelka" ng-bind="datas.Ilosc_godzin | number:0" ng-click="datas.Ilosc_godzin= changeRow(datas.Ilosc_godzin);"></td>
+            <td ng-bind="(x.Imie)+' '+(x.Nazwisko)"></td>
+            <td ng-repeat="datas in x.tabelka" ng-bind="datas.Ilosc_godzin | number:0" ng-click="changeRow(datas.Ilosc_godzin,$parent.$index,$index);"></td>
             <td ng-bind="countHours($index)"></td>
             <td ng-bind="lasts($index)"></td>
           </tr>
@@ -27,9 +27,9 @@
           </tr>
   </table>
   <button type="button" class="btn btn-default" ng-click="send()">Dodaj</button>
-  
-  <p id="miesiac">{{ miesiac }}</p> <p id="rok">{{ rok }}</p>
+
+  <p id="miesiac">{{ miesiac }}</p> <p id="rok">{{ rok }}</p> <p id="ostatniDzien">{{ ostatniDzien }}</p>
 </div>
 
 
-            {% endblock %}
+{% endblock %}

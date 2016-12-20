@@ -41,7 +41,7 @@ class AjaxController extends Controller
 
         foreach($myArray as $key => $value)
           {
-            $przydzialy[]= array('ImieINazwisko'=>$value['Imie']." ".$value['Nazwisko'], 'ID'=>$value['ID']);
+            $przydzialy[]= array('Imie'=>$value['Imie'], 'Nazwisko'=>$value['Nazwisko'], 'ID'=>$value['ID']);
           }
 
 
@@ -106,8 +106,19 @@ class AjaxController extends Controller
           $result->execute();
           $suma = $result->fetchAll();
 
+
+          $sql= "SELECT * FROM szablon";
+          $result = $conn->prepare($sql);
+          $result->execute();
+          $szablon= $result->fetchAll();
+
+
+
+
+
           $dane['przydzialy']=$przydzialy;
           $dane['suma']=$suma;
+          $dane['szablon']=$szablon;
 
         return new Response (json_encode($dane));
 
@@ -150,7 +161,7 @@ class AjaxController extends Controller
           }
 
 
-       }
+        }
 
        $sql = "SELECT strazak.ID, suma.Suma_Godzin
          FROM strazak
@@ -181,6 +192,7 @@ class AjaxController extends Controller
 
 
        $conn->exec("TRUNCATE TABLE kopia");
+       $conn->exec("TRUNCATE TABLE szablon");
        return new Response ( "Done");
       }
 }
