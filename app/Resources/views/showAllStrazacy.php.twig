@@ -12,7 +12,7 @@
       <thead><tr><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>
         {% for strazak in strazacy %}
         <tr>
-          <td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}')" class="btn btn-sm btn-warning">Edytuj</a></td><td><a type="button" class="btn btn-sm btn-danger" href="{{ path('delete', {'idStrazaka': strazak.ID}) }}" >x</a></td>
+          <td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.ID_Stanowiska }}')" class="btn btn-sm btn-warning">Edytuj</a></td><td><a type="button" class="btn btn-sm btn-danger" href="{{ path('delete', {'idStrazaka': strazak.ID}) }}" >x</a></td>
         </tr>
 
 
@@ -38,25 +38,37 @@
           {% if stanowiska != false %}
           {% for stanowisko in stanowiska %}
           <div class="radio">
-            <label><input type="radio" name="stanowisko" id="stanowisko" value="{{stanowisko.ID}}">{{stanowisko.Nazwa}}</label>
+            <label><input type="radio" name="stanowisko" id="stanowisko" value="{{stanowisko.ID}}" autocomplete="off">{{stanowisko.Nazwa}}</label>
           </div>
           {% endfor %}
           {% endif %}
       </fieldset>
-        <div class="form-group">
-            <input type="hidden" name="id" id="id"  autocomplete="off"/>
+      <fieldset>
+        <legend>Wybierz uprawnienia dodatkowe</legend>
+        {% if uprawnienia != false %}
+        {% for uprawnienie in uprawnienia %}
+        <div class="checkbox">
+          <label><input type="checkbox" name="uprawnienie[]" id="uprawnienie" value="{{uprawnienie.ID}}" autocomplete="off">{{uprawnienie.Nazwa}}</label>
         </div>
+        {% endfor %}
+        {% endif %}
+    </fieldset>
+
         <button id="wstaw_button" type="submit" class="btn btn-default">Wstaw</button>
     </form>
     </div>
     <br>
     <br>
+    <p id="test"></p>
 
 {% endblock %}
 
 
 {% block javascripts %}
+
     {% javascripts '@AppBundle/Resources/public/js/*' %}
+        <script>var strazak_uprawnienia= {{strazak_uprawnienia|json_encode()|raw}};</script>
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
 {% endblock %}

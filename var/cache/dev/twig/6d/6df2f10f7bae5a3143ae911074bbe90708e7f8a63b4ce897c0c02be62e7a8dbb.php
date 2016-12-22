@@ -22,20 +22,20 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_5abcc61fba4951ee88a3016e0b98667f4fce5977e9601edfdfa1dff96e6bd458 = $this->env->getExtension("native_profiler");
-        $__internal_5abcc61fba4951ee88a3016e0b98667f4fce5977e9601edfdfa1dff96e6bd458->enter($__internal_5abcc61fba4951ee88a3016e0b98667f4fce5977e9601edfdfa1dff96e6bd458_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "showAllStrazacy.php.twig"));
+        $__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0 = $this->env->getExtension("native_profiler");
+        $__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0->enter($__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "showAllStrazacy.php.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_5abcc61fba4951ee88a3016e0b98667f4fce5977e9601edfdfa1dff96e6bd458->leave($__internal_5abcc61fba4951ee88a3016e0b98667f4fce5977e9601edfdfa1dff96e6bd458_prof);
+        $__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0->leave($__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_dcec2eb8e1ed71e1f82fc60c3a769c129e10b36de89f8b7d7a882233a080ff4b = $this->env->getExtension("native_profiler");
-        $__internal_dcec2eb8e1ed71e1f82fc60c3a769c129e10b36de89f8b7d7a882233a080ff4b->enter($__internal_dcec2eb8e1ed71e1f82fc60c3a769c129e10b36de89f8b7d7a882233a080ff4b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40 = $this->env->getExtension("native_profiler");
+        $__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40->enter($__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\" id=\"zawartosc\">
@@ -73,6 +73,8 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Nazwisko", array()), "html", null, true);
                 echo "', '";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "ID", array()), "html", null, true);
+                echo "', '";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "ID_Stanowiska", array()), "html", null, true);
                 echo "')\" class=\"btn btn-sm btn-warning\">Edytuj</a></td><td><a type=\"button\" class=\"btn btn-sm btn-danger\" href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("delete", array("idStrazaka" => $this->getAttribute($context["strazak"], "ID", array()))), "html", null, true);
                 echo "\" >x</a></td>
@@ -121,7 +123,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
             <label><input type=\"radio\" name=\"stanowisko\" id=\"stanowisko\" value=\"";
                 // line 41
                 echo twig_escape_filter($this->env, $this->getAttribute($context["stanowisko"], "ID", array()), "html", null, true);
-                echo "\">";
+                echo "\" autocomplete=\"off\">";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["stanowisko"], "Nazwa", array()), "html", null, true);
                 echo "</label>
           </div>
@@ -135,54 +137,101 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
         }
         // line 45
         echo "      </fieldset>
-        <div class=\"form-group\">
-            <input type=\"hidden\" name=\"id\" id=\"id\"  autocomplete=\"off\"/>
+      <fieldset>
+        <legend>Wybierz uprawnienia dodatkowe</legend>
+        ";
+        // line 48
+        if (((isset($context["uprawnienia"]) ? $context["uprawnienia"] : $this->getContext($context, "uprawnienia")) != false)) {
+            // line 49
+            echo "        ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["uprawnienia"]) ? $context["uprawnienia"] : $this->getContext($context, "uprawnienia")));
+            foreach ($context['_seq'] as $context["_key"] => $context["uprawnienie"]) {
+                // line 50
+                echo "        <div class=\"checkbox\">
+          <label><input type=\"checkbox\" name=\"uprawnienie[]\" id=\"uprawnienie\" value=\"";
+                // line 51
+                echo twig_escape_filter($this->env, $this->getAttribute($context["uprawnienie"], "ID", array()), "html", null, true);
+                echo "\" autocomplete=\"off\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["uprawnienie"], "Nazwa", array()), "html", null, true);
+                echo "</label>
         </div>
+        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['uprawnienie'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 54
+            echo "        ";
+        }
+        // line 55
+        echo "    </fieldset>
+
         <button id=\"wstaw_button\" type=\"submit\" class=\"btn btn-default\">Wstaw</button>
     </form>
     </div>
     <br>
     <br>
+    <p id=\"test\"></p>
 
 ";
         
-        $__internal_dcec2eb8e1ed71e1f82fc60c3a769c129e10b36de89f8b7d7a882233a080ff4b->leave($__internal_dcec2eb8e1ed71e1f82fc60c3a769c129e10b36de89f8b7d7a882233a080ff4b_prof);
+        $__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40->leave($__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40_prof);
 
     }
 
-    // line 58
+    // line 67
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_f5d81ec811a8042f3d4d8e8246fd0356fda88eb97bd63d294f3749cc061bd72e = $this->env->getExtension("native_profiler");
-        $__internal_f5d81ec811a8042f3d4d8e8246fd0356fda88eb97bd63d294f3749cc061bd72e->enter($__internal_f5d81ec811a8042f3d4d8e8246fd0356fda88eb97bd63d294f3749cc061bd72e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae = $this->env->getExtension("native_profiler");
+        $__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae->enter($__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 59
-        echo "    ";
+        // line 68
+        echo "
+    ";
+        // line 69
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "bb54fd1_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1_0") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/bb54fd1_part_1_formularzGen_1.js");
-            // line 60
-            echo "        <script src=\"";
+            // line 70
+            echo "        <script>var strazak_uprawnienia= ";
+            echo twig_jsonencode_filter((isset($context["strazak_uprawnienia"]) ? $context["strazak_uprawnienia"] : $this->getContext($context, "strazak_uprawnienia")));
+            echo ";</script>
+        <script src=\"";
+            // line 71
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
             // asset "bb54fd1_1"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1_1") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/bb54fd1_part_1_showAllStrazacy_2.js");
-            echo "        <script src=\"";
+            // line 70
+            echo "        <script>var strazak_uprawnienia= ";
+            echo twig_jsonencode_filter((isset($context["strazak_uprawnienia"]) ? $context["strazak_uprawnienia"] : $this->getContext($context, "strazak_uprawnienia")));
+            echo ";</script>
+        <script src=\"";
+            // line 71
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
         } else {
             // asset "bb54fd1"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/bb54fd1.js");
-            echo "        <script src=\"";
+            // line 70
+            echo "        <script>var strazak_uprawnienia= ";
+            echo twig_jsonencode_filter((isset($context["strazak_uprawnienia"]) ? $context["strazak_uprawnienia"] : $this->getContext($context, "strazak_uprawnienia")));
+            echo ";</script>
+        <script src=\"";
+            // line 71
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
         }
         unset($context["asset_url"]);
+        // line 73
+        echo "
+";
         
-        $__internal_f5d81ec811a8042f3d4d8e8246fd0356fda88eb97bd63d294f3749cc061bd72e->leave($__internal_f5d81ec811a8042f3d4d8e8246fd0356fda88eb97bd63d294f3749cc061bd72e_prof);
+        $__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae->leave($__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae_prof);
 
     }
 
@@ -198,7 +247,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 
     public function getDebugInfo()
     {
-        return array (  165 => 60,  160 => 59,  154 => 58,  137 => 45,  134 => 44,  123 => 41,  120 => 40,  115 => 39,  113 => 38,  99 => 27,  95 => 25,  89 => 21,  65 => 15,  62 => 14,  58 => 13,  50 => 7,  46 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
+        return array (  231 => 73,  225 => 71,  220 => 70,  213 => 71,  208 => 70,  202 => 71,  197 => 70,  193 => 69,  190 => 68,  184 => 67,  168 => 55,  165 => 54,  154 => 51,  151 => 50,  146 => 49,  144 => 48,  139 => 45,  136 => 44,  125 => 41,  122 => 40,  117 => 39,  115 => 38,  101 => 27,  97 => 25,  91 => 21,  65 => 15,  62 => 14,  58 => 13,  50 => 7,  46 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
@@ -215,7 +264,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 /*       <thead><tr><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>*/
 /*         {% for strazak in strazacy %}*/
 /*         <tr>*/
-/*           <td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}')" class="btn btn-sm btn-warning">Edytuj</a></td><td><a type="button" class="btn btn-sm btn-danger" href="{{ path('delete', {'idStrazaka': strazak.ID}) }}" >x</a></td>*/
+/*           <td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.ID_Stanowiska }}')" class="btn btn-sm btn-warning">Edytuj</a></td><td><a type="button" class="btn btn-sm btn-danger" href="{{ path('delete', {'idStrazaka': strazak.ID}) }}" >x</a></td>*/
 /*         </tr>*/
 /* */
 /* */
@@ -241,26 +290,38 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 /*           {% if stanowiska != false %}*/
 /*           {% for stanowisko in stanowiska %}*/
 /*           <div class="radio">*/
-/*             <label><input type="radio" name="stanowisko" id="stanowisko" value="{{stanowisko.ID}}">{{stanowisko.Nazwa}}</label>*/
+/*             <label><input type="radio" name="stanowisko" id="stanowisko" value="{{stanowisko.ID}}" autocomplete="off">{{stanowisko.Nazwa}}</label>*/
 /*           </div>*/
 /*           {% endfor %}*/
 /*           {% endif %}*/
 /*       </fieldset>*/
-/*         <div class="form-group">*/
-/*             <input type="hidden" name="id" id="id"  autocomplete="off"/>*/
+/*       <fieldset>*/
+/*         <legend>Wybierz uprawnienia dodatkowe</legend>*/
+/*         {% if uprawnienia != false %}*/
+/*         {% for uprawnienie in uprawnienia %}*/
+/*         <div class="checkbox">*/
+/*           <label><input type="checkbox" name="uprawnienie[]" id="uprawnienie" value="{{uprawnienie.ID}}" autocomplete="off">{{uprawnienie.Nazwa}}</label>*/
 /*         </div>*/
+/*         {% endfor %}*/
+/*         {% endif %}*/
+/*     </fieldset>*/
+/* */
 /*         <button id="wstaw_button" type="submit" class="btn btn-default">Wstaw</button>*/
 /*     </form>*/
 /*     </div>*/
 /*     <br>*/
 /*     <br>*/
+/*     <p id="test"></p>*/
 /* */
 /* {% endblock %}*/
 /* */
 /* */
 /* {% block javascripts %}*/
+/* */
 /*     {% javascripts '@AppBundle/Resources/public/js/*' %}*/
+/*         <script>var strazak_uprawnienia= {{strazak_uprawnienia|json_encode()|raw}};</script>*/
 /*         <script src="{{ asset_url }}"></script>*/
 /*     {% endjavascripts %}*/
+/* */
 /* {% endblock %}*/
 /* */

@@ -225,8 +225,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // editStrazak
-        if ($pathinfo === '/editStrazak') {
-            return array (  '_controller' => 'AppBundle\\Controller\\StrazakController::editStrazak',  '_route' => 'editStrazak',);
+        if (0 === strpos($pathinfo, '/editStrazak') && preg_match('#^/editStrazak/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'editStrazak')), array (  '_controller' => 'AppBundle\\Controller\\StrazakController::editStrazak',));
         }
 
         // fos_js_routing_js

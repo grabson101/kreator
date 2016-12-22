@@ -28,9 +28,11 @@ class StrazakController extends Controller
     {
         $conn= $this->get('database_connection');
 
-        $strazacy = $conn->fetchAll('SELECT strazak.ID, strazak.Imie, strazak.Nazwisko, strazak_stanowisko.ID_Strazaka, strazak_stanowisko.ID_Stanowiska , stanowiska.Nazwa AS Nazwa_Stanowiska FROM strazak JOIN strazak_stanowisko ON strazak.ID=strazak_stanowisko.ID_Strazaka Join stanowiska ON strazak_stanowisko.ID_Stanowiska=stanowiska.ID ORDER BY ID_Stanowiska');
+        $strazacy = $conn->fetchAll('SELECT strazak.ID, strazak.Imie, strazak.Nazwisko, strazak_stanowisko.ID_Strazaka, strazak_stanowisko.ID_Stanowiska , stanowiska.Nazwa AS Nazwa_Stanowiska FROM strazak JOIN strazak_stanowisko ON strazak.ID=strazak_stanowisko.ID_Strazaka JOIN stanowiska ON strazak_stanowisko.ID_Stanowiska=stanowiska.ID ORDER BY ID_Stanowiska');
         $stanowiska = $conn->fetchAll('SELECT * FROM stanowiska');
-        return $this->render('showAllStrazacy.php.twig', array('strazacy'=>$strazacy, 'stanowiska'=>$stanowiska));
+        $uprawnienia = $conn->fetchAll('SELECT * FROM uprawnienia_dodatkowe');
+        $strazak_uprawnienia = $conn->fetchAll('SELECT * FROM strazak_uprawnienieDodatkowe');
+        return $this->render('showAllStrazacy.php.twig', array('strazacy'=>$strazacy, 'stanowiska'=>$stanowiska, 'uprawnienia'=>$uprawnienia, 'strazak_uprawnienia'=>$strazak_uprawnienia));
 
     }
 
@@ -42,10 +44,13 @@ class StrazakController extends Controller
     {
         $conn= $this->get('database_connection');
 
+        $conn->exec(" INSERT INTO strazak_archiwum
+          SELECT * FROM strazak WHERE ID = $idStrazaka;  ");
+
         $conn->exec("DELETE FROM strazak
                       WHERE ID = $idStrazaka ");
 
-        return $this->showAll();
+        return $this->redirectToRoute('allStrazacy');
     }
 
     /**
@@ -76,26 +81,65 @@ class StrazakController extends Controller
         $stmt -> bindValue(':ID_Stanowiska', $stanowisko, \PDO::PARAM_INT);
         $stmt ->execute();
 
+        if(isset($_POST['uprawnienie']))
+        {
+          $stmt = $conn->prepare("INSERT INTO `strazak_uprawnienieDodatkowe` (`ID_Strazaka`, `ID_Uprawnienia`) VALUES (:ID_Strazaka, :ID_Uprawnienia)");
+          $stmt -> bindValue(':ID_Strazaka', $lastInserted, \PDO::PARAM_STR);
+          foreach ($_POST['uprawnienie'] as $uprawnienie)
+          {
+            $stmt -> bindValue(':ID_Uprawnienia', $uprawnienie, \PDO::PARAM_STR);
+            $stmt -> execute();
+          }
+        }
+
         return $this->redirectToRoute('allStrazacy');
     }
 
     /**
-     * @Route("/editStrazak", name="editStrazak")
+     * @Route("/editStrazak/{id}", name="editStrazak")
      */
 
-    public function editStrazak()
+    public function editStrazak($id)
     {
         $imie = $_POST["imie"];
         $nazwisko = $_POST["nazwisko"];
         $stanowisko = $_POST["stanowisko"];
-        $id= $_POST["id"];
 
         $conn = $this->get('database_connection');
-        $conn->exec("UPDATE strazak
-                     SET Imie='$imie', Nazwisko='$nazwisko', Stanowisko = '$stanowisko'
-                     WHERE ID='$id';");
 
-        return $this->redirectToRoute('allStrazacy');
+        $stmt = $conn->prepare("UPDATE strazak
+                     SET Imie=:Imie, Nazwisko=:Nazwisko
+                     WHERE ID=:ID");
+
+        $stmt -> bindValue(':Imie', $imie, \PDO::PARAM_STR);
+        $stmt -> bindValue(':Nazwisko', $nazwisko, \PDO::PARAM_STR);
+        $stmt -> bindValue(':ID', $id, \PDO::PARAM_STR);
+        $stmt -> execute();
+
+        $stmt = $conn->prepare("UPDATE strazak_stanowisko
+                     SET ID_Stanowiska = :ID_Stanowiska
+                     WHERE ID_Strazaka=:ID_Strazaka");
+
+        $stmt -> bindValue(':ID_Stanowiska', $stanowisko, \PDO::PARAM_STR);
+        $stmt -> bindValue(':ID_Strazaka', $id, \PDO::PARAM_STR);
+        $stmt -> execute();
+
+
+        $conn->exec("DELETE FROM `strazak_uprawnienieDodatkowe`
+                      WHERE ID_Strazaka = $id ");
+
+        if(isset($_POST['uprawnienie']))
+        {
+          $stmt = $conn->prepare("INSERT INTO `strazak_uprawnienieDodatkowe` (`ID_Strazaka`, `ID_Uprawnienia`) VALUES (:ID_Strazaka, :ID_Uprawnienia)");
+          $stmt -> bindValue(':ID_Strazaka', $id, \PDO::PARAM_STR);
+          foreach ($_POST['uprawnienie'] as $uprawnienie)
+          {
+            $stmt -> bindValue(':ID_Uprawnienia', $uprawnienie, \PDO::PARAM_STR);
+            $stmt -> execute();
+          }
+        }
+
+      return  $this->redirectToRoute('allStrazacy');
 
     }
 
