@@ -21,20 +21,20 @@ class __TwigTemplate_82878d16c7bc967bf80875e2066cd297baa913b28e422ee7baf1752f46a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_5e7974916af3e119458278e3e57e580ab52655f9bda28c9bc2e383e224535596 = $this->env->getExtension("native_profiler");
-        $__internal_5e7974916af3e119458278e3e57e580ab52655f9bda28c9bc2e383e224535596->enter($__internal_5e7974916af3e119458278e3e57e580ab52655f9bda28c9bc2e383e224535596_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "formularzTworzenie.php.twig"));
+        $__internal_c55bff45c48cdf89dd979584b3a18022af2a364e564d98a30d11bdb991a71ef5 = $this->env->getExtension("native_profiler");
+        $__internal_c55bff45c48cdf89dd979584b3a18022af2a364e564d98a30d11bdb991a71ef5->enter($__internal_c55bff45c48cdf89dd979584b3a18022af2a364e564d98a30d11bdb991a71ef5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "formularzTworzenie.php.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_5e7974916af3e119458278e3e57e580ab52655f9bda28c9bc2e383e224535596->leave($__internal_5e7974916af3e119458278e3e57e580ab52655f9bda28c9bc2e383e224535596_prof);
+        $__internal_c55bff45c48cdf89dd979584b3a18022af2a364e564d98a30d11bdb991a71ef5->leave($__internal_c55bff45c48cdf89dd979584b3a18022af2a364e564d98a30d11bdb991a71ef5_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_67d36e8c1677a84dd4ddb272a117c0262e6ac3809a62ae340f4daae7adad1ce1 = $this->env->getExtension("native_profiler");
-        $__internal_67d36e8c1677a84dd4ddb272a117c0262e6ac3809a62ae340f4daae7adad1ce1->enter($__internal_67d36e8c1677a84dd4ddb272a117c0262e6ac3809a62ae340f4daae7adad1ce1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_c6494709ae37b446ed8659556ad1606996d5e2d2905f6a83fbeeed6de2551b55 = $this->env->getExtension("native_profiler");
+        $__internal_c6494709ae37b446ed8659556ad1606996d5e2d2905f6a83fbeeed6de2551b55->enter($__internal_c6494709ae37b446ed8659556ad1606996d5e2d2905f6a83fbeeed6de2551b55_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo " <div class=\"container\">
@@ -53,11 +53,14 @@ class __TwigTemplate_82878d16c7bc967bf80875e2066cd297baa913b28e422ee7baf1752f46a
                 <label for=\"rok\">Rok:</label>
                 <input type=\"number\" value=\"2016\" min=\"2015\" class=\"form-control\" name=\"rok\" id=\"rok\" >
             </div>
-
+            <fieldset class=\"form-group row\">
+              <legend class=\"col-form-legend col-sm-4\">Wybierz ilośc godzin w ostatnim dniu poprzedniego półrocza</legend>
             <div class=\"form-group\">
-                <label for=\"zmiana\">Zmiana:</label>
-                <input type=\"number\" value=\"2\" min=\"1\" max=\"3\" class=\"form-control\" name=\"zmiana\" id=\"zmiana\" placeholder=\"Zmiana\">
+                <label class=\"radio-inline\"><input type=\"radio\" name=\"ostatniDzien\" value=\"0\">0 Godzin</label>
+                <label class=\"radio-inline\"><input type=\"radio\" name=\"ostatniDzien\" value=\"8\">8 Godzin</label>
+                <label class=\"radio-inline\"><input type=\"radio\" name=\"ostatniDzien\" value=\"16\">16 Godzin</label>
             </div>
+            </fieldset>
             <div class=\"form-group\">
                 <label for=\"iloscGodzin\">Ilość godzin w miesiącu:</label>
                 <input type=\"number\" value=\"170\" min=\"1\" class=\"form-control\" id=\"iloscGodzin\" name=\"iloscGodzin\" placeholder=\"Ilość godzin\">
@@ -71,7 +74,7 @@ class __TwigTemplate_82878d16c7bc967bf80875e2066cd297baa913b28e422ee7baf1752f46a
 
 ";
         
-        $__internal_67d36e8c1677a84dd4ddb272a117c0262e6ac3809a62ae340f4daae7adad1ce1->leave($__internal_67d36e8c1677a84dd4ddb272a117c0262e6ac3809a62ae340f4daae7adad1ce1_prof);
+        $__internal_c6494709ae37b446ed8659556ad1606996d5e2d2905f6a83fbeeed6de2551b55->leave($__internal_c6494709ae37b446ed8659556ad1606996d5e2d2905f6a83fbeeed6de2551b55_prof);
 
     }
 
@@ -106,11 +109,14 @@ class __TwigTemplate_82878d16c7bc967bf80875e2066cd297baa913b28e422ee7baf1752f46a
 /*                 <label for="rok">Rok:</label>*/
 /*                 <input type="number" value="2016" min="2015" class="form-control" name="rok" id="rok" >*/
 /*             </div>*/
-/* */
+/*             <fieldset class="form-group row">*/
+/*               <legend class="col-form-legend col-sm-4">Wybierz ilośc godzin w ostatnim dniu poprzedniego półrocza</legend>*/
 /*             <div class="form-group">*/
-/*                 <label for="zmiana">Zmiana:</label>*/
-/*                 <input type="number" value="2" min="1" max="3" class="form-control" name="zmiana" id="zmiana" placeholder="Zmiana">*/
+/*                 <label class="radio-inline"><input type="radio" name="ostatniDzien" value="0">0 Godzin</label>*/
+/*                 <label class="radio-inline"><input type="radio" name="ostatniDzien" value="8">8 Godzin</label>*/
+/*                 <label class="radio-inline"><input type="radio" name="ostatniDzien" value="16">16 Godzin</label>*/
 /*             </div>*/
+/*             </fieldset>*/
 /*             <div class="form-group">*/
 /*                 <label for="iloscGodzin">Ilość godzin w miesiącu:</label>*/
 /*                 <input type="number" value="170" min="1" class="form-control" id="iloscGodzin" name="iloscGodzin" placeholder="Ilość godzin">*/

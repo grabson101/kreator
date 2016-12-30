@@ -22,20 +22,20 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0 = $this->env->getExtension("native_profiler");
-        $__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0->enter($__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "showAllStrazacy.php.twig"));
+        $__internal_b150e88d23208d081685bfd40451529de74694c68db1df585237a7cb77d409e8 = $this->env->getExtension("native_profiler");
+        $__internal_b150e88d23208d081685bfd40451529de74694c68db1df585237a7cb77d409e8->enter($__internal_b150e88d23208d081685bfd40451529de74694c68db1df585237a7cb77d409e8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "showAllStrazacy.php.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0->leave($__internal_ce677a6364df4eb9d75ce89a1882f446c754767fa159ba43b0248c6f10b54fb0_prof);
+        $__internal_b150e88d23208d081685bfd40451529de74694c68db1df585237a7cb77d409e8->leave($__internal_b150e88d23208d081685bfd40451529de74694c68db1df585237a7cb77d409e8_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40 = $this->env->getExtension("native_profiler");
-        $__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40->enter($__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_27c67f4f2ddec950a4dad6834f1bcdd0773c1a1e33e5666f98328381d2ea4d9f = $this->env->getExtension("native_profiler");
+        $__internal_27c67f4f2ddec950a4dad6834f1bcdd0773c1a1e33e5666f98328381d2ea4d9f->enter($__internal_27c67f4f2ddec950a4dad6834f1bcdd0773c1a1e33e5666f98328381d2ea4d9f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\" id=\"zawartosc\">
@@ -176,34 +176,23 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 
 ";
         
-        $__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40->leave($__internal_130bf9c5efd6510cf15de5b29839a45f5634f4d55c5a0a5248bab1cdfbac6c40_prof);
+        $__internal_27c67f4f2ddec950a4dad6834f1bcdd0773c1a1e33e5666f98328381d2ea4d9f->leave($__internal_27c67f4f2ddec950a4dad6834f1bcdd0773c1a1e33e5666f98328381d2ea4d9f_prof);
 
     }
 
     // line 67
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae = $this->env->getExtension("native_profiler");
-        $__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae->enter($__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_f44dc6689067d132a8cb6f34b5351caa257a71e61027b026ba1e446edbeb54a5 = $this->env->getExtension("native_profiler");
+        $__internal_f44dc6689067d132a8cb6f34b5351caa257a71e61027b026ba1e446edbeb54a5->enter($__internal_f44dc6689067d132a8cb6f34b5351caa257a71e61027b026ba1e446edbeb54a5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 68
         echo "
     ";
         // line 69
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "bb54fd1_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1_0") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/bb54fd1_part_1_formularzGen_1.js");
-            // line 70
-            echo "        <script>var strazak_uprawnienia= ";
-            echo twig_jsonencode_filter((isset($context["strazak_uprawnienia"]) ? $context["strazak_uprawnienia"] : $this->getContext($context, "strazak_uprawnienia")));
-            echo ";</script>
-        <script src=\"";
-            // line 71
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>
-    ";
-            // asset "bb54fd1_1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1_1") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/bb54fd1_part_1_showAllStrazacy_2.js");
+            // asset "e5244fe_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e5244fe_0") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/e5244fe_showAllStrazacy_1.js");
             // line 70
             echo "        <script>var strazak_uprawnienia= ";
             echo twig_jsonencode_filter((isset($context["strazak_uprawnienia"]) ? $context["strazak_uprawnienia"] : $this->getContext($context, "strazak_uprawnienia")));
@@ -214,8 +203,8 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
             echo "\"></script>
     ";
         } else {
-            // asset "bb54fd1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/bb54fd1.js");
+            // asset "e5244fe"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e5244fe") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/e5244fe.js");
             // line 70
             echo "        <script>var strazak_uprawnienia= ";
             echo twig_jsonencode_filter((isset($context["strazak_uprawnienia"]) ? $context["strazak_uprawnienia"] : $this->getContext($context, "strazak_uprawnienia")));
@@ -231,7 +220,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
         echo "
 ";
         
-        $__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae->leave($__internal_d30b55a63573ce32c3c6fa89637520f47498bd4dbb0830a481ec721e632e5fae_prof);
+        $__internal_f44dc6689067d132a8cb6f34b5351caa257a71e61027b026ba1e446edbeb54a5->leave($__internal_f44dc6689067d132a8cb6f34b5351caa257a71e61027b026ba1e446edbeb54a5_prof);
 
     }
 
@@ -247,7 +236,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 
     public function getDebugInfo()
     {
-        return array (  231 => 73,  225 => 71,  220 => 70,  213 => 71,  208 => 70,  202 => 71,  197 => 70,  193 => 69,  190 => 68,  184 => 67,  168 => 55,  165 => 54,  154 => 51,  151 => 50,  146 => 49,  144 => 48,  139 => 45,  136 => 44,  125 => 41,  122 => 40,  117 => 39,  115 => 38,  101 => 27,  97 => 25,  91 => 21,  65 => 15,  62 => 14,  58 => 13,  50 => 7,  46 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
+        return array (  220 => 73,  214 => 71,  209 => 70,  202 => 71,  197 => 70,  193 => 69,  190 => 68,  184 => 67,  168 => 55,  165 => 54,  154 => 51,  151 => 50,  146 => 49,  144 => 48,  139 => 45,  136 => 44,  125 => 41,  122 => 40,  117 => 39,  115 => 38,  101 => 27,  97 => 25,  91 => 21,  65 => 15,  62 => 14,  58 => 13,  50 => 7,  46 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
@@ -318,7 +307,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 /* */
 /* {% block javascripts %}*/
 /* */
-/*     {% javascripts '@AppBundle/Resources/public/js/*' %}*/
+/*     {% javascripts '@AppBundle/Resources/public/js/showAllStrazacy.js' %}*/
 /*         <script>var strazak_uprawnienia= {{strazak_uprawnienia|json_encode()|raw}};</script>*/
 /*         <script src="{{ asset_url }}"></script>*/
 /*     {% endjavascripts %}*/

@@ -2,11 +2,11 @@
 
 // ::base.html.twig
 return array (
-  '2c8c367' => 
+  'e7b315d' => 
   array (
     0 => 
     array (
-      0 => 'bundles/app/css/*',
+      0 => 'bundles/app/css/theme.css',
     ),
     1 => 
     array (
@@ -14,8 +14,8 @@ return array (
     ),
     2 => 
     array (
-      'output' => '_controller/css/2c8c367.css',
-      'name' => '2c8c367',
+      'output' => '_controller/css/e7b315d.css',
+      'name' => 'e7b315d',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

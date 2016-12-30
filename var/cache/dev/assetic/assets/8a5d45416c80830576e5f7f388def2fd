@@ -1,0 +1,17 @@
+/*.first-fixed-column-table{
+		min-width: 100%;
+	}
+	.first-fixed-column-table td{
+		min-width: 200px !important;
+	}
+	.first-fixed-column-table td:first-of-type{
+		background: red;
+		position: fixed;
+	}
+	.first-fixed-column-table td:nth-of-type(2){
+		padding-left: 210px !important;
+	}
+	.scrolled-horizontal-table{
+
+		overflow-x: auto;
+	}*/

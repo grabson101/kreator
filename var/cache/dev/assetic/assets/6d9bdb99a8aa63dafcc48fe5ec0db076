@@ -1,0 +1,6 @@
+.table > thead:first-child > tr:first-child > th:first-child {
+    position: absolute;
+    display: inline-block;
+    background-color: red;
+    height: 100%;
+}

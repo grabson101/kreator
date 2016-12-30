@@ -5,31 +5,43 @@
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
   {% endblock %}
+
+
 {% block body %}
-<h1>{{ nazwaMiesiaca }}</h1>
-<div ng-app="myApp" ng-controller="customersCtrl">
-  <table class="table table-bordered" id="tabelka">
-          <tr><td> </td>
+<div class="container" id="zawartosc">
+  <h1>{{ nazwaMiesiaca }}</h1>
+  <div ng-app="myApp" ng-controller="customersCtrl">
+    <div class="panel-body table-responsive">
+    <table class="table table-striped table-bordered " id="dni">
+            <tr><td>&nbsp;</td><td>&nbsp;</td>
 
-         {% for i in 1..  dni %}
-             <td >{{ i }}</td>
-         {% endfor %}
+           {% for i in 1..  dni %}
+               <td >{{ i }}</td>
+           {% endfor %}
 
-          </tr>
-          <tr ng-repeat="x in hours">
-            <td ng-bind="(x.Imie)+' '+(x.Nazwisko)"></td>
-            <td ng-repeat="datas in x.tabelka" ng-bind="datas.Ilosc_godzin | number:0" ng-click="changeRow(datas.Ilosc_godzin,$parent.$index,$index);"></td>
-            <td ng-bind="countHours($index)"></td>
-            <td ng-bind="lasts($index)"></td>
-          </tr>
-          <tr>
-            <td>Ilość ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>
-          </tr>
-  </table>
-  <button type="button" class="btn btn-default" ng-click="send()">Dodaj</button>
+            </tr>
+            <tr ng-repeat="strazak in przydzialy">
+              <td ng-bind="(strazak.Imie)+' '+(strazak.Nazwisko)" ></td>
+              <td ng-bind="showStanowisko(strazak.Stanowisko)"></td>
+              <td ng-repeat="dzien in strazak.dni" ng-bind="dzien.Ilosc_godzin | number:0" ng-click="changeRow(dzien.Ilosc_godzin,$parent.$index,$index);"></td>
+              <td ng-bind="countGodziny($index)"></td>
+              <td ng-bind="lasts($index)"></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td><td>Ilość ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>
+            </tr>
+            <tr ng-repeat="stanowisko in stanowiska">
+              <td ng-bind="stanowisko.Nazwa"><td>&nbsp;</td></td><td ng-repeat="a in range() track by $index" ng-bind="countStanowisko(stanowisko.ID,$index)"  ng-style="styleStanowiska(stanowisko.ID,$index)"></td>
+            </tr>
+            <tr ng-repeat="uprawnienie in uprawnienia">
+              <td ng-bind="uprawnienie.Nazwa"></td><td>&nbsp;</td></td><td ng-repeat="a in range() track by $index" ng-bind="countUprawnienie(uprawnienie.ID,$index)" ng-style="styleUprawnienia(uprawnienie.ID,$index)"></td>
+            </tr>
+    </table>
+  </div>
+    <button type="button" class="btn btn-default" ng-click="send()">Dodaj</button>
 
-  <p id="miesiac">{{ miesiac }}</p> <p id="rok">{{ rok }}</p> <p id="ostatniDzien">{{ ostatniDzien }}</p>
+    <p id="miesiac">{{ miesiac }}</p> <p id="rok">{{ rok }}</p> <p id="ostatniDzien">{{ ostatniDzien }}</p>
+  </div>
 </div>
-
 
 {% endblock %}

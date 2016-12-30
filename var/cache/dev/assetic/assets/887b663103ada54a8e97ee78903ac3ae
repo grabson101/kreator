@@ -1,0 +1,19 @@
+table{
+		position: relative;
+		overflow: hidden;
+		min-width: 100%;
+	}
+	td{
+		min-width: 300px !important;
+	}
+	.scrolled-horizontal-table{
+		width: 100%;
+		overflow-x: auto;
+	}
+	.first-fixed-column-table td:first-of-type{
+		background: red;
+		position: fixed;
+	}
+	.first-fixed-column-table td:nth-of-type(2){
+		padding-left: 310px !important;
+	}

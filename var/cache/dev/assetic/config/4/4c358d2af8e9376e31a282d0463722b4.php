@@ -2,6 +2,27 @@
 
 // ::showAllStrazacy.php.twig
 return array (
+  'e7b315d' => 
+  array (
+    0 => 
+    array (
+      0 => 'bundles/app/css/theme.css',
+    ),
+    1 => 
+    array (
+      0 => 'cssrewrite',
+    ),
+    2 => 
+    array (
+      'output' => '_controller/css/e7b315d.css',
+      'name' => 'e7b315d',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
   '2c8c367' => 
   array (
     0 => 
@@ -43,19 +64,40 @@ return array (
       ),
     ),
   ),
-  'bb54fd1' => 
+  '245ae68' => 
   array (
     0 => 
     array (
-      0 => '@AppBundle/Resources/public/js/*',
+      0 => 'bundles/app/css/table-responsive.css',
+    ),
+    1 => 
+    array (
+      0 => 'cssrewrite',
+    ),
+    2 => 
+    array (
+      'output' => '_controller/css/245ae68.css',
+      'name' => '245ae68',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  'e5244fe' => 
+  array (
+    0 => 
+    array (
+      0 => '@AppBundle/Resources/public/js/showAllStrazacy.js',
     ),
     1 => 
     array (
     ),
     2 => 
     array (
-      'output' => '_controller/js/bb54fd1.js',
-      'name' => 'bb54fd1',
+      'output' => '_controller/js/e5244fe.js',
+      'name' => 'e5244fe',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

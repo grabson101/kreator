@@ -205,7 +205,7 @@ class SimpleController extends Controller
         $miesiac = $_POST["miesiac"];
         $rok = $_POST["rok"];
         $iloscGodzin = $_POST["iloscGodzin"];
-        $ostatniDzien = 0;
+        $ostatniDzien = $_POST["ostatniDzien"];
       }
       else
       {
@@ -234,6 +234,12 @@ class SimpleController extends Controller
 
       }
 
+      //jeżeli ktoś wyszedł z okna przydzielania i nie zapisał stanu
+      if(($conn->fetchAll("SELECT * FROM  `kopia`"))!=FALSE)
+        {
+          return $this->redirectToRoute('editTable', array('miesiac' =>$miesiac ,'rok'=>$rok, 'ostatniDzien'=>$ostatniDzien ));
+        }
+
 
       $iloscGodzin = $session->get('Ilosc_godzin');
 
@@ -245,13 +251,12 @@ class SimpleController extends Controller
 
       for($i=0;$i<20;$i++){$bilans[$i]=0;}
 
-      $iloscDni = 0;
-      $tablicaCala= array();
 
 
 
 
-          $iloscDni+=cal_days_in_month(CAL_GREGORIAN,$miesiac,$rok);
+
+      $iloscDni= cal_days_in_month(CAL_GREGORIAN,$miesiac,$rok);
 
 
 
@@ -301,6 +306,8 @@ class SimpleController extends Controller
             $conn->exec("INSERT INTO kopia (ID_Strazaka,Data,Ilosc_godzin)
             VALUES ('$ID','$data','$godziny');");
           }
+
+//Ustawianie pierwszego dnia miesiąca, jeżeli strażak nie szedł dzień wcześniej na służbę, a w tym dniu jego zmiana szła na 16 godzin, automatycznie nie idzie on na służbę wcale
       if(isset($ostatniDzienSzablon) && $ostatniDzien==16)
       {
           $stmt = $conn->prepare('UPDATE `kopia` SET `Ilosc_godzin`= :Ilosc_godzin WHERE `Data`= :Data AND `ID_Strazaka`= :ID_Strazaka ');
@@ -313,7 +320,7 @@ class SimpleController extends Controller
           {
 
             $stmt->bindValue(':Ilosc_godzin',0,\PDO::PARAM_INT);
-            $stmt->bindValue(':Data',$data,\PDO::PARAM_INT);
+            $stmt->bindValue(':Data',$data,\PDO::PARAM_STR);
             $stmt->bindValue(':ID_Strazaka',$value['ID'],\PDO::PARAM_INT);
             $stmt->execute();
           }
@@ -342,8 +349,59 @@ class SimpleController extends Controller
         return $this->render('przejscie.html.twig');
       }
 
+      /**
+       * @Route ("/ustawienia", name="ustawienia")
+       */
+      public function ustawienia()
+      {
+        $conn= $this->get('database_connection');
+        $stanowiska= $conn->fetchAll("SELECT * FROM `stanowiska`");
+        $ustawienia = $conn->fetchAll("SELECT * FROM `ustawienia`");
+        $uprawnienia = $conn->fetchAll("SELECT * FROM `uprawnienia_dodatkowe`");
+        return $this->render('ustawienia.html.twig',array('stanowiska'=> $stanowiska, 'ustawienia'=> $ustawienia, 'uprawnienia'=>$uprawnienia));
+      }
+
+      /**
+       * @Route ("/ustawienia/set", name="ustawieniaSet")
+       */
+       public function ustawieniaSet()
+       {
+         $ustawieniaStanowisk= $_POST['stanowisko'];
+         $ustawieniaIlosc= $_POST['opcja'];
+         $ustawieniaUprawnien = $_POST['uprawnienie'];
 
 
+         $conn = $this->get('database_connection');
+         $stmt = $conn->prepare("UPDATE `stanowiska` SET `Minimum`= :Minimum WHERE `ID`= :ID");
+//Ustawianie minimalnej liczby pracowników z określonym stanowiskiem
+         foreach ($ustawieniaStanowisk as $key => $value)
+         {
+             $stmt->bindValue(':Minimum',intval($value),\PDO::PARAM_INT);
+             $stmt->bindValue(':ID',$key,\PDO::PARAM_INT);
+             $stmt->execute();
+         }
 
+
+         $stmt = $conn->prepare("UPDATE `ustawienia` SET `Minimum`= :Minimum WHERE `ID`= :ID");
+
+           foreach ($ustawieniaIlosc as $key => $value)
+           {
+             $stmt->bindValue(':Minimum',intval($value),\PDO::PARAM_INT);
+             $stmt->bindValue(':ID',$key,\PDO::PARAM_INT);
+             $stmt->execute();
+           }
+
+
+          $stmt = $conn->prepare("UPDATE `uprawnienia_dodatkowe` SET `Minimum`= :Minimum WHERE `ID`= :ID");
+           foreach ($ustawieniaUprawnien as $key => $value)
+           {
+             $stmt->bindValue(':Minimum',intval($value),\PDO::PARAM_INT);
+             $stmt->bindValue(':ID',$key,\PDO::PARAM_INT);
+             $stmt->execute();
+           }
+
+
+         return $this->redirectToRoute('ustawienia');
+       }
 
 }
