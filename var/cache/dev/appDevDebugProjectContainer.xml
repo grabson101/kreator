@@ -554,7 +554,7 @@
                   <tag name="cache.pool"/>
                   <argument>SzkOu15aHC</argument>
                   <argument></argument>
-                  <argument>ykumzzLFB2TZmte6+rqzWg</argument>
+                  <argument>rMUzNbymg3ovrI8nVzz5Og</argument>
                   <argument>/opt/lampp/htdocs/kreator/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -567,7 +567,7 @@
                   <tag name="cache.pool"/>
                   <argument>u5hUSWpoSY</argument>
                   <argument></argument>
-                  <argument>ykumzzLFB2TZmte6+rqzWg</argument>
+                  <argument>rMUzNbymg3ovrI8nVzz5Og</argument>
                   <argument>/opt/lampp/htdocs/kreator/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -899,7 +899,7 @@
       <tag name="cache.pool"/>
       <argument>DCvHZQB18b</argument>
       <argument></argument>
-      <argument>ykumzzLFB2TZmte6+rqzWg</argument>
+      <argument>rMUzNbymg3ovrI8nVzz5Og</argument>
       <argument>/opt/lampp/htdocs/kreator/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1652,7 +1652,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5863f7195c8c97.55557888</argument>
+            <argument>586da705349200.59204533</argument>
           </service>
         </argument>
       </argument>
@@ -1786,7 +1786,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>5863f7195c8c97.55557888</argument>
+            <argument>586da705349200.59204533</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2779,6 +2779,7 @@
         <argument>setTable</argument>
         <argument>generateOneAfterOne</argument>
         <argument>przejscie</argument>
+        <argument>getPolrocze</argument>
       </argument>
       <argument>/opt/lampp/htdocs/kreator/var/cache/dev</argument>
       <argument type="collection">

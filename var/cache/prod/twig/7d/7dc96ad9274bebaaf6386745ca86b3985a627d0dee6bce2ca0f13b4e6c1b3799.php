@@ -12,6 +12,7 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
         $this->blocks = array(
             'javascripts' => array($this, 'block_javascripts'),
             'title' => array($this, 'block_title'),
+            'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -48,36 +49,11 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
         // line 19
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-
         ";
-        // line 21
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "2c8c367_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_2c8c367_0") : $this->env->getExtension('asset')->getAssetUrl("css/2c8c367_part_1_theme_1.css");
-            // line 22
-            echo "            <link rel=\"stylesheet\" href=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\" />
-
-
-
-        ";
-        } else {
-            // asset "2c8c367"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_2c8c367") : $this->env->getExtension('asset')->getAssetUrl("css/2c8c367.css");
-            echo "            <link rel=\"stylesheet\" href=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\" />
-
-
-
-        ";
-        }
-        unset($context["asset_url"]);
-        // line 27
-        echo "
-        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        // line 28
+        // line 20
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 25
+        echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
     </head>
@@ -96,19 +72,22 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
             </div>
             <div class=\"navbar-collapse collapse\">
                 <ul class=\"nav navbar-nav\" id=\"nav\">
-                    <li><a href=\"#\">Strona główna</a></li>
                     <li><a href=\"";
-        // line 46
+        // line 42
+        echo $this->env->getExtension('routing')->getPath("wyborPolrocza");
+        echo "\">Strona główna</a></li>
+                    <li><a href=\"";
+        // line 43
         echo $this->env->getExtension('routing')->getPath("allStrazacy");
         echo "\"> Przegląd </a></li>
                     <li><a href=\"";
-        // line 47
-        echo $this->env->getExtension('routing')->getPath("genForm");
+        // line 44
+        echo $this->env->getExtension('routing')->getPath("generateOneAfterOne");
         echo "\">Twórz</a></li>
                     <li><a href=\"";
-        // line 48
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("show", array("dni" => 30, "zmiana" => 2, "wymaganaIloscGodzin" => 170)), "html", null, true);
-        echo "\">Test</a></li>
+        // line 45
+        echo $this->env->getExtension('routing')->getPath("ustawienia");
+        echo "\">Ustawienia</a></li>
                   <!--  <li class=\"dropdown\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Dropdown <span class=\"caret\"></span></a>
                         <ul class=\"dropdown-menu\">
@@ -126,9 +105,9 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
         </div>
     </nav>
     ";
-        // line 65
+        // line 62
         $this->displayBlock('body', $context, $blocks);
-        // line 66
+        // line 63
         echo "
     </body>
 </html>
@@ -149,7 +128,33 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
         echo "Kreator grafiku";
     }
 
-    // line 65
+    // line 20
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        // line 21
+        echo "          ";
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "e7b315d_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e7b315d_0") : $this->env->getExtension('asset')->getAssetUrl("css/e7b315d_theme_1.css");
+            // line 22
+            echo "              <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
+            echo "\" />
+          ";
+        } else {
+            // asset "e7b315d"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e7b315d") : $this->env->getExtension('asset')->getAssetUrl("css/e7b315d.css");
+            echo "              <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
+            echo "\" />
+          ";
+        }
+        unset($context["asset_url"]);
+        // line 24
+        echo "        ";
+    }
+
+    // line 62
     public function block_body($context, array $blocks = array())
     {
     }
@@ -166,7 +171,7 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
 
     public function getDebugInfo()
     {
-        return array (  153 => 65,  147 => 19,  139 => 4,  132 => 66,  130 => 65,  110 => 48,  106 => 47,  102 => 46,  81 => 28,  78 => 27,  58 => 22,  54 => 21,  49 => 19,  43 => 16,  39 => 15,  29 => 7,  27 => 4,  22 => 1,);
+        return array (  158 => 62,  154 => 24,  140 => 22,  135 => 21,  132 => 20,  126 => 19,  118 => 4,  111 => 63,  109 => 62,  89 => 45,  85 => 44,  81 => 43,  77 => 42,  56 => 25,  54 => 20,  50 => 19,  44 => 16,  40 => 15,  30 => 7,  28 => 4,  23 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -188,14 +193,11 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
 /* */
 /* */
 /*         <title>{% block title %}Kreator grafiku{% endblock %}</title>*/
-/* */
-/*         {%stylesheets 'bundles/app/css/*' filter='cssrewrite'%}*/
-/*             <link rel="stylesheet" href="{{ asset_url }}" />*/
-/* */
-/* */
-/* */
-/*         {% endstylesheets %}*/
-/* */
+/*         {% block stylesheets %}*/
+/*           {% stylesheets 'bundles/app/css/theme.css' filter='cssrewrite'%}*/
+/*               <link rel="stylesheet" href="{{ asset_url }}" />*/
+/*           {% endstylesheets %}*/
+/*         {% endblock %}*/
 /*         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />*/
 /*     </head>*/
 /* */
@@ -213,10 +215,10 @@ class __TwigTemplate_d590e0a06cdb429ec893dae4f0c4071c423e84ec65b98a9bb40d2090721
 /*             </div>*/
 /*             <div class="navbar-collapse collapse">*/
 /*                 <ul class="nav navbar-nav" id="nav">*/
-/*                     <li><a href="#">Strona główna</a></li>*/
+/*                     <li><a href="{{ path('wyborPolrocza') }}">Strona główna</a></li>*/
 /*                     <li><a href="{{ path('allStrazacy') }}"> Przegląd </a></li>*/
-/*                     <li><a href="{{ path('genForm') }}">Twórz</a></li>*/
-/*                     <li><a href="{{ path('show', {'dni': 30, 'zmiana':2, 'wymaganaIloscGodzin':170}) }}">Test</a></li>*/
+/*                     <li><a href="{{ path('generateOneAfterOne') }}">Twórz</a></li>*/
+/*                     <li><a href="{{ path('ustawienia') }}">Ustawienia</a></li>*/
 /*                   <!--  <li class="dropdown">*/
 /*                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>*/
 /*                         <ul class="dropdown-menu">*/

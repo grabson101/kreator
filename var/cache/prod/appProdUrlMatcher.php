@@ -28,13 +28,13 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         $request = $this->request;
 
         // getTable
-        if ($pathinfo === '/get/Table') {
-            return array (  '_controller' => 'AppBundle\\Controller\\AjaxController::getTable',  '_route' => 'getTable',);
+        if (0 === strpos($pathinfo, '/get/Table') && preg_match('#^/get/Table/(?P<miesiac>[^/]++)/(?P<rok>[^/]++)/(?P<ostatniDzien>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'getTable')), array (  '_controller' => 'AppBundle\\Controller\\AjaxController::getTable',));
         }
 
         // setTable
-        if ($pathinfo === '/set/Table') {
-            return array (  '_controller' => 'AppBundle\\Controller\\AjaxController::setTable',  '_route' => 'setTable',);
+        if (0 === strpos($pathinfo, '/set/Table') && preg_match('#^/set/Table/(?P<miesiac>[^/]++)/(?P<rok>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'setTable')), array (  '_controller' => 'AppBundle\\Controller\\AjaxController::setTable',));
         }
 
         // homepage
@@ -72,33 +72,59 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         }
 
         // generateOneAfterOne
-        if ($pathinfo === '/przydzielaniePoKolei') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::przydzielaniePoKolei',  '_route' => 'generateOneAfterOne',);
+        if (0 === strpos($pathinfo, '/przydzielaniePoKolei') && preg_match('#^/przydzielaniePoKolei(?:/(?P<redirected>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'generateOneAfterOne')), array (  'redirected' => 0,  '_controller' => 'AppBundle\\Controller\\SimpleController::przydzielaniePoKolei',));
         }
 
         // editTable
-        if ($pathinfo === '/edit') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::edit',  '_route' => 'editTable',);
+        if (0 === strpos($pathinfo, '/edit') && preg_match('#^/edit/(?P<miesiac>[^/]++)/(?P<rok>[^/]++)/(?P<ostatniDzien>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'editTable')), array (  '_controller' => 'AppBundle\\Controller\\SimpleController::edit',));
         }
 
-        // allStrazacy
-        if ($pathinfo === '/allStrazacy') {
-            return array (  '_controller' => 'AppBundle\\Controller\\StrazakController::showAll',  '_route' => 'allStrazacy',);
+        // przejscie
+        if ($pathinfo === '/przejscie') {
+            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::przejscie',  '_route' => 'przejscie',);
         }
 
-        // delete
-        if (0 === strpos($pathinfo, '/delete') && preg_match('#^/delete/(?P<idStrazaka>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete')), array (  '_controller' => 'AppBundle\\Controller\\StrazakController::deleteStrazak',));
+        if (0 === strpos($pathinfo, '/ustawienia')) {
+            // ustawienia
+            if ($pathinfo === '/ustawienia') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::ustawienia',  '_route' => 'ustawienia',);
+            }
+
+            // ustawieniaSet
+            if ($pathinfo === '/ustawienia/set') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::ustawieniaSet',  '_route' => 'ustawieniaSet',);
+            }
+
         }
 
-        // addStrazak
-        if ($pathinfo === '/addStrazak') {
-            return array (  '_controller' => 'AppBundle\\Controller\\StrazakController::addStrazak',  '_route' => 'addStrazak',);
+        // wyborPolrocza
+        if ($pathinfo === '/polrocze') {
+            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::wyborPolrocza',  '_route' => 'wyborPolrocza',);
+        }
+
+        if (0 === strpos($pathinfo, '/a')) {
+            // allStrazacy
+            if ($pathinfo === '/allStrazacy') {
+                return array (  '_controller' => 'AppBundle\\Controller\\StrazakController::showAll',  '_route' => 'allStrazacy',);
+            }
+
+            // aktywny
+            if (0 === strpos($pathinfo, '/aktywny') && preg_match('#^/aktywny/(?P<idStrazaka>[^/]++)/(?P<aktywny>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'aktywny')), array (  '_controller' => 'AppBundle\\Controller\\StrazakController::deleteStrazak',));
+            }
+
+            // addStrazak
+            if ($pathinfo === '/addStrazak') {
+                return array (  '_controller' => 'AppBundle\\Controller\\StrazakController::addStrazak',  '_route' => 'addStrazak',);
+            }
+
         }
 
         // editStrazak
-        if ($pathinfo === '/editStrazak') {
-            return array (  '_controller' => 'AppBundle\\Controller\\StrazakController::editStrazak',  '_route' => 'editStrazak',);
+        if (0 === strpos($pathinfo, '/editStrazak') && preg_match('#^/editStrazak/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'editStrazak')), array (  '_controller' => 'AppBundle\\Controller\\StrazakController::editStrazak',));
         }
 
         // fos_js_routing_js

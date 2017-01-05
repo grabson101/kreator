@@ -22,36 +22,36 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b2ed297c1bd7b2376926acd559ba7512caecdd040977c2841a983c937f581d1b = $this->env->getExtension("native_profiler");
-        $__internal_b2ed297c1bd7b2376926acd559ba7512caecdd040977c2841a983c937f581d1b->enter($__internal_b2ed297c1bd7b2376926acd559ba7512caecdd040977c2841a983c937f581d1b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "edycja.html.twig"));
+        $__internal_856ba9a4c5545c9a2f8b7795919de23c4a888860c8bc88e527d4131ef1ee43f0 = $this->env->getExtension("native_profiler");
+        $__internal_856ba9a4c5545c9a2f8b7795919de23c4a888860c8bc88e527d4131ef1ee43f0->enter($__internal_856ba9a4c5545c9a2f8b7795919de23c4a888860c8bc88e527d4131ef1ee43f0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "edycja.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b2ed297c1bd7b2376926acd559ba7512caecdd040977c2841a983c937f581d1b->leave($__internal_b2ed297c1bd7b2376926acd559ba7512caecdd040977c2841a983c937f581d1b_prof);
+        $__internal_856ba9a4c5545c9a2f8b7795919de23c4a888860c8bc88e527d4131ef1ee43f0->leave($__internal_856ba9a4c5545c9a2f8b7795919de23c4a888860c8bc88e527d4131ef1ee43f0_prof);
 
     }
 
     // line 2
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_319155f8b1e99238bcf882d984998df6e585b86eaf65363490539bbeb5e0c6fe = $this->env->getExtension("native_profiler");
-        $__internal_319155f8b1e99238bcf882d984998df6e585b86eaf65363490539bbeb5e0c6fe->enter($__internal_319155f8b1e99238bcf882d984998df6e585b86eaf65363490539bbeb5e0c6fe_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_9df3d5254517112286cabe1474eb585b4f3d524d5bd3a04009d26ad99085524f = $this->env->getExtension("native_profiler");
+        $__internal_9df3d5254517112286cabe1474eb585b4f3d524d5bd3a04009d26ad99085524f->enter($__internal_9df3d5254517112286cabe1474eb585b4f3d524d5bd3a04009d26ad99085524f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 3
         echo "    <script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js\"></script>
     ";
         // line 4
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "9bf3d6a_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_9bf3d6a_0") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/9bf3d6a_app_1.js");
+            // asset "8c9072d_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_8c9072d_0") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/8c9072d_edycjaApp_1.js");
             // line 5
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
         } else {
-            // asset "9bf3d6a"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_9bf3d6a") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/9bf3d6a.js");
+            // asset "8c9072d"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_8c9072d") : $this->env->getExtension('asset')->getAssetUrl("_controller/js/8c9072d.js");
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -61,15 +61,15 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
         // line 7
         echo "  ";
         
-        $__internal_319155f8b1e99238bcf882d984998df6e585b86eaf65363490539bbeb5e0c6fe->leave($__internal_319155f8b1e99238bcf882d984998df6e585b86eaf65363490539bbeb5e0c6fe_prof);
+        $__internal_9df3d5254517112286cabe1474eb585b4f3d524d5bd3a04009d26ad99085524f->leave($__internal_9df3d5254517112286cabe1474eb585b4f3d524d5bd3a04009d26ad99085524f_prof);
 
     }
 
     // line 10
     public function block_body($context, array $blocks = array())
     {
-        $__internal_edbc6f51df4ab1a825e0bf2970009e6db757ba4f8ea6734e391da5e9d492b961 = $this->env->getExtension("native_profiler");
-        $__internal_edbc6f51df4ab1a825e0bf2970009e6db757ba4f8ea6734e391da5e9d492b961->enter($__internal_edbc6f51df4ab1a825e0bf2970009e6db757ba4f8ea6734e391da5e9d492b961_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_1a36758a8aa359df18b3c5358246b79b2f262cb3c068e046b9e47526ec3f8c2e = $this->env->getExtension("native_profiler");
+        $__internal_1a36758a8aa359df18b3c5358246b79b2f262cb3c068e046b9e47526ec3f8c2e->enter($__internal_1a36758a8aa359df18b3c5358246b79b2f262cb3c068e046b9e47526ec3f8c2e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 11
         echo "<div class=\"container\" id=\"zawartosc\">
@@ -77,28 +77,9 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
         // line 12
         echo twig_escape_filter($this->env, (isset($context["nazwaMiesiaca"]) ? $context["nazwaMiesiaca"] : $this->getContext($context, "nazwaMiesiaca")), "html", null, true);
         echo "</h1>
-  <div ng-app=\"myApp\" ng-controller=\"customersCtrl\">
+  <div ng-app=\"myApp\" ng-controller=\"strazacyCtrl\">
     <div class=\"panel-body table-responsive\">
     <table class=\"table table-striped table-bordered \" id=\"dni\">
-            <tr><td>&nbsp;</td><td>&nbsp;</td>
-
-           ";
-        // line 18
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["dni"]) ? $context["dni"] : $this->getContext($context, "dni"))));
-        foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-            // line 19
-            echo "               <td >";
-            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
-            echo "</td>
-           ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 21
-        echo "
-            </tr>
             <tr ng-repeat=\"strazak in przydzialy\">
               <td ng-bind=\"(strazak.Imie)+' '+(strazak.Nazwisko)\" ></td>
               <td ng-bind=\"showStanowisko(strazak.Stanowisko)\"></td>
@@ -107,7 +88,7 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
               <td ng-bind=\"lasts(\$index)\"></td>
             </tr>
             <tr>
-              <td>&nbsp;</td><td>Ilość ludzi</td><td ng-repeat=\"a in range() track by \$index\" ng-bind=\"countStrazacy(\$index)\"></td>
+              <td>&nbsp;</td><td>Liczba ludzi</td><td ng-repeat=\"a in range() track by \$index\" ng-bind=\"countStrazacy(\$index)\"></td>
             </tr>
             <tr ng-repeat=\"stanowisko in stanowiska\">
               <td ng-bind=\"stanowisko.Nazwa\"><td>&nbsp;</td></td><td ng-repeat=\"a in range() track by \$index\" ng-bind=\"countStanowisko(stanowisko.ID,\$index)\"  ng-style=\"styleStanowiska(stanowisko.ID,\$index)\"></td>
@@ -120,7 +101,7 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
     <button type=\"button\" class=\"btn btn-default\" ng-click=\"send()\">Dodaj</button>
 
     <p id=\"miesiac\">";
-        // line 43
+        // line 36
         echo twig_escape_filter($this->env, (isset($context["miesiac"]) ? $context["miesiac"] : $this->getContext($context, "miesiac")), "html", null, true);
         echo "</p> <p id=\"rok\">";
         echo twig_escape_filter($this->env, (isset($context["rok"]) ? $context["rok"] : $this->getContext($context, "rok")), "html", null, true);
@@ -132,7 +113,7 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 
 ";
         
-        $__internal_edbc6f51df4ab1a825e0bf2970009e6db757ba4f8ea6734e391da5e9d492b961->leave($__internal_edbc6f51df4ab1a825e0bf2970009e6db757ba4f8ea6734e391da5e9d492b961_prof);
+        $__internal_1a36758a8aa359df18b3c5358246b79b2f262cb3c068e046b9e47526ec3f8c2e->leave($__internal_1a36758a8aa359df18b3c5358246b79b2f262cb3c068e046b9e47526ec3f8c2e_prof);
 
     }
 
@@ -148,13 +129,13 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 
     public function getDebugInfo()
     {
-        return array (  124 => 43,  100 => 21,  91 => 19,  87 => 18,  78 => 12,  75 => 11,  69 => 10,  62 => 7,  48 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
+        return array (  105 => 36,  78 => 12,  75 => 11,  69 => 10,  62 => 7,  48 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
 /* {% block javascripts %}*/
 /*     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>*/
-/*     {% javascripts '@AppBundle/Resources/public/js/angular/app.js' %}*/
+/*     {% javascripts '@AppBundle/Resources/public/js/angular/edycjaApp.js' %}*/
 /*         <script src="{{ asset_url }}"></script>*/
 /*     {% endjavascripts %}*/
 /*   {% endblock %}*/
@@ -163,16 +144,9 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 /* {% block body %}*/
 /* <div class="container" id="zawartosc">*/
 /*   <h1>{{ nazwaMiesiaca }}</h1>*/
-/*   <div ng-app="myApp" ng-controller="customersCtrl">*/
+/*   <div ng-app="myApp" ng-controller="strazacyCtrl">*/
 /*     <div class="panel-body table-responsive">*/
 /*     <table class="table table-striped table-bordered " id="dni">*/
-/*             <tr><td>&nbsp;</td><td>&nbsp;</td>*/
-/* */
-/*            {% for i in 1..  dni %}*/
-/*                <td >{{ i }}</td>*/
-/*            {% endfor %}*/
-/* */
-/*             </tr>*/
 /*             <tr ng-repeat="strazak in przydzialy">*/
 /*               <td ng-bind="(strazak.Imie)+' '+(strazak.Nazwisko)" ></td>*/
 /*               <td ng-bind="showStanowisko(strazak.Stanowisko)"></td>*/
@@ -181,7 +155,7 @@ class __TwigTemplate_4df62ac4588c3b5603ac5ea8b07448d80f6033ddd19ec26a5db6d0dcbf1
 /*               <td ng-bind="lasts($index)"></td>*/
 /*             </tr>*/
 /*             <tr>*/
-/*               <td>&nbsp;</td><td>Ilość ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>*/
+/*               <td>&nbsp;</td><td>Liczba ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>*/
 /*             </tr>*/
 /*             <tr ng-repeat="stanowisko in stanowiska">*/
 /*               <td ng-bind="stanowisko.Nazwa"><td>&nbsp;</td></td><td ng-repeat="a in range() track by $index" ng-bind="countStanowisko(stanowisko.ID,$index)"  ng-style="styleStanowiska(stanowisko.ID,$index)"></td>*/

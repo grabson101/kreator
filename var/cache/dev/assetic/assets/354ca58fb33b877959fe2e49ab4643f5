@@ -1,4 +1,0 @@
-.table-responsive thead {
-    position: fixed;
-    top: 0;
-}

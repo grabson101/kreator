@@ -32,7 +32,7 @@ class __TwigTemplate_15acec21fef8d6c0dce10b3e2b703c85abf40f95969563dabfdefc60d2e
 
         <form class=\"form\" action=\"";
         // line 6
-        echo $this->env->getExtension('routing')->getPath("generateOneAfterOne");
+        echo $this->env->getExtension('routing')->getPath("generateOneAfterOne", array("redirected" => 1));
         echo "\" method=\"post\" name=\"form\" id=\"form\" role=\"form\">
             <div class=\"radio\">
                 <label><input type=\"radio\" name=\"miesiac\" id=\"miesiac\" value=\"1\" checked>Pierwsza połowa roku</label>
@@ -44,11 +44,14 @@ class __TwigTemplate_15acec21fef8d6c0dce10b3e2b703c85abf40f95969563dabfdefc60d2e
                 <label for=\"rok\">Rok:</label>
                 <input type=\"number\" value=\"2016\" min=\"2015\" class=\"form-control\" name=\"rok\" id=\"rok\" >
             </div>
-
+            <fieldset class=\"form-group row\">
+              <legend class=\"col-form-legend col-sm-4\">Wybierz ilośc godzin w ostatnim dniu poprzedniego półrocza</legend>
             <div class=\"form-group\">
-                <label for=\"zmiana\">Zmiana:</label>
-                <input type=\"number\" value=\"2\" min=\"1\" max=\"3\" class=\"form-control\" name=\"zmiana\" id=\"zmiana\" placeholder=\"Zmiana\">
+                <label class=\"radio-inline\"><input type=\"radio\" name=\"ostatniDzien\" value=\"0\">0 Godzin</label>
+                <label class=\"radio-inline\"><input type=\"radio\" name=\"ostatniDzien\" value=\"8\">8 Godzin</label>
+                <label class=\"radio-inline\"><input type=\"radio\" name=\"ostatniDzien\" value=\"16\">16 Godzin</label>
             </div>
+            </fieldset>
             <div class=\"form-group\">
                 <label for=\"iloscGodzin\">Ilość godzin w miesiącu:</label>
                 <input type=\"number\" value=\"170\" min=\"1\" class=\"form-control\" id=\"iloscGodzin\" name=\"iloscGodzin\" placeholder=\"Ilość godzin\">
@@ -83,7 +86,7 @@ class __TwigTemplate_15acec21fef8d6c0dce10b3e2b703c85abf40f95969563dabfdefc60d2e
 /* {% block body %}*/
 /*  <div class="container">*/
 /* */
-/*         <form class="form" action="{{ path('generateOneAfterOne') }}" method="post" name="form" id="form" role="form">*/
+/*         <form class="form" action="{{ path('generateOneAfterOne',{'redirected':1} ) }}" method="post" name="form" id="form" role="form">*/
 /*             <div class="radio">*/
 /*                 <label><input type="radio" name="miesiac" id="miesiac" value="1" checked>Pierwsza połowa roku</label>*/
 /*             </div>*/
@@ -94,11 +97,14 @@ class __TwigTemplate_15acec21fef8d6c0dce10b3e2b703c85abf40f95969563dabfdefc60d2e
 /*                 <label for="rok">Rok:</label>*/
 /*                 <input type="number" value="2016" min="2015" class="form-control" name="rok" id="rok" >*/
 /*             </div>*/
-/* */
+/*             <fieldset class="form-group row">*/
+/*               <legend class="col-form-legend col-sm-4">Wybierz ilośc godzin w ostatnim dniu poprzedniego półrocza</legend>*/
 /*             <div class="form-group">*/
-/*                 <label for="zmiana">Zmiana:</label>*/
-/*                 <input type="number" value="2" min="1" max="3" class="form-control" name="zmiana" id="zmiana" placeholder="Zmiana">*/
+/*                 <label class="radio-inline"><input type="radio" name="ostatniDzien" value="0">0 Godzin</label>*/
+/*                 <label class="radio-inline"><input type="radio" name="ostatniDzien" value="8">8 Godzin</label>*/
+/*                 <label class="radio-inline"><input type="radio" name="ostatniDzien" value="16">16 Godzin</label>*/
 /*             </div>*/
+/*             </fieldset>*/
 /*             <div class="form-group">*/
 /*                 <label for="iloscGodzin">Ilość godzin w miesiącu:</label>*/
 /*                 <input type="number" value="170" min="1" class="form-control" id="iloscGodzin" name="iloscGodzin" placeholder="Ilość godzin">*/

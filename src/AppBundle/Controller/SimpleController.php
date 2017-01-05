@@ -196,6 +196,7 @@ class SimpleController extends Controller
       $lastDate = $conn->fetchColumn("SELECT Data FROM grafik ORDER BY Data DESC LIMIT 1");
 
 
+
       if($lastDate == FALSE && $redirected==0)
       {
         return $this->redirectToRoute('genForm');
@@ -206,6 +207,9 @@ class SimpleController extends Controller
         $rok = $_POST["rok"];
         $iloscGodzin = $_POST["iloscGodzin"];
         $ostatniDzien = $_POST["ostatniDzien"];
+
+
+
       }
       else
       {
@@ -261,18 +265,16 @@ class SimpleController extends Controller
 
 
 
-      $strazacy = $conn->fetchAll('SELECT * FROM strazak');
+      $strazacy = $conn->fetchAll('SELECT * FROM strazak WHERE Aktywny > 0');
       //nazwiska
       foreach ($strazacy as $strazak)
       {
-          $nazwiska[]=$strazak["Imie"]." ".$strazak["Nazwisko"];
           $IDs[]= $strazak["ID"];
-
       }
 
       $zmienna = Tablica::wypelnienie2(count($strazacy), $iloscDni, $ostatniDzien);
       $szablon = $zmienna;
-      $ostatniDzien = $zmienna[0][(count($zmienna[0]))-1];
+
       $zmienna = Tablica::przydzielanie($zmienna, $bilans, $iloscGodzin);
 
 
@@ -403,5 +405,31 @@ class SimpleController extends Controller
 
          return $this->redirectToRoute('ustawienia');
        }
+
+       /**
+        * @Route ("/polrocze", name="wyborPolrocza")
+        */
+        public function wyborPolrocza()
+        {
+          $conn= $this->get('database_connection');
+
+          $tablicaLat= $conn->fetchAll("SELECT DISTINCT YEAR(grafik.Data) AS Rok FROM grafik");
+
+          return $this->render('wyborRoku.html.twig', array('tablicaLat'=>$tablicaLat));
+        }
+
+        /**
+         * @Route ("/wyswietleniePolrocza", name="wyswietleniePolrocza")
+         */
+
+         public function wyswietleniePolrocza()
+         {
+           $rok= $_POST['rok'];
+           $polowaRoku= $_POST['polowaRoku'];
+           return $this->render('wyswietleniePolrocza.html.twig', array('rok'=>$rok, 'polowaRoku'=>$polowaRoku));
+         }
+
+
+
 
 }

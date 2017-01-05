@@ -41,47 +41,68 @@ class __TwigTemplate_b62d3e6269f9d508c08a85a98afa2b15235c90f14b4f98e8ea29064c547
             echo "
     <h2>Strażacy</h2>
     <div class=\"panel panel-default\">
-    ";
-            // line 10
+
+    <table id=\"tabelka\" class=\"table table-striped\">
+      <thead><tr><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>
+        ";
+            // line 13
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["strazacy"]) ? $context["strazacy"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["strazak"]) {
-                // line 11
-                echo "
-        <div class=\"panel-body\">";
-                // line 12
+                // line 14
+                echo "        <tr>
+          <td> ";
+                // line 15
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Imie", array()), "html", null, true);
-                echo " ";
+                echo " </td><td>";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Nazwisko", array()), "html", null, true);
-                echo "  <a type=\"button\" class=\"btn btn-sm btn-danger\" href=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("delete", array("idStrazaka" => $this->getAttribute($context["strazak"], "ID", array()))), "html", null, true);
-                echo "\" >x</a> <a type=\"button\" onclick=\"edit('";
+                echo "</td><td>";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Nazwa_Stanowiska", array()), "html", null, true);
+                echo "</td><td><a type=\"button\" onclick=\"edit('";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Imie", array()), "html", null, true);
                 echo "','";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Nazwisko", array()), "html", null, true);
                 echo "', '";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "ID", array()), "html", null, true);
                 echo "', '";
-                echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Stanowisko", array()), "html", null, true);
-                echo "')\" class=\"btn btn-sm btn-warning\">Edytuj</a> </div>
+                echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "ID_Stanowiska", array()), "html", null, true);
+                echo "')\" class=\"btn btn-sm btn-warning\">Edytuj</a></td>
+          <td><a type=\"button\"
+            ";
+                // line 17
+                if (($this->getAttribute($context["strazak"], "Aktywny", array()) > 0)) {
+                    // line 18
+                    echo "                class=\"btn btn-sm btn-success\"
 
-
-
+            ";
+                } else {
+                    // line 21
+                    echo "                class=\"btn btn-sm btn-danger\"
+            ";
+                }
+                // line 23
+                echo "
+            href=\"";
+                // line 24
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("aktywny", array("idStrazaka" => $this->getAttribute($context["strazak"], "ID", array()), "aktywny" => $this->getAttribute($context["strazak"], "Aktywny", array()))), "html", null, true);
+                echo "\" >Aktywny</a></td>
+        </tr>
         ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['strazak'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 17
-            echo "    </div>
+            // line 27
+            echo "    </table>
+    </div>
 
     ";
         }
-        // line 20
+        // line 31
         echo "
     <h2 id=\"dodaj\">Dodaj Strażaka</h2><div id=\"przycisk\"></div>
     <form action=\"";
-        // line 22
+        // line 33
         echo $this->env->getExtension('routing')->getPath("addStrazak");
         echo "\" method=\"post\" name=\"form\" id=\"form\" role=\"form\">
         <div class=\"form-group\">
@@ -92,50 +113,111 @@ class __TwigTemplate_b62d3e6269f9d508c08a85a98afa2b15235c90f14b4f98e8ea29064c547
             <label for=\"nazwisko\">Nazwisko:</label>
             <input type=\"text\" class=\"form-control\" name=\"nazwisko\" id=\"nazwisko\" autocomplete=\"off\">
         </div>
-        <div class=\"form-group\">
-            <label for=\"stanowisko\">Stanowisko:</label>
-            <input type=\"number\" min=\"1\" max=\"6\"  class=\"form-control\" name=\"stanowisko\" id=\"stanowisko\" autocomplete=\"off\">
+        <fieldset>
+          <legend>Wybierz odpowiednie stanowisko (tylko 1)</legend>
+          ";
+        // line 44
+        if (((isset($context["stanowiska"]) ? $context["stanowiska"] : null) != false)) {
+            // line 45
+            echo "          ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["stanowiska"]) ? $context["stanowiska"] : null));
+            foreach ($context['_seq'] as $context["_key"] => $context["stanowisko"]) {
+                // line 46
+                echo "          <div class=\"radio\">
+            <label><input type=\"radio\" name=\"stanowisko\" id=\"stanowisko\" value=\"";
+                // line 47
+                echo twig_escape_filter($this->env, $this->getAttribute($context["stanowisko"], "ID", array()), "html", null, true);
+                echo "\" autocomplete=\"off\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["stanowisko"], "Nazwa", array()), "html", null, true);
+                echo "</label>
+          </div>
+          ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['stanowisko'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 50
+            echo "          ";
+        }
+        // line 51
+        echo "      </fieldset>
+      <fieldset>
+        <legend>Wybierz uprawnienia dodatkowe</legend>
+        ";
+        // line 54
+        if (((isset($context["uprawnienia"]) ? $context["uprawnienia"] : null) != false)) {
+            // line 55
+            echo "        ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["uprawnienia"]) ? $context["uprawnienia"] : null));
+            foreach ($context['_seq'] as $context["_key"] => $context["uprawnienie"]) {
+                // line 56
+                echo "        <div class=\"checkbox\">
+          <label><input type=\"checkbox\" name=\"uprawnienie[]\" id=\"uprawnienie\" value=\"";
+                // line 57
+                echo twig_escape_filter($this->env, $this->getAttribute($context["uprawnienie"], "ID", array()), "html", null, true);
+                echo "\" autocomplete=\"off\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["uprawnienie"], "Nazwa", array()), "html", null, true);
+                echo "</label>
         </div>
-        <div class=\"form-group\">
-            <input type=\"hidden\" name=\"id\" id=\"id\"  autocomplete=\"off\"/>
-        </div>
+        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['uprawnienie'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 60
+            echo "        ";
+        }
+        // line 61
+        echo "    </fieldset>
+
         <button id=\"wstaw_button\" type=\"submit\" class=\"btn btn-default\">Wstaw</button>
     </form>
     </div>
     <br>
     <br>
+    <p id=\"test\"></p>
 
 ";
     }
 
-    // line 47
+    // line 73
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 48
-        echo "    ";
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "bb54fd1_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1_0") : $this->env->getExtension('asset')->getAssetUrl("js/bb54fd1_part_1_formularzGen_1.js");
-            // line 49
-            echo "        <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
-            echo "\"></script>
+        // line 74
+        echo "
     ";
-            // asset "bb54fd1_1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1_1") : $this->env->getExtension('asset')->getAssetUrl("js/bb54fd1_part_1_showAllStrazacy_2.js");
-            echo "        <script src=\"";
+        // line 75
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "e5244fe_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e5244fe_0") : $this->env->getExtension('asset')->getAssetUrl("js/e5244fe_showAllStrazacy_1.js");
+            // line 76
+            echo "        <script>var strazak_uprawnienia= ";
+            echo twig_jsonencode_filter((isset($context["strazak_uprawnienia"]) ? $context["strazak_uprawnienia"] : null));
+            echo ";</script>
+        <script src=\"";
+            // line 77
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
     ";
         } else {
-            // asset "bb54fd1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_bb54fd1") : $this->env->getExtension('asset')->getAssetUrl("js/bb54fd1.js");
-            echo "        <script src=\"";
+            // asset "e5244fe"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e5244fe") : $this->env->getExtension('asset')->getAssetUrl("js/e5244fe.js");
+            // line 76
+            echo "        <script>var strazak_uprawnienia= ";
+            echo twig_jsonencode_filter((isset($context["strazak_uprawnienia"]) ? $context["strazak_uprawnienia"] : null));
+            echo ";</script>
+        <script src=\"";
+            // line 77
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\"></script>
     ";
         }
         unset($context["asset_url"]);
+        // line 79
+        echo "
+";
     }
 
     public function getTemplateName()
@@ -150,7 +232,7 @@ class __TwigTemplate_b62d3e6269f9d508c08a85a98afa2b15235c90f14b4f98e8ea29064c547
 
     public function getDebugInfo()
     {
-        return array (  120 => 49,  115 => 48,  112 => 47,  85 => 22,  81 => 20,  76 => 17,  53 => 12,  50 => 11,  46 => 10,  41 => 7,  37 => 5,  35 => 4,  32 => 3,  29 => 2,  11 => 1,);
+        return array (  219 => 79,  213 => 77,  208 => 76,  201 => 77,  196 => 76,  192 => 75,  189 => 74,  186 => 73,  173 => 61,  170 => 60,  159 => 57,  156 => 56,  151 => 55,  149 => 54,  144 => 51,  141 => 50,  130 => 47,  127 => 46,  122 => 45,  120 => 44,  106 => 33,  102 => 31,  96 => 27,  87 => 24,  84 => 23,  80 => 21,  75 => 18,  73 => 17,  56 => 15,  53 => 14,  49 => 13,  41 => 7,  37 => 5,  35 => 4,  32 => 3,  29 => 2,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
@@ -162,13 +244,24 @@ class __TwigTemplate_b62d3e6269f9d508c08a85a98afa2b15235c90f14b4f98e8ea29064c547
 /* */
 /*     <h2>Strażacy</h2>*/
 /*     <div class="panel panel-default">*/
-/*     {% for strazak in strazacy %}*/
 /* */
-/*         <div class="panel-body">{{ strazak.Imie}} {{ strazak.Nazwisko }}  <a type="button" class="btn btn-sm btn-danger" href="{{ path('delete', {'idStrazaka': strazak.ID}) }}" >x</a> <a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.Stanowisko }}')" class="btn btn-sm btn-warning">Edytuj</a> </div>*/
+/*     <table id="tabelka" class="table table-striped">*/
+/*       <thead><tr><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>*/
+/*         {% for strazak in strazacy %}*/
+/*         <tr>*/
+/*           <td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.ID_Stanowiska }}')" class="btn btn-sm btn-warning">Edytuj</a></td>*/
+/*           <td><a type="button"*/
+/*             {% if strazak.Aktywny > 0 %}*/
+/*                 class="btn btn-sm btn-success"*/
 /* */
+/*             {% else %}*/
+/*                 class="btn btn-sm btn-danger"*/
+/*             {% endif %}*/
 /* */
-/* */
+/*             href="{{ path('aktywny', {'idStrazaka': strazak.ID, 'aktywny':strazak.Aktywny}) }}" >Aktywny</a></td>*/
+/*         </tr>*/
 /*         {% endfor %}*/
+/*     </table>*/
 /*     </div>*/
 /* */
 /*     {% endif %}*/
@@ -183,25 +276,43 @@ class __TwigTemplate_b62d3e6269f9d508c08a85a98afa2b15235c90f14b4f98e8ea29064c547
 /*             <label for="nazwisko">Nazwisko:</label>*/
 /*             <input type="text" class="form-control" name="nazwisko" id="nazwisko" autocomplete="off">*/
 /*         </div>*/
-/*         <div class="form-group">*/
-/*             <label for="stanowisko">Stanowisko:</label>*/
-/*             <input type="number" min="1" max="6"  class="form-control" name="stanowisko" id="stanowisko" autocomplete="off">*/
+/*         <fieldset>*/
+/*           <legend>Wybierz odpowiednie stanowisko (tylko 1)</legend>*/
+/*           {% if stanowiska != false %}*/
+/*           {% for stanowisko in stanowiska %}*/
+/*           <div class="radio">*/
+/*             <label><input type="radio" name="stanowisko" id="stanowisko" value="{{stanowisko.ID}}" autocomplete="off">{{stanowisko.Nazwa}}</label>*/
+/*           </div>*/
+/*           {% endfor %}*/
+/*           {% endif %}*/
+/*       </fieldset>*/
+/*       <fieldset>*/
+/*         <legend>Wybierz uprawnienia dodatkowe</legend>*/
+/*         {% if uprawnienia != false %}*/
+/*         {% for uprawnienie in uprawnienia %}*/
+/*         <div class="checkbox">*/
+/*           <label><input type="checkbox" name="uprawnienie[]" id="uprawnienie" value="{{uprawnienie.ID}}" autocomplete="off">{{uprawnienie.Nazwa}}</label>*/
 /*         </div>*/
-/*         <div class="form-group">*/
-/*             <input type="hidden" name="id" id="id"  autocomplete="off"/>*/
-/*         </div>*/
+/*         {% endfor %}*/
+/*         {% endif %}*/
+/*     </fieldset>*/
+/* */
 /*         <button id="wstaw_button" type="submit" class="btn btn-default">Wstaw</button>*/
 /*     </form>*/
 /*     </div>*/
 /*     <br>*/
 /*     <br>*/
+/*     <p id="test"></p>*/
 /* */
 /* {% endblock %}*/
 /* */
 /* */
 /* {% block javascripts %}*/
-/*     {% javascripts '@AppBundle/Resources/public/js/*' %}*/
+/* */
+/*     {% javascripts '@AppBundle/Resources/public/js/showAllStrazacy.js' %}*/
+/*         <script>var strazak_uprawnienia= {{strazak_uprawnienia|json_encode()|raw}};</script>*/
 /*         <script src="{{ asset_url }}"></script>*/
 /*     {% endjavascripts %}*/
+/* */
 /* {% endblock %}*/
 /* */

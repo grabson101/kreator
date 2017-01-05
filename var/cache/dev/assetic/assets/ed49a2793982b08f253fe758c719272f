@@ -1,4 +1,0 @@
-function changeHours(e)
-{
-  alert(e.target.id);
-}

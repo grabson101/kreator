@@ -28,27 +28,40 @@ class StrazakController extends Controller
     {
         $conn= $this->get('database_connection');
 
-        $strazacy = $conn->fetchAll('SELECT strazak.ID, strazak.Imie, strazak.Nazwisko, strazak_stanowisko.ID_Strazaka, strazak_stanowisko.ID_Stanowiska , stanowiska.Nazwa AS Nazwa_Stanowiska FROM strazak JOIN strazak_stanowisko ON strazak.ID=strazak_stanowisko.ID_Strazaka JOIN stanowiska ON strazak_stanowisko.ID_Stanowiska=stanowiska.ID ORDER BY ID_Stanowiska');
+        $strazacy = $conn->fetchAll('SELECT strazak.ID, strazak.Imie, strazak.Nazwisko, strazak.Aktywny, strazak_stanowisko.ID_Strazaka, strazak_stanowisko.ID_Stanowiska , stanowiska.Nazwa AS Nazwa_Stanowiska FROM strazak JOIN strazak_stanowisko ON strazak.ID=strazak_stanowisko.ID_Strazaka JOIN stanowiska ON strazak_stanowisko.ID_Stanowiska=stanowiska.ID ORDER BY ID_Stanowiska');
         $stanowiska = $conn->fetchAll('SELECT * FROM stanowiska');
         $uprawnienia = $conn->fetchAll('SELECT * FROM uprawnienia_dodatkowe');
         $strazak_uprawnienia = $conn->fetchAll('SELECT * FROM strazak_uprawnienieDodatkowe');
-        return $this->render('showAllStrazacy.php.twig', array('strazacy'=>$strazacy, 'stanowiska'=>$stanowiska, 'uprawnienia'=>$uprawnienia, 'strazak_uprawnienia'=>$strazak_uprawnienia));
+
+        $ostatniMiesiac = $conn->fetchColumn("SELECT MONTH(Data) as Miesiac FROM grafik ORDER BY Data DESC LIMIT 1");
+        return $this->render('showAllStrazacy.php.twig', array('strazacy'=>$strazacy, 'stanowiska'=>$stanowiska, 'uprawnienia'=>$uprawnienia, 'strazak_uprawnienia'=>$strazak_uprawnienia, 'ostatniMiesiac'=>$ostatniMiesiac));
 
     }
 
     /**
-     * @Route("/delete/{idStrazaka}", name="delete")
+     * @Route("/aktywny/{idStrazaka}/{aktywny}", name="aktywny")
      */
 
-    public function deleteStrazak($idStrazaka)
+    public function activeStrazak($idStrazaka, $aktywny)
     {
         $conn= $this->get('database_connection');
 
-        $conn->exec(" INSERT INTO strazak_archiwum
-          SELECT * FROM strazak WHERE ID = $idStrazaka;  ");
+        $stmt = $conn->prepare("UPDATE strazak
+                     SET Aktywny=:Aktywny
+                     WHERE ID=:ID");
 
-        $conn->exec("DELETE FROM strazak
-                      WHERE ID = $idStrazaka ");
+        if($aktywny>0)
+        {
+          $aktywny= 0;
+        }
+        else {
+          $aktywny = 1;
+        }
+
+        $stmt -> bindValue(':Aktywny', $aktywny, \PDO::PARAM_INT);
+        $stmt -> bindValue(':ID', $idStrazaka, \PDO::PARAM_INT);
+        $stmt -> execute();
+
 
         return $this->redirectToRoute('allStrazacy');
     }
@@ -64,11 +77,12 @@ class StrazakController extends Controller
 
         $conn = $this->get('database_connection');
 
-        $stmt = $conn->prepare("INSERT INTO `strazak` (`Imie` ,`Nazwisko`)
-                VALUES (:Imie,:Nazwisko)");
+        $stmt = $conn->prepare("INSERT INTO `strazak` (`Imie` ,`Nazwisko`, `Aktywny`)
+                VALUES (:Imie,:Nazwisko,:Aktywny)");
 
         $stmt -> bindValue(':Imie', $imie, \PDO::PARAM_STR);
         $stmt -> bindValue(':Nazwisko', $nazwisko, \PDO::PARAM_STR);
+        $stmt -> bindValue(':Aktywny', 1, \PDO::PARAM_STR);
 
         $stmt -> execute();
 

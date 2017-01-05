@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block javascripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    {% javascripts '@AppBundle/Resources/public/js/angular/app.js' %}
+    {% javascripts '@AppBundle/Resources/public/js/angular/edycjaApp.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
   {% endblock %}
@@ -10,16 +10,9 @@
 {% block body %}
 <div class="container" id="zawartosc">
   <h1>{{ nazwaMiesiaca }}</h1>
-  <div ng-app="myApp" ng-controller="customersCtrl">
+  <div ng-app="myApp" ng-controller="strazacyCtrl">
     <div class="panel-body table-responsive">
     <table class="table table-striped table-bordered " id="dni">
-            <tr><td>&nbsp;</td><td>&nbsp;</td>
-
-           {% for i in 1..  dni %}
-               <td >{{ i }}</td>
-           {% endfor %}
-
-            </tr>
             <tr ng-repeat="strazak in przydzialy">
               <td ng-bind="(strazak.Imie)+' '+(strazak.Nazwisko)" ></td>
               <td ng-bind="showStanowisko(strazak.Stanowisko)"></td>
@@ -28,7 +21,7 @@
               <td ng-bind="lasts($index)"></td>
             </tr>
             <tr>
-              <td>&nbsp;</td><td>Ilość ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>
+              <td>&nbsp;</td><td>Liczba ludzi</td><td ng-repeat="a in range() track by $index" ng-bind="countStrazacy($index)"></td>
             </tr>
             <tr ng-repeat="stanowisko in stanowiska">
               <td ng-bind="stanowisko.Nazwa"><td>&nbsp;</td></td><td ng-repeat="a in range() track by $index" ng-bind="countStanowisko(stanowisko.ID,$index)"  ng-style="styleStanowiska(stanowisko.ID,$index)"></td>
