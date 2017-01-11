@@ -48,26 +48,6 @@ class AjaxControllerWyswietlenie extends Controller
          $strazacy= $conn->fetchAll("SELECT Imie, Nazwisko, ID FROM strazak");
 
 
-
-     /*
-     foreach ($idStrazakow as $key => $value)
-     {
-       $id = intval($value['ID_Strazaka']);
-       array_push($tabelaPolrocza, $conn->fetchAssoc("SELECT Imie, Nazwisko, ID FROM strazak WHERE ID= $id"));
-     }
-
-     for($i=$miesiacPoczatkowy;$i<=($miesiacPoczatkowy+5);$i++)
-     {
-       for($j=0;$j<count($tabelaPolrocza);$j++)
-       {
-        $id = $tabelaPolrocza[$j]['ID'];
-        $przydzialy= $conn->fetchAll("SELECT * FROM grafik WHERE MONTH(Data)=$i AND YEAR(Data)=$rok AND ID_Strazaka= $id");
-
-        $tabelaPolrocza[$j]['miesiace'][$i]=array('przydzialy'=>$przydzialy);
-       }
-     }
-     */
-
         $dane= array();
         $dane['miesiace']=$miesiace;
         $dane['strazacy']= $strazacy;

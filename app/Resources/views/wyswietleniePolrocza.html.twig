@@ -7,18 +7,26 @@
   {% endblock %}
 
 {% block body %}
-<div class="container" id="zawartosc">
-
-  <div ng-app="myApp" ng-controller="strazacyCtrl">
-    <table ng-repeat="miesiac in miesiace" class="table table-striped table-bordered " id="dni">
+<div class="container" id="zawartosc"  ng-app="myApp" ng-controller="strazacyCtrl">
+<h1 id="rok">{{ rok }}</h1>
+  <div ng-repeat="miesiac in miesiace">
+      <h2 ng-bind="showMonthName($index)"></h2>
+    <table class="table table-striped table-bordered " id="dni">
+      <thead>
+      <tr>
+          <th>Imię i nazwisko</th>
+          <th ng-repeat="a in range($index) track by $index" ng-bind="$index+1"></th>
+      </tr>
+  </thead>
       <tr ng-repeat="strazacy in miesiac">
         <td ng-bind="showName(strazacy.strazak)"></td>
         <td ng-repeat="dzien in strazacy.dni" ng-bind="dzien.Ilosc_godzin"></td>
       <tr>
     </table>
-
-    <p id="polowaRoku">{{ polowaRoku }}</p> <p id="rok">{{ rok }}</p>
   </div>
+ <p ng-bind="heh"></p>
+    <p id="polowaRoku">{{ polowaRoku }}</p>
+
 </div>
 
 {% endblock %}

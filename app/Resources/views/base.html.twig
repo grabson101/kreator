@@ -17,10 +17,12 @@
 
 
         <title>{% block title %}Kreator grafiku{% endblock %}</title>
+        {% stylesheets 'bundles/app/css/theme.css' filter='cssrewrite'%}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
         {% block stylesheets %}
-          {% stylesheets 'bundles/app/css/theme.css' filter='cssrewrite'%}
-              <link rel="stylesheet" href="{{ asset_url }}" />
-          {% endstylesheets %}
+
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -35,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a  class="navbar-brand" href="#">Kreator grafiku</a>
+                <a  class="navbar-brand">Aplikacja wspierająca tworzenie grafiku służb w jednostce straży pożarnej</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" id="nav">

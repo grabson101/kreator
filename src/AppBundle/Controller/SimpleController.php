@@ -193,6 +193,41 @@ class SimpleController extends Controller
 
       $conn = $this->get('database_connection');
 
+
+      //jeżeli ktoś wyszedł z okna przydzielania i nie zapisał stanu
+      if(($conn->fetchAll("SELECT * FROM  `kopia`"))!=FALSE)
+      {
+
+        $firstMonthYearDate = $conn->fetchAssoc("SELECT Data, MONTH(Data) as Miesiac, YEAR(Data) as Rok FROM kopia ORDER BY Data LIMIT 1");
+        $firstDate=$firstMonthYearDate['Data'];
+        $miesiac=$firstMonthYearDate['Miesiac'];
+        $rok=$firstMonthYearDate['Rok'];
+
+        $pierwszyDzienSzablon= $conn->fetchAll("SELECT * FROM kopia WHERE Data = '$firstDate'");
+
+        foreach ($pierwszyDzienSzablon as $key => $value)
+        {
+          if($value['Ilosc_godzin']>0)
+            {
+              $pierwszyDzien= $value['Ilosc_godzin'];
+              break;
+            }
+          else {
+            $pierwszyDzien=0;
+          }
+        }
+
+        $ostatniDzien= $pierwszyDzien-8;
+
+        if($ostatniDzien<0)
+        {
+          $ostatniDzien=16;
+        }
+
+
+        return $this->redirectToRoute('editTable', array('miesiac' =>$miesiac ,'rok'=>$rok, 'ostatniDzien'=>$ostatniDzien ));
+      }
+
       $lastDate = $conn->fetchColumn("SELECT Data FROM grafik ORDER BY Data DESC LIMIT 1");
 
 
@@ -237,12 +272,6 @@ class SimpleController extends Controller
         //$ostatniDzien = 0;//połączyć z bazą i sprawdzić
 
       }
-
-      //jeżeli ktoś wyszedł z okna przydzielania i nie zapisał stanu
-      if(($conn->fetchAll("SELECT * FROM  `kopia`"))!=FALSE)
-        {
-          return $this->redirectToRoute('editTable', array('miesiac' =>$miesiac ,'rok'=>$rok, 'ostatniDzien'=>$ostatniDzien ));
-        }
 
 
       $iloscGodzin = $session->get('Ilosc_godzin');

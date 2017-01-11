@@ -193,10 +193,13 @@ class AjaxControllerEdycja extends Controller
 
           $stanowiska = $conn->fetchAll("SELECT * FROM stanowiska");
 
+          $ustawienia = $conn->fetchAssoc("SELECT * FROM ustawienia");
+
           $dane['stanowiska']=$stanowiska;
           $dane['uprawnienia']=$uprawnienia;
           $dane['przydzialy']=$przydzialy;
           $dane['szablon']=$szablon;
+          $dane['ustawienia']=$ustawienia;
 
         return new Response (json_encode($dane));
 

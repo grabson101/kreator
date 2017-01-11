@@ -7,7 +7,7 @@
 
         <form class="form" action="{{path('wyswietleniePolrocza')}}" method="post" name="form" id="form" role="form">
           <div class="form-group">
-              <label for="sel1">Select list (select one):</label>
+              <label for="sel1">Wybierz rok oraz jego połowę z której chcesz zobaczyć harmonogram:</label>
               <select name="rok" class="form-control" id="sel1">
                 {% for rok in tablicaLat %}
                     <option  id="rok" value="{{rok.Rok}}"> {{rok.Rok}} </option>
@@ -20,7 +20,7 @@
                   <label><input type="radio" name="polowaRoku" id="polowaRoku" value="2" >Druga połowa roku</label>
               </div>
           </div>
-          <button id="wyswietl" type="submit" class="btn btn-default">Submit</button>
+          <button id="wyswietl" type="submit" class="btn btn-default">Pokaż</button>
         </form>
 
       {% endif %}

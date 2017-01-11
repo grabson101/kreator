@@ -40,20 +40,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/js')) {
-            if (0 === strpos($pathinfo, '/js/8c9072d')) {
-                // _assetic_8c9072d
-                if ($pathinfo === '/js/8c9072d.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '8c9072d',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_8c9072d',);
-                }
-
-                // _assetic_8c9072d_0
-                if ($pathinfo === '/js/8c9072d_edycjaApp_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '8c9072d',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_8c9072d_0',);
-                }
-
+        if (0 === strpos($pathinfo, '/js/8c9072d')) {
+            // _assetic_8c9072d
+            if ($pathinfo === '/js/8c9072d.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '8c9072d',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_8c9072d',);
             }
 
+            // _assetic_8c9072d_0
+            if ($pathinfo === '/js/8c9072d_edycjaApp_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '8c9072d',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_8c9072d_0',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/css/245ae68')) {
+            // _assetic_245ae68
+            if ($pathinfo === '/css/245ae68.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '245ae68',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_245ae68',);
+            }
+
+            // _assetic_245ae68_0
+            if ($pathinfo === '/css/245ae68_table-responsive_1.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '245ae68',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_245ae68_0',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/js')) {
             if (0 === strpos($pathinfo, '/js/338dc08')) {
                 // _assetic_338dc08
                 if ($pathinfo === '/js/338dc08.js') {

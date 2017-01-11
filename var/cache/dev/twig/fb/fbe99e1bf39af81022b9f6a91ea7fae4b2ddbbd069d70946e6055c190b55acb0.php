@@ -21,20 +21,20 @@ class __TwigTemplate_e7aa5113a3ce3f13555301377d4d96772b6d9155f9edda2ba056cf0e68f
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_446b23066998030008294045ab6d4cb141660258c7e1475054b6501a88ee7bf1 = $this->env->getExtension("native_profiler");
-        $__internal_446b23066998030008294045ab6d4cb141660258c7e1475054b6501a88ee7bf1->enter($__internal_446b23066998030008294045ab6d4cb141660258c7e1475054b6501a88ee7bf1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "wyborRoku.html.twig"));
+        $__internal_81266a7fd55dff7b31339edab7c39675dbd22446247a51d371b4357352245122 = $this->env->getExtension("native_profiler");
+        $__internal_81266a7fd55dff7b31339edab7c39675dbd22446247a51d371b4357352245122->enter($__internal_81266a7fd55dff7b31339edab7c39675dbd22446247a51d371b4357352245122_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "wyborRoku.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_446b23066998030008294045ab6d4cb141660258c7e1475054b6501a88ee7bf1->leave($__internal_446b23066998030008294045ab6d4cb141660258c7e1475054b6501a88ee7bf1_prof);
+        $__internal_81266a7fd55dff7b31339edab7c39675dbd22446247a51d371b4357352245122->leave($__internal_81266a7fd55dff7b31339edab7c39675dbd22446247a51d371b4357352245122_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_9490242e14c0c8c71c4108f00b02794e49f127b26f7c704f99bd7b2bf9b1fda7 = $this->env->getExtension("native_profiler");
-        $__internal_9490242e14c0c8c71c4108f00b02794e49f127b26f7c704f99bd7b2bf9b1fda7->enter($__internal_9490242e14c0c8c71c4108f00b02794e49f127b26f7c704f99bd7b2bf9b1fda7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_e7b5ab72bc8666ee8b9d158da16eec27c74c752827418c5c2326428f72813fca = $this->env->getExtension("native_profiler");
+        $__internal_e7b5ab72bc8666ee8b9d158da16eec27c74c752827418c5c2326428f72813fca->enter($__internal_e7b5ab72bc8666ee8b9d158da16eec27c74c752827418c5c2326428f72813fca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\">
@@ -52,7 +52,7 @@ class __TwigTemplate_e7aa5113a3ce3f13555301377d4d96772b6d9155f9edda2ba056cf0e68f
             echo $this->env->getExtension('routing')->getPath("wyswietleniePolrocza");
             echo "\" method=\"post\" name=\"form\" id=\"form\" role=\"form\">
           <div class=\"form-group\">
-              <label for=\"sel1\">Select list (select one):</label>
+              <label for=\"sel1\">Wybierz rok oraz jego połowę z której chcesz zobaczyć harmonogram:</label>
               <select name=\"rok\" class=\"form-control\" id=\"sel1\">
                 ";
             // line 12
@@ -79,7 +79,7 @@ class __TwigTemplate_e7aa5113a3ce3f13555301377d4d96772b6d9155f9edda2ba056cf0e68f
                   <label><input type=\"radio\" name=\"polowaRoku\" id=\"polowaRoku\" value=\"2\" >Druga połowa roku</label>
               </div>
           </div>
-          <button id=\"wyswietl\" type=\"submit\" class=\"btn btn-default\">Submit</button>
+          <button id=\"wyswietl\" type=\"submit\" class=\"btn btn-default\">Pokaż</button>
         </form>
 
       ";
@@ -88,7 +88,7 @@ class __TwigTemplate_e7aa5113a3ce3f13555301377d4d96772b6d9155f9edda2ba056cf0e68f
         echo "    </div>
 ";
         
-        $__internal_9490242e14c0c8c71c4108f00b02794e49f127b26f7c704f99bd7b2bf9b1fda7->leave($__internal_9490242e14c0c8c71c4108f00b02794e49f127b26f7c704f99bd7b2bf9b1fda7_prof);
+        $__internal_e7b5ab72bc8666ee8b9d158da16eec27c74c752827418c5c2326428f72813fca->leave($__internal_e7b5ab72bc8666ee8b9d158da16eec27c74c752827418c5c2326428f72813fca_prof);
 
     }
 
@@ -116,7 +116,7 @@ class __TwigTemplate_e7aa5113a3ce3f13555301377d4d96772b6d9155f9edda2ba056cf0e68f
 /* */
 /*         <form class="form" action="{{path('wyswietleniePolrocza')}}" method="post" name="form" id="form" role="form">*/
 /*           <div class="form-group">*/
-/*               <label for="sel1">Select list (select one):</label>*/
+/*               <label for="sel1">Wybierz rok oraz jego połowę z której chcesz zobaczyć harmonogram:</label>*/
 /*               <select name="rok" class="form-control" id="sel1">*/
 /*                 {% for rok in tablicaLat %}*/
 /*                     <option  id="rok" value="{{rok.Rok}}"> {{rok.Rok}} </option>*/
@@ -129,7 +129,7 @@ class __TwigTemplate_e7aa5113a3ce3f13555301377d4d96772b6d9155f9edda2ba056cf0e68f
 /*                   <label><input type="radio" name="polowaRoku" id="polowaRoku" value="2" >Druga połowa roku</label>*/
 /*               </div>*/
 /*           </div>*/
-/*           <button id="wyswietl" type="submit" class="btn btn-default">Submit</button>*/
+/*           <button id="wyswietl" type="submit" class="btn btn-default">Pokaż</button>*/
 /*         </form>*/
 /* */
 /*       {% endif %}*/

@@ -1,0 +1,23 @@
+table, th , td
+{
+  border: 1px solid grey !important;
+  border-collapse: collapse !important;
+  padding: 5px;
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1 !important;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff !important;
+}
+.godziny{
+background-color: #68cce8 !important;
+}
+.ustawienia{
+background-color: #2aed44;
+}
+.ustawienia-nazwa{
+background-color: #2fbc12;
+}

@@ -1,0 +1,13 @@
+var app = angular.module('myApp', []);
+app.controller('strazacyCtrl', function($scope, $http, $window)
+{
+  $scope.polowaRoku = document.getElementById("polowaRoku").innerHTML;
+  $scope.rok = document.getElementById("rok").innerHTML;
+
+  getTable($scope.rok,$scope.polowaRoku);
+
+  
+
+    $scope.heh="heh";
+
+});

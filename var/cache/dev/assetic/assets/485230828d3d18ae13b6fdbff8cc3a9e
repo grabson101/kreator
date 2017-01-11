@@ -1,0 +1,30 @@
+var app = angular.module('myApp', []);
+app.controller('strazacyCtrl', function($scope, $http, $window)
+{
+  $scope.polowaRoku = document.getElementById("polowaRoku").innerHTML;
+  $scope.rok = document.getElementById("rok").innerHTML;
+
+  getTable($scope.rok,$scope.polowaRoku);
+
+  function getTable(rok, polowaRoku)
+    {
+        $http.get(Routing.generate('getPolrocze',{rok: rok, polowaRoku: polowaRoku}))
+        .then(function (response)
+        {
+          $scope.miesiace = response.data.miesiace;
+          $scope.strazacy = response.data.strazacy;
+        });
+    };
+
+    $scope.showName = function (idStrazaka)
+    {
+      for(var i=0; i<$scope.strazacy.length; i++)
+      {
+        //if(parseInt($scope.strazacy[i]['ID']) == idStrazaka)
+        //  return ($scope.strazacy[i]['Imie']+" "$scope.strazacy[i]['Nazwisko']);
+      }
+    };
+
+    $scope.heh="heh";
+
+});

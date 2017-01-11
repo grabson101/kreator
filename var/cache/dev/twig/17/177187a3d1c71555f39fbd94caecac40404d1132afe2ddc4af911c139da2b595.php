@@ -19,8 +19,8 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_09859799b5a4ad35e248223c56d7a5c40bae640584d5b59f5e2e06e05303ae5a = $this->env->getExtension("native_profiler");
-        $__internal_09859799b5a4ad35e248223c56d7a5c40bae640584d5b59f5e2e06e05303ae5a->enter($__internal_09859799b5a4ad35e248223c56d7a5c40bae640584d5b59f5e2e06e05303ae5a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
+        $__internal_5bb72927d26a21f436b7e3fac7fdeb668c41b2923d5e710847e3873b287043a6 = $this->env->getExtension("native_profiler");
+        $__internal_5bb72927d26a21f436b7e3fac7fdeb668c41b2923d5e710847e3873b287043a6->enter($__internal_5bb72927d26a21f436b7e3fac7fdeb668c41b2923d5e710847e3873b287043a6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -54,8 +54,29 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
         echo "</title>
         ";
         // line 20
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "e7b315d_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e7b315d_0") : $this->env->getExtension('asset')->getAssetUrl("_controller/css/e7b315d_theme_1.css");
+            // line 21
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+        ";
+        } else {
+            // asset "e7b315d"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e7b315d") : $this->env->getExtension('asset')->getAssetUrl("_controller/css/e7b315d.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+        ";
+        }
+        unset($context["asset_url"]);
+        // line 23
+        echo "
+        ";
+        // line 24
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 25
+        // line 27
         echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
@@ -71,24 +92,24 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
                     <span class=\"icon-bar\"></span>
                     <span class=\"icon-bar\"></span>
                 </button>
-                <a  class=\"navbar-brand\" href=\"#\">Kreator grafiku</a>
+                <a  class=\"navbar-brand\">Aplikacja wspierająca tworzenie grafiku służb w jednostce straży pożarnej</a>
             </div>
             <div class=\"navbar-collapse collapse\">
                 <ul class=\"nav navbar-nav\" id=\"nav\">
                     <li><a href=\"";
-        // line 42
+        // line 44
         echo $this->env->getExtension('routing')->getPath("wyborPolrocza");
         echo "\">Przeglądaj harmonogramy</a></li>
                     <li><a href=\"";
-        // line 43
+        // line 45
         echo $this->env->getExtension('routing')->getPath("allStrazacy");
         echo "\"> Strażacy </a></li>
                     <li><a href=\"";
-        // line 44
+        // line 46
         echo $this->env->getExtension('routing')->getPath("generateOneAfterOne");
         echo "\">Twórz</a></li>
                     <li><a href=\"";
-        // line 45
+        // line 47
         echo $this->env->getExtension('routing')->getPath("ustawienia");
         echo "\">Ustawienia</a></li>
                   <!--  <li class=\"dropdown\">
@@ -108,84 +129,66 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
         </div>
     </nav>
     ";
-        // line 62
+        // line 64
         $this->displayBlock('body', $context, $blocks);
-        // line 63
+        // line 65
         echo "
     </body>
 </html>
 ";
         
-        $__internal_09859799b5a4ad35e248223c56d7a5c40bae640584d5b59f5e2e06e05303ae5a->leave($__internal_09859799b5a4ad35e248223c56d7a5c40bae640584d5b59f5e2e06e05303ae5a_prof);
+        $__internal_5bb72927d26a21f436b7e3fac7fdeb668c41b2923d5e710847e3873b287043a6->leave($__internal_5bb72927d26a21f436b7e3fac7fdeb668c41b2923d5e710847e3873b287043a6_prof);
 
     }
 
     // line 4
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_dffbf470147f06a884a0ccbd1b1777a76444c5ad8b1458ad1e2fad3e8a79db1f = $this->env->getExtension("native_profiler");
-        $__internal_dffbf470147f06a884a0ccbd1b1777a76444c5ad8b1458ad1e2fad3e8a79db1f->enter($__internal_dffbf470147f06a884a0ccbd1b1777a76444c5ad8b1458ad1e2fad3e8a79db1f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_472dd13ac36557778d532f264be7162131084701b707244866580c83472aac5f = $this->env->getExtension("native_profiler");
+        $__internal_472dd13ac36557778d532f264be7162131084701b707244866580c83472aac5f->enter($__internal_472dd13ac36557778d532f264be7162131084701b707244866580c83472aac5f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         echo " <!-- Latest compiled and minified CSS -->
 
         ";
         
-        $__internal_dffbf470147f06a884a0ccbd1b1777a76444c5ad8b1458ad1e2fad3e8a79db1f->leave($__internal_dffbf470147f06a884a0ccbd1b1777a76444c5ad8b1458ad1e2fad3e8a79db1f_prof);
+        $__internal_472dd13ac36557778d532f264be7162131084701b707244866580c83472aac5f->leave($__internal_472dd13ac36557778d532f264be7162131084701b707244866580c83472aac5f_prof);
 
     }
 
     // line 19
     public function block_title($context, array $blocks = array())
     {
-        $__internal_7cd14590030d2c75680233902aed12aad202d62fe536dee810c01a5a0d09c293 = $this->env->getExtension("native_profiler");
-        $__internal_7cd14590030d2c75680233902aed12aad202d62fe536dee810c01a5a0d09c293->enter($__internal_7cd14590030d2c75680233902aed12aad202d62fe536dee810c01a5a0d09c293_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_534b019236b2d3313f3c28cfe3c65f741269cf2e972f0932e14315ebe6ec6742 = $this->env->getExtension("native_profiler");
+        $__internal_534b019236b2d3313f3c28cfe3c65f741269cf2e972f0932e14315ebe6ec6742->enter($__internal_534b019236b2d3313f3c28cfe3c65f741269cf2e972f0932e14315ebe6ec6742_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Kreator grafiku";
         
-        $__internal_7cd14590030d2c75680233902aed12aad202d62fe536dee810c01a5a0d09c293->leave($__internal_7cd14590030d2c75680233902aed12aad202d62fe536dee810c01a5a0d09c293_prof);
+        $__internal_534b019236b2d3313f3c28cfe3c65f741269cf2e972f0932e14315ebe6ec6742->leave($__internal_534b019236b2d3313f3c28cfe3c65f741269cf2e972f0932e14315ebe6ec6742_prof);
 
     }
 
-    // line 20
+    // line 24
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_a99373a22b51035df3193cbd11e60bc90fe59735d7786ad5323a47b9837ba450 = $this->env->getExtension("native_profiler");
-        $__internal_a99373a22b51035df3193cbd11e60bc90fe59735d7786ad5323a47b9837ba450->enter($__internal_a99373a22b51035df3193cbd11e60bc90fe59735d7786ad5323a47b9837ba450_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_d9633ce2788ffff13809a1448fb06c6856ecc1449da0e54fabf6337ab4ab8475 = $this->env->getExtension("native_profiler");
+        $__internal_d9633ce2788ffff13809a1448fb06c6856ecc1449da0e54fabf6337ab4ab8475->enter($__internal_d9633ce2788ffff13809a1448fb06c6856ecc1449da0e54fabf6337ab4ab8475_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 21
-        echo "          ";
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "e7b315d_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e7b315d_0") : $this->env->getExtension('asset')->getAssetUrl("_controller/css/e7b315d_theme_1.css");
-            // line 22
-            echo "              <link rel=\"stylesheet\" href=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\" />
-          ";
-        } else {
-            // asset "e7b315d"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_e7b315d") : $this->env->getExtension('asset')->getAssetUrl("_controller/css/e7b315d.css");
-            echo "              <link rel=\"stylesheet\" href=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\" />
-          ";
-        }
-        unset($context["asset_url"]);
-        // line 24
-        echo "        ";
+        // line 25
+        echo "
+        ";
         
-        $__internal_a99373a22b51035df3193cbd11e60bc90fe59735d7786ad5323a47b9837ba450->leave($__internal_a99373a22b51035df3193cbd11e60bc90fe59735d7786ad5323a47b9837ba450_prof);
+        $__internal_d9633ce2788ffff13809a1448fb06c6856ecc1449da0e54fabf6337ab4ab8475->leave($__internal_d9633ce2788ffff13809a1448fb06c6856ecc1449da0e54fabf6337ab4ab8475_prof);
 
     }
 
-    // line 62
+    // line 64
     public function block_body($context, array $blocks = array())
     {
-        $__internal_a7343d30e07849ebcb70e9c5aaf79766bee5b17837984621558d3d3d864d8198 = $this->env->getExtension("native_profiler");
-        $__internal_a7343d30e07849ebcb70e9c5aaf79766bee5b17837984621558d3d3d864d8198->enter($__internal_a7343d30e07849ebcb70e9c5aaf79766bee5b17837984621558d3d3d864d8198_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_b5ff725a6b682f1f112d025fd90b769956dfb5acecddb2646038c01b124b9a52 = $this->env->getExtension("native_profiler");
+        $__internal_b5ff725a6b682f1f112d025fd90b769956dfb5acecddb2646038c01b124b9a52->enter($__internal_b5ff725a6b682f1f112d025fd90b769956dfb5acecddb2646038c01b124b9a52_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_a7343d30e07849ebcb70e9c5aaf79766bee5b17837984621558d3d3d864d8198->leave($__internal_a7343d30e07849ebcb70e9c5aaf79766bee5b17837984621558d3d3d864d8198_prof);
+        $__internal_b5ff725a6b682f1f112d025fd90b769956dfb5acecddb2646038c01b124b9a52->leave($__internal_b5ff725a6b682f1f112d025fd90b769956dfb5acecddb2646038c01b124b9a52_prof);
 
     }
 
@@ -201,7 +204,7 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
 
     public function getDebugInfo()
     {
-        return array (  182 => 62,  175 => 24,  161 => 22,  156 => 21,  150 => 20,  138 => 19,  124 => 4,  114 => 63,  112 => 62,  92 => 45,  88 => 44,  84 => 43,  80 => 42,  59 => 25,  57 => 20,  53 => 19,  47 => 16,  43 => 15,  33 => 7,  31 => 4,  26 => 1,);
+        return array (  185 => 64,  177 => 25,  171 => 24,  159 => 19,  145 => 4,  135 => 65,  133 => 64,  113 => 47,  109 => 46,  105 => 45,  101 => 44,  80 => 27,  78 => 24,  75 => 23,  61 => 21,  57 => 20,  53 => 19,  47 => 16,  43 => 15,  33 => 7,  31 => 4,  26 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -223,10 +226,12 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
 /* */
 /* */
 /*         <title>{% block title %}Kreator grafiku{% endblock %}</title>*/
+/*         {% stylesheets 'bundles/app/css/theme.css' filter='cssrewrite'%}*/
+/*             <link rel="stylesheet" href="{{ asset_url }}" />*/
+/*         {% endstylesheets %}*/
+/* */
 /*         {% block stylesheets %}*/
-/*           {% stylesheets 'bundles/app/css/theme.css' filter='cssrewrite'%}*/
-/*               <link rel="stylesheet" href="{{ asset_url }}" />*/
-/*           {% endstylesheets %}*/
+/* */
 /*         {% endblock %}*/
 /*         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />*/
 /*     </head>*/
@@ -241,7 +246,7 @@ class __TwigTemplate_ee486d85754b35b1afc6d631b6c65470bad3cd027d26fa0f80322def5a0
 /*                     <span class="icon-bar"></span>*/
 /*                     <span class="icon-bar"></span>*/
 /*                 </button>*/
-/*                 <a  class="navbar-brand" href="#">Kreator grafiku</a>*/
+/*                 <a  class="navbar-brand">Aplikacja wspierająca tworzenie grafiku służb w jednostce straży pożarnej</a>*/
 /*             </div>*/
 /*             <div class="navbar-collapse collapse">*/
 /*                 <ul class="nav navbar-nav" id="nav">*/
