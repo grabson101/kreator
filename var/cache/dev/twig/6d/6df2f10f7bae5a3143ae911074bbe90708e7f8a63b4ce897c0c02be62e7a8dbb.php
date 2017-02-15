@@ -22,20 +22,20 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_10711b9ce7f2c5eb6e1687c120497438dced0f3fe3509fe455b224e066132d67 = $this->env->getExtension("native_profiler");
-        $__internal_10711b9ce7f2c5eb6e1687c120497438dced0f3fe3509fe455b224e066132d67->enter($__internal_10711b9ce7f2c5eb6e1687c120497438dced0f3fe3509fe455b224e066132d67_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "showAllStrazacy.php.twig"));
+        $__internal_341aae84070c9f98af4be15106a9ec7cc6ca3c6733ea12d141c7fece8341b3a8 = $this->env->getExtension("native_profiler");
+        $__internal_341aae84070c9f98af4be15106a9ec7cc6ca3c6733ea12d141c7fece8341b3a8->enter($__internal_341aae84070c9f98af4be15106a9ec7cc6ca3c6733ea12d141c7fece8341b3a8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "showAllStrazacy.php.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_10711b9ce7f2c5eb6e1687c120497438dced0f3fe3509fe455b224e066132d67->leave($__internal_10711b9ce7f2c5eb6e1687c120497438dced0f3fe3509fe455b224e066132d67_prof);
+        $__internal_341aae84070c9f98af4be15106a9ec7cc6ca3c6733ea12d141c7fece8341b3a8->leave($__internal_341aae84070c9f98af4be15106a9ec7cc6ca3c6733ea12d141c7fece8341b3a8_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_995efb3b2cdd3808e18bd70fd4235c5835e08251dbdb3a5b2daa60817c826ede = $this->env->getExtension("native_profiler");
-        $__internal_995efb3b2cdd3808e18bd70fd4235c5835e08251dbdb3a5b2daa60817c826ede->enter($__internal_995efb3b2cdd3808e18bd70fd4235c5835e08251dbdb3a5b2daa60817c826ede_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_894f91855ab6f73868ec4fec95798c8886919da3b6a47d8af5d62025cd008c99 = $this->env->getExtension("native_profiler");
+        $__internal_894f91855ab6f73868ec4fec95798c8886919da3b6a47d8af5d62025cd008c99->enter($__internal_894f91855ab6f73868ec4fec95798c8886919da3b6a47d8af5d62025cd008c99_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\" id=\"zawartosc\">
@@ -52,16 +52,31 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
     <div class=\"panel panel-default\">
 
     <table id=\"tabelka\" class=\"table table-striped\">
-      <thead><tr><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>
+      <thead><tr><th>Lp</th><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>
         ";
             // line 13
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["strazacy"]) ? $context["strazacy"] : $this->getContext($context, "strazacy")));
+            $context['loop'] = array(
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            );
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
             foreach ($context['_seq'] as $context["_key"] => $context["strazak"]) {
                 // line 14
                 echo "        <tr>
-          <td> ";
+          <td>";
                 // line 15
+                echo twig_escape_filter($this->env, $this->getAttribute($context["loop"], "index", array()), "html", null, true);
+                echo "</td><td> ";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Imie", array()), "html", null, true);
                 echo " </td><td>";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["strazak"], "Nazwisko", array()), "html", null, true);
@@ -82,7 +97,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
                 if (($this->getAttribute($context["strazak"], "Aktywny", array()) > 0)) {
                     // line 18
                     echo "                class=\"btn btn-sm btn-success\" ";
-                    if ((((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 12) || ((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 6))) {
+                    if (((((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 12) || ((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 6)) && ((isset($context["kopiaPusta"]) ? $context["kopiaPusta"] : $this->getContext($context, "kopiaPusta")) == true))) {
                         // line 19
                         echo "                    href=\"";
                         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("aktywny", array("idStrazaka" => $this->getAttribute($context["strazak"], "ID", array()), "aktywny" => $this->getAttribute($context["strazak"], "Aktywny", array()))), "html", null, true);
@@ -97,7 +112,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
                 } else {
                     // line 22
                     echo "                class=\"btn btn-sm btn-danger\" ";
-                    if ((((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 12) || ((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 6))) {
+                    if (((((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 12) || ((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 6)) && ((isset($context["kopiaPusta"]) ? $context["kopiaPusta"] : $this->getContext($context, "kopiaPusta")) == true))) {
                         // line 23
                         echo "                     href=\"";
                         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("aktywny", array("idStrazaka" => $this->getAttribute($context["strazak"], "ID", array()), "aktywny" => $this->getAttribute($context["strazak"], "Aktywny", array()))), "html", null, true);
@@ -114,6 +129,14 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
                 echo "
         </tr>
         ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['strazak'], $context['_parent'], $context['loop']);
@@ -125,7 +148,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
         }
         // line 32
         echo "    ";
-        if ((((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 12) || ((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 6))) {
+        if (((((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 12) || ((isset($context["ostatniMiesiac"]) ? $context["ostatniMiesiac"] : $this->getContext($context, "ostatniMiesiac")) == 6)) && ((isset($context["kopiaPusta"]) ? $context["kopiaPusta"] : $this->getContext($context, "kopiaPusta")) == true))) {
             // line 33
             echo "    <h2 id=\"dodaj\">Dodaj Strażaka</h2><div id=\"przycisk\"></div>
     <form action=\"";
@@ -134,11 +157,11 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
             echo "\" method=\"post\" name=\"form\" id=\"form\" role=\"form\">
         <div class=\"form-group\">
             <label for=\"imie\">Imię:</label>
-            <input type=\"text\" class=\"form-control\" name=\"imie\" id=\"imie\" autocomplete=\"off\">
+            <input type=\"text\" class=\"form-control\" name=\"imie\" id=\"imie\" autocomplete=\"off\" required>
         </div>
         <div class=\"form-group\">
             <label for=\"nazwisko\">Nazwisko:</label>
-            <input type=\"text\" class=\"form-control\" name=\"nazwisko\" id=\"nazwisko\" autocomplete=\"off\">
+            <input type=\"text\" class=\"form-control\" name=\"nazwisko\" id=\"nazwisko\" autocomplete=\"off\" required>
         </div>
         <fieldset>
           <legend>Wybierz odpowiednie stanowisko (tylko 1)</legend>
@@ -219,15 +242,15 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 
 ";
         
-        $__internal_995efb3b2cdd3808e18bd70fd4235c5835e08251dbdb3a5b2daa60817c826ede->leave($__internal_995efb3b2cdd3808e18bd70fd4235c5835e08251dbdb3a5b2daa60817c826ede_prof);
+        $__internal_894f91855ab6f73868ec4fec95798c8886919da3b6a47d8af5d62025cd008c99->leave($__internal_894f91855ab6f73868ec4fec95798c8886919da3b6a47d8af5d62025cd008c99_prof);
 
     }
 
     // line 78
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_8864aee150ea16f83a66fdbab58f23afeb3845eda314bf10f3ab31d8b76556e6 = $this->env->getExtension("native_profiler");
-        $__internal_8864aee150ea16f83a66fdbab58f23afeb3845eda314bf10f3ab31d8b76556e6->enter($__internal_8864aee150ea16f83a66fdbab58f23afeb3845eda314bf10f3ab31d8b76556e6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_5bf383583e8d48da0d3deca9fd96ee75ea4cb597e7bcb4331977b66369b30efc = $this->env->getExtension("native_profiler");
+        $__internal_5bf383583e8d48da0d3deca9fd96ee75ea4cb597e7bcb4331977b66369b30efc->enter($__internal_5bf383583e8d48da0d3deca9fd96ee75ea4cb597e7bcb4331977b66369b30efc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 79
         echo "
@@ -263,7 +286,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
         echo "
 ";
         
-        $__internal_8864aee150ea16f83a66fdbab58f23afeb3845eda314bf10f3ab31d8b76556e6->leave($__internal_8864aee150ea16f83a66fdbab58f23afeb3845eda314bf10f3ab31d8b76556e6_prof);
+        $__internal_5bf383583e8d48da0d3deca9fd96ee75ea4cb597e7bcb4331977b66369b30efc->leave($__internal_5bf383583e8d48da0d3deca9fd96ee75ea4cb597e7bcb4331977b66369b30efc_prof);
 
     }
 
@@ -279,7 +302,7 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 
     public function getDebugInfo()
     {
-        return array (  263 => 84,  257 => 82,  252 => 81,  245 => 82,  240 => 81,  236 => 80,  233 => 79,  227 => 78,  215 => 70,  209 => 67,  206 => 66,  200 => 62,  197 => 61,  186 => 58,  183 => 57,  178 => 56,  176 => 55,  171 => 52,  168 => 51,  157 => 48,  154 => 47,  149 => 46,  147 => 45,  133 => 34,  130 => 33,  127 => 32,  122 => 29,  114 => 26,  110 => 24,  102 => 23,  99 => 22,  95 => 20,  87 => 19,  84 => 18,  82 => 17,  65 => 15,  62 => 14,  58 => 13,  50 => 7,  46 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
+        return array (  286 => 84,  280 => 82,  275 => 81,  268 => 82,  263 => 81,  259 => 80,  256 => 79,  250 => 78,  238 => 70,  232 => 67,  229 => 66,  223 => 62,  220 => 61,  209 => 58,  206 => 57,  201 => 56,  199 => 55,  194 => 52,  191 => 51,  180 => 48,  177 => 47,  172 => 46,  170 => 45,  156 => 34,  153 => 33,  150 => 32,  145 => 29,  129 => 26,  125 => 24,  117 => 23,  114 => 22,  110 => 20,  102 => 19,  99 => 18,  97 => 17,  78 => 15,  75 => 14,  58 => 13,  50 => 7,  46 => 5,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
@@ -293,17 +316,17 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 /*     <div class="panel panel-default">*/
 /* */
 /*     <table id="tabelka" class="table table-striped">*/
-/*       <thead><tr><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>*/
+/*       <thead><tr><th>Lp</th><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>*/
 /*         {% for strazak in strazacy %}*/
 /*         <tr>*/
-/*           <td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.ID_Stanowiska }}')" class="btn btn-sm btn-warning">Edytuj</a></td>*/
+/*           <td>{{ loop.index }}</td><td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.ID_Stanowiska }}')" class="btn btn-sm btn-warning">Edytuj</a></td>*/
 /*           <td><a type="button"*/
 /*           {% if strazak.Aktywny > 0 %}*/
-/*                 class="btn btn-sm btn-success" {% if (ostatniMiesiac == 12) or (ostatniMiesiac == 6) %}*/
+/*                 class="btn btn-sm btn-success" {% if ((ostatniMiesiac == 12) or (ostatniMiesiac == 6)) and kopiaPusta == true %}*/
 /*                     href="{{ path('aktywny', {'idStrazaka': strazak.ID, 'aktywny':strazak.Aktywny}) }}"{% else %}disabled*/
 /*                         {% endif %}>Aktywny</a></td>*/
 /*           {% else %}*/
-/*                 class="btn btn-sm btn-danger" {% if (ostatniMiesiac == 12) or (ostatniMiesiac == 6) %}*/
+/*                 class="btn btn-sm btn-danger" {% if ((ostatniMiesiac == 12) or (ostatniMiesiac == 6)) and kopiaPusta == true %}*/
 /*                      href="{{ path('aktywny', {'idStrazaka': strazak.ID, 'aktywny':strazak.Aktywny}) }}" {% else %}disabled*/
 /*                         {% endif %}> Nieaktywny</a></td>*/
 /*           {% endif %}*/
@@ -313,16 +336,16 @@ class __TwigTemplate_46e3c5cd9fc63d3ca9d6aaabd94d2de75eed8bf513435c4cc795579cdf1
 /*     </table>*/
 /*     </div>*/
 /*     {% endif %}*/
-/*     {% if ostatniMiesiac == 12 or ostatniMiesiac == 6 %}*/
+/*     {% if ((ostatniMiesiac == 12) or (ostatniMiesiac == 6)) and kopiaPusta == true %}*/
 /*     <h2 id="dodaj">Dodaj Strażaka</h2><div id="przycisk"></div>*/
 /*     <form action="{{ path('addStrazak') }}" method="post" name="form" id="form" role="form">*/
 /*         <div class="form-group">*/
 /*             <label for="imie">Imię:</label>*/
-/*             <input type="text" class="form-control" name="imie" id="imie" autocomplete="off">*/
+/*             <input type="text" class="form-control" name="imie" id="imie" autocomplete="off" required>*/
 /*         </div>*/
 /*         <div class="form-group">*/
 /*             <label for="nazwisko">Nazwisko:</label>*/
-/*             <input type="text" class="form-control" name="nazwisko" id="nazwisko" autocomplete="off">*/
+/*             <input type="text" class="form-control" name="nazwisko" id="nazwisko" autocomplete="off" required>*/
 /*         </div>*/
 /*         <fieldset>*/
 /*           <legend>Wybierz odpowiednie stanowisko (tylko 1)</legend>*/

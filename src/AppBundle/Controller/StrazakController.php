@@ -34,7 +34,20 @@ class StrazakController extends Controller
         $strazak_uprawnienia = $conn->fetchAll('SELECT * FROM strazak_uprawnienieDodatkowe');
 
         $ostatniMiesiac = $conn->fetchColumn("SELECT MONTH(Data) as Miesiac FROM grafik ORDER BY Data DESC LIMIT 1");
-        return $this->render('showAllStrazacy.php.twig', array('strazacy'=>$strazacy, 'stanowiska'=>$stanowiska, 'uprawnienia'=>$uprawnienia, 'strazak_uprawnienia'=>$strazak_uprawnienia, 'ostatniMiesiac'=>$ostatniMiesiac));
+        if (empty($ostatniMiesiac))
+        {
+          $ostatniMiesiac=12;
+        }
+        $kopia= $conn->fetchColumn("SELECT MONTH(Data) as Miesiac FROM kopia ORDER BY Data DESC LIMIT 1");
+        $kopiaPusta;
+        if(empty($kopia))
+        {
+          $kopiaPusta= True;
+        }
+        else {
+          $kopiaPusta= False;
+        }
+        return $this->render('showAllStrazacy.php.twig', array('strazacy'=>$strazacy, 'stanowiska'=>$stanowiska, 'uprawnienia'=>$uprawnienia, 'strazak_uprawnienia'=>$strazak_uprawnienia, 'ostatniMiesiac'=>$ostatniMiesiac, 'kopiaPusta'=>$kopiaPusta));
 
     }
 

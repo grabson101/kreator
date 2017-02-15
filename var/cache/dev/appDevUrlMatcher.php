@@ -192,29 +192,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::indexAction',  '_route' => 'homepage',);
         }
 
-        // show
-        if (0 === strpos($pathinfo, '/wyswietlenie') && preg_match('#^/wyswietlenie/(?P<dni>[^/]++)/(?P<zmiana>[^/]++)/(?P<wymaganaIloscGodzin>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'show')), array (  '_controller' => 'AppBundle\\Controller\\SimpleController::wyswietlenie',));
-        }
-
-        // add
-        if ($pathinfo === '/dodawanie') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::dodajMiesac',  '_route' => 'add',);
-        }
-
-        // akcja
-        if ($pathinfo === '/akcja') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::akcja',  '_route' => 'akcja',);
-        }
-
         // genForm
         if ($pathinfo === '/genForm') {
             return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::generujFormularz',  '_route' => 'genForm',);
-        }
-
-        // showHalfYear
-        if ($pathinfo === '/wyswietleniePolRoku') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::przydzielaniePolRoku',  '_route' => 'showHalfYear',);
         }
 
         // generateOneAfterOne
@@ -253,6 +233,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // wyswietleniePolrocza
         if ($pathinfo === '/wyswietleniePolrocza') {
             return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::wyswietleniePolrocza',  '_route' => 'wyswietleniePolrocza',);
+        }
+
+        if (0 === strpos($pathinfo, '/uprawnienia/add')) {
+            // dodawanieUprawnienFormularz
+            if ($pathinfo === '/uprawnienia/addForm') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::dodawanieUprawnienFormularz',  '_route' => 'dodawanieUprawnienFormularz',);
+            }
+
+            // dodawanieUprawnien
+            if ($pathinfo === '/uprawnienia/add') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SimpleController::dodawanieUprawnien',  '_route' => 'dodawanieUprawnien',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/a')) {

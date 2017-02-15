@@ -43,8 +43,7 @@ class Tablica
             for($i=0;$i<$iloscLudzi; $i++)
                 for($j=0;$j<$iloscDni; $j++)
                     {$tablicaPrzydzialow[$i][$j]=0;}
-      //  $tmp = ($ostatniDzien+8)%24;
-        //d($tmp);
+
         for($i=0;$i<$iloscLudzi; $i++)
         { $tmp = ($ostatniDzien-8);
           if($tmp<0)
@@ -122,12 +121,11 @@ class Tablica
     }
 
 
-    public static function przydzielanie ($tablica, $bilans, $wymaganaIloscGodzin)
+    public static function przydzielanie ($tablica, $wymaganaIloscGodzin)
     {
         for ($i=0; $i<count($tablica); $i++)
         {
             $suma = Tablica::sumowanieWiersza($tablica, $i);
-            $wymaganaIloscGodzin+=$bilans[$i];
 
             while($suma-24>$wymaganaIloscGodzin)
             {
@@ -191,13 +189,11 @@ class Tablica
                     $tablica[$i][$j]=0;
                     $suma-=8;
 
-                    //System.out.println ("AAAAAAAAAAAAA");
+
                 }
             }
 
-            //if($sytuacja==1)
 
-            $bilans[$i]=$wymaganaIloscGodzin;
         }
         return $tablica;
     }
@@ -227,27 +223,5 @@ class Tablica
 
     }
 
-
-public static function wyswietlenie ($tablicaNazwisk, $tablicaPrzydzialow)
-{
-
-    echo "<table class='table'>";
-    echo "<tr><td>Imię i nazwisko<td>";
-
-    for($i=0;$i<count($tablicaPrzydzialow[0])-1;$i++)
-    echo "<td>".($i+1)."</td>";
-
-    echo "<tr>";
-    for($i=0; $i<count($tablicaPrzydzialow);$i++)
-        {
-            echo "<tr><td>$tablicaNazwisk[$i]<td>";
-            for ($j=0; $j<count($tablicaPrzydzialow[0])-1;$j++)
-                {
-                    echo "<td>".$tablicaPrzydzialow[$i][$j]."</td>";
-                }
-             echo "</tr>";
-         }
-    echo "</table>";
-}
 
 }

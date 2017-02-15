@@ -1,0 +1,37 @@
+table, th , td
+{
+  border: 1px solid grey !important;
+  border-collapse: collapse !important;
+  padding: 5px;
+  vertical-align: middle !important;
+  text-align: center !important;
+  column-width: 100px !important;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1 !important;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff !important;
+}
+.godziny{
+background-color: #68cce8 !important;
+}
+.ustawienia{
+background-color: #2aed44;
+}
+.ustawienia-nazwa{
+background-color: #2fbc12;
+}
+.empty{
+background-color: #d3d3d3;
+}
+.stanowisko{
+background-color: #417fe2;
+}
+.nazwisko{
+background-color: #286ee0;
+}
+.suma-godzin
+{
+background-color: #99c0ff;
+}

@@ -9,17 +9,17 @@
     <div class="panel panel-default">
 
     <table id="tabelka" class="table table-striped">
-      <thead><tr><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>
+      <thead><tr><th>Lp</th><th>Imię</th><th>Nazwisko</th><th>Stanowisko</th></tr></thead>
         {% for strazak in strazacy %}
         <tr>
-          <td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.ID_Stanowiska }}')" class="btn btn-sm btn-warning">Edytuj</a></td>
+          <td>{{ loop.index }}</td><td> {{ strazak.Imie}} </td><td>{{ strazak.Nazwisko }}</td><td>{{strazak.Nazwa_Stanowiska}}</td><td><a type="button" onclick="edit('{{ strazak.Imie }}','{{ strazak.Nazwisko}}', '{{ strazak.ID }}', '{{ strazak.ID_Stanowiska }}')" class="btn btn-sm btn-warning">Edytuj</a></td>
           <td><a type="button"
           {% if strazak.Aktywny > 0 %}
-                class="btn btn-sm btn-success" {% if (ostatniMiesiac == 12) or (ostatniMiesiac == 6) %}
+                class="btn btn-sm btn-success" {% if ((ostatniMiesiac == 12) or (ostatniMiesiac == 6)) and kopiaPusta == true %}
                     href="{{ path('aktywny', {'idStrazaka': strazak.ID, 'aktywny':strazak.Aktywny}) }}"{% else %}disabled
                         {% endif %}>Aktywny</a></td>
           {% else %}
-                class="btn btn-sm btn-danger" {% if (ostatniMiesiac == 12) or (ostatniMiesiac == 6) %}
+                class="btn btn-sm btn-danger" {% if ((ostatniMiesiac == 12) or (ostatniMiesiac == 6)) and kopiaPusta == true %}
                      href="{{ path('aktywny', {'idStrazaka': strazak.ID, 'aktywny':strazak.Aktywny}) }}" {% else %}disabled
                         {% endif %}> Nieaktywny</a></td>
           {% endif %}
@@ -29,16 +29,16 @@
     </table>
     </div>
     {% endif %}
-    {% if ostatniMiesiac == 12 or ostatniMiesiac == 6 %}
+    {% if ((ostatniMiesiac == 12) or (ostatniMiesiac == 6)) and kopiaPusta == true %}
     <h2 id="dodaj">Dodaj Strażaka</h2><div id="przycisk"></div>
     <form action="{{ path('addStrazak') }}" method="post" name="form" id="form" role="form">
         <div class="form-group">
             <label for="imie">Imię:</label>
-            <input type="text" class="form-control" name="imie" id="imie" autocomplete="off">
+            <input type="text" class="form-control" name="imie" id="imie" autocomplete="off" required>
         </div>
         <div class="form-group">
             <label for="nazwisko">Nazwisko:</label>
-            <input type="text" class="form-control" name="nazwisko" id="nazwisko" autocomplete="off">
+            <input type="text" class="form-control" name="nazwisko" id="nazwisko" autocomplete="off" required>
         </div>
         <fieldset>
           <legend>Wybierz odpowiednie stanowisko (tylko 1)</legend>

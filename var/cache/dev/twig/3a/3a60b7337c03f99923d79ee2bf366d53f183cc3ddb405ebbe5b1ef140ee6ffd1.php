@@ -21,20 +21,20 @@ class __TwigTemplate_82878d16c7bc967bf80875e2066cd297baa913b28e422ee7baf1752f46a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_f0d76a402df39376f6e0efac267939dabf79ab76d718e77703cd5bbae7ecb3ad = $this->env->getExtension("native_profiler");
-        $__internal_f0d76a402df39376f6e0efac267939dabf79ab76d718e77703cd5bbae7ecb3ad->enter($__internal_f0d76a402df39376f6e0efac267939dabf79ab76d718e77703cd5bbae7ecb3ad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "formularzTworzenie.php.twig"));
+        $__internal_0ef7bbc68ef65bfccffce21e8e94fdd03733bf6401beca891b603b6c5b5bc03d = $this->env->getExtension("native_profiler");
+        $__internal_0ef7bbc68ef65bfccffce21e8e94fdd03733bf6401beca891b603b6c5b5bc03d->enter($__internal_0ef7bbc68ef65bfccffce21e8e94fdd03733bf6401beca891b603b6c5b5bc03d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "formularzTworzenie.php.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_f0d76a402df39376f6e0efac267939dabf79ab76d718e77703cd5bbae7ecb3ad->leave($__internal_f0d76a402df39376f6e0efac267939dabf79ab76d718e77703cd5bbae7ecb3ad_prof);
+        $__internal_0ef7bbc68ef65bfccffce21e8e94fdd03733bf6401beca891b603b6c5b5bc03d->leave($__internal_0ef7bbc68ef65bfccffce21e8e94fdd03733bf6401beca891b603b6c5b5bc03d_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_130369f2835bc545ba651ae22991c5819a25e328cd3a5ea3b6f192f808e2f69e = $this->env->getExtension("native_profiler");
-        $__internal_130369f2835bc545ba651ae22991c5819a25e328cd3a5ea3b6f192f808e2f69e->enter($__internal_130369f2835bc545ba651ae22991c5819a25e328cd3a5ea3b6f192f808e2f69e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_cd40ec07f20bae52a9ed0619409dd693519738681d80ed07e85046999dd1fde5 = $this->env->getExtension("native_profiler");
+        $__internal_cd40ec07f20bae52a9ed0619409dd693519738681d80ed07e85046999dd1fde5->enter($__internal_cd40ec07f20bae52a9ed0619409dd693519738681d80ed07e85046999dd1fde5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo " <div class=\"container\">
@@ -67,14 +67,14 @@ class __TwigTemplate_82878d16c7bc967bf80875e2066cd297baa913b28e422ee7baf1752f46a
             </div>
 
 
-            <button id=\"stworz\" type=\"submit\" class=\"btn btn-default\">Submit</button>
+            <button id=\"stworz\" type=\"submit\" class=\"btn btn-default\">Generuj</button>
     </form>
 
  </div>
 
 ";
         
-        $__internal_130369f2835bc545ba651ae22991c5819a25e328cd3a5ea3b6f192f808e2f69e->leave($__internal_130369f2835bc545ba651ae22991c5819a25e328cd3a5ea3b6f192f808e2f69e_prof);
+        $__internal_cd40ec07f20bae52a9ed0619409dd693519738681d80ed07e85046999dd1fde5->leave($__internal_cd40ec07f20bae52a9ed0619409dd693519738681d80ed07e85046999dd1fde5_prof);
 
     }
 
@@ -123,7 +123,7 @@ class __TwigTemplate_82878d16c7bc967bf80875e2066cd297baa913b28e422ee7baf1752f46a
 /*             </div>*/
 /* */
 /* */
-/*             <button id="stworz" type="submit" class="btn btn-default">Submit</button>*/
+/*             <button id="stworz" type="submit" class="btn btn-default">Generuj</button>*/
 /*     </form>*/
 /* */
 /*  </div>*/
